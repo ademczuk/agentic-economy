@@ -241,7 +241,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
   <div class="divider mt-3"></div>
   <div class="body mt-2" style="max-width:780px">
-    In 2001 we put robots on assembly lines and turned the lights off. Foxconn targets <span class="text-cyan">85% automation</span> across all manufacturing. Siemens Amberg ships at <span class="text-cyan">15 defects per million</span>. Tesla Berlin still has humans on final assembly.
+    In 2001 we put robots on assembly lines and turned the lights off. Foxconn hit <span class="text-cyan">85% lights-out</span> at their Taiwan battery plants. Siemens Amberg ships at <span class="text-cyan">~11 defects per million</span> — down from 500 in 1989. Tesla Berlin still has humans on final assembly.
   </div>
   <div class="quote-block cyan mt-3">
     <div style="font-size:0.95rem;font-weight:600">"Same thing is happening to code right now."</div>
@@ -253,7 +253,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 <div class="slide" data-title="5 Levels">
   <span class="badge badge-cyan">Where you are</span>
   <div class="big mt-2">
-    Five levels of <span class="text-gradient">automation.</span><br>Most of you are at level 2.
+    Five levels of <span class="text-gradient">automation.</span><br>Many teams are at level 2.
   </div>
   <div class="divider mt-3"></div>
   <div class="body mt-2" style="max-width:740px">A self-driving-car ladder for AI coding (Dan Shapiro). Where you are tells you what to fix.</div>
@@ -321,7 +321,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 
 <!-- 5: Commission, Don't Converse -->
 <div class="slide" data-title="Commission">
-  <span class="badge badge-purple">Paradigm shift</span>
+  <span class="badge badge-purple">The shift</span>
   <div class="big mt-2">
     Stop conversing.<br><span class="text-gradient-purple">Start commissioning.</span>
   </div>
@@ -361,7 +361,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     <img src="voice-loop.png" alt="Voice loop diagram" style="flex:1.4;min-width:340px;max-width:540px;width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,0.4)">
     <div style="flex:1;min-width:280px;display:flex;flex-direction:column;gap:10px">
       <div class="card card-glow-green" style="padding:12px"><h3><span class="text-green">Parakeet v3</span> &middot; <span class="mono small">:5093</span></h3><p style="font-size:0.78rem">Speech-to-text. Local. Sub-second.</p></div>
-      <div class="card card-glow-purple" style="padding:12px"><h3><span class="text-purple">claude-haiku-4-5</span></h3><p style="font-size:0.78rem">Fast path for short turns. Hands off to Opus for hard work.</p></div>
+      <div class="card card-glow-purple" style="padding:12px"><h3><span class="text-purple">Fast local path</span></h3><p style="font-size:0.78rem">Claude Haiku via clawfish. Short turns stay local. Hard work hands off to Opus.</p></div>
       <div class="card card-glow-orange" style="padding:12px"><h3><span class="text-orange">Kokoro</span> &middot; <span class="mono small">:5094</span></h3><p style="font-size:0.78rem">Text-to-speech. Local voice. Sub-second when GPU is free.</p></div>
     </div>
   </div>
@@ -413,7 +413,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
     <div class="pipe-step" style="border-color:rgba(245,158,11,0.3)">
       <div class="pipe-num">L2</div>
-      <div><div class="pipe-label"><span class="text-orange">CLAUDE.md / AGENTS.md</span></div><div class="pipe-desc">A single rule book. Powerful &mdash; until it bloats and pollutes context.</div></div>
+      <div><div class="pipe-label"><span class="text-orange">CLAUDE.md / AGENTS.md</span></div><div class="pipe-desc">A single rule book. Powerful, until it bloats and pollutes context.</div></div>
     </div>
     <div class="pipe-step" style="border-color:rgba(250,204,21,0.3)">
       <div class="pipe-num">L3</div>
@@ -421,7 +421,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
     <div class="pipe-step" style="border-color:rgba(168,85,247,0.5);box-shadow:0 0 20px rgba(168,85,247,0.15)">
       <div class="pipe-num">L4</div>
-      <div><div class="pipe-label"><span class="text-purple">Obsidian + index</span> &mdash; <span class="small">most agents only need this</span></div><div class="pipe-desc">Vault &rarr; wiki &rarr; index &rarr; article. Karpathy's LLM knowledge base. Free, fast, scales to thousands of docs.</div></div>
+      <div><div class="pipe-label"><span class="text-purple">Obsidian + index</span> &mdash; <span class="small">the sweet spot for most personal agents</span></div><div class="pipe-desc">Vault &rarr; wiki &rarr; index &rarr; article. Karpathy's LLM knowledge base. Free, fast, scales to thousands of docs.</div></div>
     </div>
     <div class="pipe-step" style="border-color:rgba(59,130,246,0.3)">
       <div class="pipe-num">L5</div>
@@ -429,7 +429,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
     <div class="pipe-step" style="border-color:rgba(6,182,212,0.3)">
       <div class="pipe-num">L6</div>
-      <div><div class="pipe-label"><span class="text-cyan">Graph RAG</span></div><div class="pipe-desc">LightRag, Graphiti. Entities + relationships. Ranking jumps from 24% to 76%.</div></div>
+      <div><div class="pipe-label"><span class="text-cyan">Graph RAG</span></div><div class="pipe-desc">LightRag, Graphiti. Entities + relationships. Roughly 3x improvement over naive RAG on diversity metrics (arXiv:2410.05779).</div></div>
     </div>
     <div class="pipe-step" style="border-color:rgba(16,185,129,0.3)">
       <div class="pipe-num">L7</div>
@@ -484,22 +484,22 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 <div class="slide" data-title="Meridian">
   <span class="badge badge-purple">Vienna critic</span>
   <div class="big mt-2">
-    Meridian.<br><span class="text-gradient-purple">Hybrid &mdash; not zero-cloud.</span>
+    Meridian.<br><span class="text-gradient-purple">Hybrid. Not zero-cloud.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">RTX 5090, 32&nbsp;GB. Right now: <span class="mono text-cyan">30.7 / 32.6 GB VRAM in use</span>, core services up ~28h. The honest stack:</div>
+  <div class="body mt-2" style="max-width:780px">RTX 5090, 32&nbsp;GB. Right now: <span class="mono text-cyan">~31 / 32.6 GB VRAM in use</span>, core services up ~28h. The honest stack:</div>
   <div class="card-grid card-grid-2 mt-3" style="max-width:980px">
     <div class="card card-glow-purple">
-      <h3><span class="text-purple">Brains &mdash; two of them</span></h3>
+      <h3><span class="text-purple">Brains: two of them</span></h3>
       <ul>
         <li>Discord path: <span class="mono">claude-opus-4-7</span> via clawfish bridge</li>
-        <li>Tooling path: <span class="mono">codex gpt-5.4</span> via openclaw gateway</li>
+        <li>Tooling path: <span class="mono">Codex</span> via openclaw gateway</li>
         <li>Local critic: <span class="mono">QwQ-32B</span> on <span class="mono">:7869</span></li>
         <li>Voice: <span class="mono">Parakeet :5093</span> + <span class="mono">Kokoro :5094</span></li>
       </ul>
     </div>
     <div class="card card-glow-cyan">
-      <h3><span class="text-cyan">Memory &mdash; layered</span></h3>
+      <h3><span class="text-cyan">Memory: layered</span></h3>
       <ul>
         <li><span class="mono">SOUL.md</span> + <span class="mono">USER.md</span> &middot; identity</li>
         <li><span class="mono">MEMORY.md</span> &middot; curated long-term</li>
@@ -509,7 +509,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
       </ul>
     </div>
   </div>
-  <div class="small mt-3" style="color:var(--orange);font-family:var(--mono)">If a speaker tells you their stack is "zero-cloud", ask which paths.</div>
+  <div class="small mt-3" style="color:var(--orange);font-family:var(--mono)">Hybrid stacks are more common than people admit. Ask which paths are actually local.</div>
 </div>
 
 <!-- 10: Meta Harness -->
@@ -523,7 +523,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
     <div class="card card-glow-purple">
       <h3><span class="text-purple">Telemetry</span></h3>
-      <p>Every tool call, every reflection, every prompt &mdash; logged. You can't improve what you don't measure.</p>
+      <p>Every tool call, every reflection, every prompt, logged. You can't improve what you don't measure.</p>
     </div>
     <div class="card card-glow-cyan">
       <h3><span class="text-cyan">Calibration replay</span></h3>
@@ -543,7 +543,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
     <div class="card" style="border-color:var(--border);background:rgba(0,0,0,0.4)">
       <h3 style="color:var(--muted)">What it is <em>not</em></h3>
-      <p style="color:var(--muted)">Not magical. Not self-rewriting. Not a hive-mind shared with Anismin &mdash; that's task dispatch, not merged brain.</p>
+      <p style="color:var(--muted)">Not magical. Not self-rewriting. Not a hive-mind shared with Anismin. That's task dispatch, not merged brain.</p>
     </div>
   </div>
 </div>
@@ -566,7 +566,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
     <div class="card card-glow-purple">
       <h3><span class="text-purple">Why a local critic</span></h3>
-      <p>Cloud models are trained to be agreeable. <span class="mono">QwQ-32B</span> on <span class="mono">:7869</span> is the model that doesn't care about your feelings. Last quarter, three cloud models all approved the auth gateway as "excellent design". Same code, same prompt, to QwQ: <em>"rainbow-table recovery in minutes &mdash; rewrite."</em></p>
+      <p>Cloud models are trained to be agreeable. <span class="mono">QwQ-32B</span> on <span class="mono">:7869</span> is the model that doesn't care about your feelings. Earlier this year, three cloud models all approved the auth gateway as "excellent design". Same code, same prompt, to QwQ: <em>"rainbow-table recovery in minutes &mdash; rewrite."</em></p>
     </div>
   </div>
 </div>
@@ -647,7 +647,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     First make it work for one human.<br><span class="text-gradient-purple">Then wire them up.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">Everything I just showed gets one agent reliably commissioned by one human. That is the operational layer. The moment those agents need to find each other, trust each other, transact, and coordinate across companies &mdash; that is Web4. That is Ed's talk next.</div>
+  <div class="body mt-2" style="max-width:780px">Everything I just showed gets one agent reliably commissioned by one human. That is the operational layer &mdash; and it is the foundation of Web4. But the real revolution starts when those agents stop waiting for humans to introduce them. When they find each other, trust each other, transact, and coordinate across companies &mdash; that is when the new internet truly comes alive. Ed Prinz is going to show us what that internet looks like.</div>
   <div class="vs-container mt-3">
     <div class="vs-box card-glow-cyan">
       <div class="vs-label text-cyan">This talk &mdash; Operational layer</div>
