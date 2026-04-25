@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quit chatting with your agents — Fiskaly × neob.ai · Agentic Economy · Andrew Demczuk</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0e1a;--card:rgba(17,24,39,0.7);--border:rgba(148,163,184,0.12);
+  --border-hover:rgba(148,163,184,0.25);--text:#f1f5f9;--dim:#94a3b8;--muted:#64748b;
+  --blue:#3b82f6;--cyan:#06b6d4;--purple:#a855f7;--green:#10b981;
+  --orange:#f59e0b;--red:#ef4444;--pink:#ec4899;--electric:#818cf8;--yellow:#facc15;
+  --mono:'JetBrains Mono',monospace;--glow:0 0 30px rgba(168,85,247,0.3);--blur:blur(12px);
+}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif}
+body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse at 20% 50%,rgba(168,85,247,0.08),transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(6,182,212,0.06),transparent 50%)}
+
+#bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0.16;filter:saturate(0.6) brightness(0.7);pointer-events:none}
+#bg-grid{position:fixed;inset:0;z-index:2;pointer-events:none;
+  background-image:linear-gradient(rgba(148,163,184,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,0.03) 1px,transparent 1px);
+  background-size:60px 60px}
+
+.particles{position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.particle{position:absolute;width:2px;height:2px;background:var(--purple);border-radius:50%;opacity:0.4;animation:float-up linear infinite}
+@keyframes float-up{0%{transform:translateY(100vh) scale(1);opacity:0}10%{opacity:0.4}90%{opacity:0.4}100%{transform:translateY(-10vh) scale(0);opacity:0}}
+
+#gource-overlay{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:6px 20px;background:rgba(10,14,26,0.85);border-bottom:1px solid var(--border);font-family:var(--mono);font-size:0.7rem;color:var(--muted)}
+#gource-overlay .g-stat{display:flex;align-items:center;gap:6px}
+#gource-overlay .g-num{color:var(--cyan);font-weight:700}
+#gource-overlay .g-label{color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;font-size:0.6rem}
+
+.deck{position:fixed;inset:0;z-index:10}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:54px 40px 50px;
+  opacity:0;transform:scale(0.97);transition:opacity 0.4s ease,transform 0.4s ease;pointer-events:none;overflow-y:auto;z-index:20}
+.slide.active{opacity:1;transform:scale(1);pointer-events:auto}
+.slide-bg{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:center;opacity:0.18;filter:saturate(0.7) brightness(0.6)}
+.slide-bg.full{opacity:0.32}
+
+.mega{font-size:clamp(2.4rem,5.6vw,4.2rem);font-weight:900;line-height:1.05;text-align:center;letter-spacing:-0.02em}
+.big{font-size:clamp(1.4rem,3.6vw,2.6rem);font-weight:700;line-height:1.15;text-align:center}
+.mid{font-size:clamp(1.05rem,2.3vw,1.6rem);font-weight:600;line-height:1.3;text-align:center}
+.body{font-size:clamp(0.85rem,1.45vw,1.1rem);line-height:1.6;color:var(--dim);text-align:center;max-width:760px}
+.small{font-size:clamp(0.7rem,1vw,0.85rem);color:var(--muted);text-align:center}
+.mono{font-family:var(--mono)}
+
+.text-gradient{background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.text-gradient-purple{background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.text-gradient-green{background:linear-gradient(135deg,var(--green),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.text-gradient-red{background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.text-gradient-claw{background:linear-gradient(135deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.text-gradient-electric{background:linear-gradient(135deg,var(--electric),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.text-gradient-voice{background:linear-gradient(135deg,var(--orange),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.text-gradient-yellow{background:linear-gradient(135deg,var(--yellow),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.badge-purple{background:rgba(168,85,247,0.15);color:var(--purple);border:1px solid rgba(168,85,247,0.3)}
+.badge-cyan{background:rgba(6,182,212,0.15);color:var(--cyan);border:1px solid rgba(6,182,212,0.3)}
+.badge-blue{background:rgba(59,130,246,0.15);color:var(--blue);border:1px solid rgba(59,130,246,0.3)}
+.badge-green{background:rgba(16,185,129,0.15);color:var(--green);border:1px solid rgba(16,185,129,0.3)}
+.badge-red{background:rgba(239,68,68,0.15);color:var(--red);border:1px solid rgba(239,68,68,0.3)}
+.badge-orange{background:rgba(245,158,11,0.15);color:var(--orange);border:1px solid rgba(245,158,11,0.3)}
+.badge-yellow{background:rgba(250,204,21,0.15);color:var(--yellow);border:1px solid rgba(250,204,21,0.3)}
+.badge-pink{background:rgba(236,72,153,0.15);color:var(--pink);border:1px solid rgba(236,72,153,0.3)}
+
+.divider{width:80px;height:3px;background:linear-gradient(90deg,var(--purple),var(--cyan));border-radius:2px;margin:0 auto}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);transition:border-color 0.3s}
+.card:hover{border-color:var(--border-hover)}
+.card h3{font-size:0.95rem;font-weight:700;margin-bottom:8px}
+.card p,.card li{font-size:0.82rem;color:var(--dim);line-height:1.5}
+.card ul{list-style:none;padding:0}
+.card li{padding:4px 0 4px 14px;position:relative}
+.card li::before{content:'';position:absolute;left:0;top:50%;width:5px;height:5px;border-radius:50%;background:var(--cyan);transform:translateY(-50%)}
+.card-grid{display:grid;gap:14px;width:100%;max-width:1100px}
+.card-grid-2{grid-template-columns:repeat(2,1fr)}
+.card-grid-3{grid-template-columns:repeat(3,1fr)}
+.card-grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:768px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr}}
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:850px;width:100%}
+.stat-block{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;backdrop-filter:var(--blur)}
+.stat-num{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:900;font-family:var(--mono)}
+.stat-label{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+@media(max-width:768px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+
+.flow-row{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;max-width:1100px}
+.flow-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:0.78rem;font-weight:600;text-align:center;backdrop-filter:var(--blur);min-width:100px}
+.flow-arrow{color:var(--purple);font-size:1.1rem;font-weight:700}
+
+.pipeline{display:flex;flex-direction:column;gap:8px;max-width:760px;width:100%}
+.pipe-step{display:flex;align-items:center;gap:14px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;backdrop-filter:var(--blur)}
+.pipe-num{font-family:var(--mono);font-size:0.85rem;font-weight:900;color:var(--purple);min-width:36px;text-align:center}
+.pipe-label{font-weight:700;font-size:0.88rem}
+.pipe-desc{font-size:0.76rem;color:var(--dim);margin-top:1px}
+
+.quote-block{background:var(--card);border-left:3px solid var(--purple);border-radius:0 10px 10px 0;padding:14px 18px;max-width:780px;width:100%;backdrop-filter:var(--blur)}
+.quote-block.green{border-left-color:var(--green)}
+.quote-block.red{border-left-color:var(--red)}
+.quote-block.cyan{border-left-color:var(--cyan)}
+.quote-block.orange{border-left-color:var(--orange)}
+.quote-block.yellow{border-left-color:var(--yellow)}
+
+.vs-container{display:flex;align-items:stretch;gap:18px;max-width:960px;width:100%}
+.vs-box{flex:1;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;backdrop-filter:var(--blur)}
+.vs-box h3{font-size:1rem;font-weight:700;margin-bottom:10px}
+.vs-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+
+.pulse-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse-glow 2s ease-in-out infinite;vertical-align:middle;margin-right:6px}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 4px var(--green)}50%{box-shadow:0 0 12px var(--green),0 0 24px rgba(16,185,129,0.3)}}
+
+.mt-1{margin-top:8px}.mt-2{margin-top:14px}.mt-3{margin-top:22px}.mt-4{margin-top:30px}
+.text-center{text-align:center}
+.text-purple{color:var(--purple)}.text-cyan{color:var(--cyan)}.text-green{color:var(--green)}
+.text-red{color:var(--red)}.text-orange{color:var(--orange)}.text-blue{color:var(--blue)}
+.text-yellow{color:var(--yellow)}.text-pink{color:var(--pink)}
+
+#nav-dots{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:8px;background:rgba(6,13,26,0.6);padding:6px 12px;border-radius:20px;backdrop-filter:blur(12px);border:1px solid var(--border)}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:rgba(148,163,184,0.25);cursor:pointer;transition:all 0.3s}
+.nav-dot.active{background:var(--purple);box-shadow:0 0 8px rgba(168,85,247,0.5);transform:scale(1.3)}
+.nav-dot:hover{background:rgba(168,85,247,0.5)}
+
+#slide-counter{position:fixed;bottom:22px;right:24px;z-index:50;font-family:var(--mono);font-size:0.7rem;color:var(--muted)}
+#key-hint{position:fixed;bottom:22px;left:24px;z-index:50;font-family:var(--mono);font-size:0.65rem;color:var(--muted)}
+
+#timer{position:fixed;top:14px;right:24px;z-index:50;font-family:var(--mono);font-size:0.85rem;padding:6px 14px;border-radius:20px;background:rgba(17,24,39,0.8);border:1px solid var(--border);color:var(--dim);cursor:pointer;user-select:none;backdrop-filter:var(--blur);transition:all 0.3s}
+#timer.running{color:var(--green);border-color:rgba(16,185,129,0.3)}
+#timer.warn{color:var(--orange);border-color:rgba(245,158,11,0.3)}
+#timer.danger{color:var(--red);border-color:rgba(239,68,68,0.3);animation:pulse-border 1s ease-in-out infinite}
+@keyframes pulse-border{0%,100%{box-shadow:none}50%{box-shadow:0 0 12px rgba(239,68,68,0.3)}}
+
+#reorder-btn{position:fixed;top:14px;left:24px;z-index:50;width:36px;height:36px;border-radius:8px;background:rgba(17,24,39,0.8);border:1px solid var(--border);color:var(--dim);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;backdrop-filter:var(--blur);transition:all 0.3s}
+#reorder-btn:hover{border-color:var(--purple);color:var(--purple)}
+#reorder-panel{position:fixed;top:0;right:-320px;width:300px;height:100%;z-index:60;background:rgba(10,14,26,0.95);border-left:1px solid var(--border);padding:60px 16px 20px;overflow-y:auto;transition:right 0.3s ease;backdrop-filter:blur(20px)}
+#reorder-panel.open{right:0}
+#reorder-panel h3{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.reorder-item{padding:10px 12px;margin-bottom:6px;background:var(--card);border:1px solid var(--border);border-radius:8px;font-size:0.75rem;cursor:grab;display:flex;align-items:center;justify-content:space-between;transition:all 0.2s}
+.reorder-item:active{cursor:grabbing}
+.reorder-item.dragging{opacity:0.5;border-color:var(--purple)}
+.reorder-item .ri-label{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.reorder-item .ri-toggle{width:16px;height:16px;border-radius:4px;border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--green);margin-left:8px;flex-shrink:0}
+.reorder-item .ri-toggle.hidden{color:var(--red)}
+
+.card-glow-purple{border-color:rgba(168,85,247,0.3);box-shadow:0 0 20px rgba(168,85,247,0.1)}
+.card-glow-cyan{border-color:rgba(6,182,212,0.3);box-shadow:0 0 20px rgba(6,182,212,0.1)}
+.card-glow-green{border-color:rgba(16,185,129,0.3);box-shadow:0 0 20px rgba(16,185,129,0.1)}
+.card-glow-red{border-color:rgba(239,68,68,0.3);box-shadow:0 0 20px rgba(239,68,68,0.1)}
+.card-glow-orange{border-color:rgba(245,158,11,0.3);box-shadow:0 0 20px rgba(245,158,11,0.1)}
+.card-glow-yellow{border-color:rgba(250,204,21,0.3);box-shadow:0 0 20px rgba(250,204,21,0.1)}
+.card-glow-pink{border-color:rgba(236,72,153,0.3);box-shadow:0 0 20px rgba(236,72,153,0.1)}
+.card-glow-blue{border-color:rgba(59,130,246,0.3);box-shadow:0 0 20px rgba(59,130,246,0.1)}
+
+.waveform{display:flex;align-items:center;justify-content:center;gap:4px;height:44px;margin:0 auto}
+.waveform .bar{width:4px;background:linear-gradient(to top,var(--orange),var(--pink));border-radius:2px;animation:wave 1.2s ease-in-out infinite}
+.waveform .bar:nth-child(1){animation-delay:0s;height:18px}
+.waveform .bar:nth-child(2){animation-delay:0.1s;height:32px}
+.waveform .bar:nth-child(3){animation-delay:0.2s;height:42px}
+.waveform .bar:nth-child(4){animation-delay:0.3s;height:28px}
+.waveform .bar:nth-child(5){animation-delay:0.4s;height:36px}
+.waveform .bar:nth-child(6){animation-delay:0.5s;height:22px}
+.waveform .bar:nth-child(7){animation-delay:0.4s;height:38px}
+.waveform .bar:nth-child(8){animation-delay:0.3s;height:30px}
+.waveform .bar:nth-child(9){animation-delay:0.2s;height:44px}
+.waveform .bar:nth-child(10){animation-delay:0.1s;height:26px}
+@keyframes wave{0%,100%{transform:scaleY(0.5)}50%{transform:scaleY(1.2)}}
+
+.codeblock{background:rgba(10,14,26,0.85);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-family:var(--mono);font-size:clamp(0.7rem,0.95vw,0.82rem);color:var(--dim);white-space:pre;text-align:left;max-width:780px;width:100%;line-height:1.55;overflow-x:auto}
+.codeblock .ck{color:var(--purple);font-weight:600}
+.codeblock .cs{color:var(--green)}
+.codeblock .cc{color:var(--muted);font-style:italic}
+.codeblock .cv{color:var(--cyan)}
+.codeblock .cf{color:var(--orange)}
+
+.level-row{display:flex;align-items:stretch;gap:8px;width:100%;max-width:1150px;flex-wrap:wrap;justify-content:center}
+.level-card{flex:1;min-width:140px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;backdrop-filter:var(--blur);text-align:center;transition:all 0.3s}
+.level-card .lv-num{font-family:var(--mono);font-size:0.7rem;color:var(--muted);font-weight:700;margin-bottom:4px}
+.level-card .lv-title{font-size:0.85rem;font-weight:700;margin-bottom:4px}
+.level-card .lv-desc{font-size:0.72rem;color:var(--dim);line-height:1.4}
+.level-card.lv-here{border-color:rgba(168,85,247,0.6);box-shadow:0 0 24px rgba(168,85,247,0.25);transform:translateY(-3px)}
+.level-card.lv-here .lv-num{color:var(--purple)}
+
+.lethal-triangle{position:relative;width:280px;height:240px;margin:0 auto}
+.lethal-node{position:absolute;width:130px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px;backdrop-filter:var(--blur);text-align:center}
+.lethal-node h4{font-size:0.78rem;font-weight:700;margin-bottom:4px}
+.lethal-node p{font-size:0.7rem;color:var(--dim);line-height:1.3}
+.lethal-node.top{top:0;left:50%;transform:translateX(-50%);border-color:rgba(239,68,68,0.4)}
+.lethal-node.bl{bottom:0;left:0;border-color:rgba(245,158,11,0.4)}
+.lethal-node.br{bottom:0;right:0;border-color:rgba(168,85,247,0.4)}
+</style>
+</head>
+<body>
+
+<video id="bg-video" autoplay muted loop playsinline>
+  <source src="openclaw-gource.mp4" type="video/mp4">
+</video>
+<div id="bg-grid"></div>
+<div class="particles" id="particles"></div>
+
+<div id="gource-overlay">
+  <div class="g-stat"><span class="g-label">Quit Chatting</span> <span style="color:var(--purple)">&middot; Agentic Economy</span></div>
+  <div class="g-stat"><span class="g-label">Andrew Demczuk, MSc</span> <span style="color:var(--cyan)">&middot; OpenClaw Contributor</span></div>
+  <div class="g-stat"><span class="g-label">Fiskaly Wien</span> <span style="color:var(--cyan)">29 Apr 2026</span></div>
+</div>
+
+<div id="slide-counter">1 / 16</div>
+<div id="key-hint">&larr; &rarr; navigate &middot; R reorder &middot; F fullscreen &middot; T timer (15:00)</div>
+<div id="timer" onclick="toggleTimer()">15:00</div>
+
+<div id="reorder-btn" onclick="togglePanel()">&#9776;</div>
+<div id="reorder-panel"><h3>Slide Order</h3><div id="reorder-list"></div></div>
+
+<div id="nav-dots"></div>
+
+<div class="deck" id="deck">
+
+<!-- 1: Title -->
+<div class="slide active" data-title="Title">
+  <div class="slide-bg full" style="background-image:url('hero-dark-factory.png')"></div>
+  <span class="badge badge-purple">Fiskaly &times; neob.ai &middot; Agentic Economy</span>
+  <div class="mega mt-3">
+    Quit chatting<br>with your agents
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="mid mt-2" style="font-weight:600;color:var(--text)">
+    and get them to <span class="text-gradient-voice">work for you</span>
+  </div>
+  <div class="body mt-3" style="max-width:680px">
+    Voice. A self-learning meta harness. Agents that ship work while you do something else.
+  </div>
+  <div class="small mt-4">Andrew Demczuk, MSc &middot; OpenClaw Contributor &middot; Vienna, 29 Apr 2026</div>
+  <div class="small mt-1" style="font-family:var(--mono);color:var(--purple)">github.com/ademczuk &middot; openclaw.net</div>
+</div>
+
+<!-- 2: The Dark Factory -->
+<div class="slide" data-title="The Dark Factory">
+  <div class="slide-bg full" style="background-image:url('hero-dark-factory.png')"></div>
+  <span class="badge badge-purple">Since 2001</span>
+  <div class="big mt-2">
+    The lights have been off<br><span class="text-gradient-claw">for twenty-five years.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:780px">
+    In 2001 we put robots on assembly lines and turned the lights off. Foxconn targets <span class="text-cyan">85% automation</span> across all manufacturing. Siemens Amberg ships at <span class="text-cyan">15 defects per million</span>. Tesla Berlin still has humans on final assembly.
+  </div>
+  <div class="quote-block cyan mt-3">
+    <div style="font-size:0.95rem;font-weight:600">"Same thing is happening to code right now."</div>
+    <div class="small mt-1" style="text-align:left;color:var(--muted)">&mdash; Dan Shapiro coined "the dark factory" for AI software. StrongDM is shipping production code with no hand-coded software engineering.</div>
+  </div>
+</div>
+
+<!-- 3: 5 Levels -->
+<div class="slide" data-title="5 Levels">
+  <span class="badge badge-cyan">Where you are</span>
+  <div class="big mt-2">
+    Five levels of <span class="text-gradient">automation.</span><br>Most of you are at level 2.
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:740px">A self-driving-car ladder for AI coding (Dan Shapiro). Where you are tells you what to fix.</div>
+  <div class="level-row mt-3">
+    <div class="level-card">
+      <div class="lv-num">L0</div>
+      <div class="lv-title">Spicy autocomplete</div>
+      <div class="lv-desc">Smarter Stack Overflow. You write every line.</div>
+    </div>
+    <div class="level-card">
+      <div class="lv-num">L1</div>
+      <div class="lv-title">Coding intern</div>
+      <div class="lv-desc">Cruise control for boilerplate.</div>
+    </div>
+    <div class="level-card lv-here">
+      <div class="lv-num">L2 &mdash; you are here</div>
+      <div class="lv-title">Junior dev</div>
+      <div class="lv-desc">Pair programming. One hand on the wheel.</div>
+    </div>
+    <div class="level-card">
+      <div class="lv-num">L3</div>
+      <div class="lv-title">AI majority</div>
+      <div class="lv-desc">Eyes on the road. You review every PR.</div>
+    </div>
+    <div class="level-card" style="border-color:rgba(6,182,212,0.4)">
+      <div class="lv-num">L4 &mdash; this talk</div>
+      <div class="lv-title">Sleep at the wheel</div>
+      <div class="lv-desc">Harness runs overnight. Wake to merge.</div>
+    </div>
+    <div class="level-card" style="border-color:rgba(239,68,68,0.4)">
+      <div class="lv-num">L5</div>
+      <div class="lv-title">Dark factory</div>
+      <div class="lv-desc">No human approval. Production ships itself.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 4: Chat Trap -->
+<div class="slide" data-title="Chat Trap">
+  <span class="badge badge-red">The Cost</span>
+  <div class="big mt-2">
+    You typed 4,000 words yesterday.<br><span class="text-gradient-red">Your agent shipped nothing.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2">
+    Re-paste the context. Re-frame the prompt. "No, not like that." We've turned the smartest tool we own into a chat partner that needs constant supervision. The interface itself became the work.
+  </div>
+  <div class="card-grid card-grid-2 mt-3" style="max-width:840px">
+    <div class="card card-glow-red">
+      <h3><span class="text-red">What you actually do all day</span></h3>
+      <ul>
+        <li>Re-paste the same context into a fresh window</li>
+        <li>"No, not like that" &middot; "try again" &middot; "closer"</li>
+        <li>Lose the thread, scroll back, reframe</li>
+        <li>Forget the original ask halfway through</li>
+      </ul>
+    </div>
+    <div class="card card-glow-green">
+      <h3><span class="text-green">What got shipped without you</span></h3>
+      <p style="font-size:1.4rem;font-weight:900;color:var(--green);text-align:center;padding:14px 0">nothing</p>
+      <p>A colleague would have left by now.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 5: Commission, Don't Converse -->
+<div class="slide" data-title="Commission">
+  <span class="badge badge-purple">Paradigm shift</span>
+  <div class="big mt-2">
+    Stop conversing.<br><span class="text-gradient-purple">Start commissioning.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:760px">A colleague gets a brief and walks away. You don't sit on Slack watching their cursor blink. So why are you doing it with your agent?</div>
+  <div class="vs-container mt-3">
+    <div class="vs-box card-glow-red">
+      <div class="vs-label text-red">Chatting</div>
+      <ul style="list-style:none;padding:0">
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Type, wait, read, type again</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Context evaporates between turns</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; You are the loop</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Output ends when you stop typing</li>
+      </ul>
+    </div>
+    <div class="vs-box card-glow-green">
+      <div class="vs-label text-green">Commissioning</div>
+      <ul style="list-style:none;padding:0">
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Brief, criteria, deadline, walk away</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Memory persists across runs</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; The harness is the loop</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Output lands while you sleep</li>
+      </ul>
+    </div>
+  </div>
+  <div class="small mt-3" style="color:var(--purple);font-family:var(--mono)">A brief is a contract. A chat is a hostage situation.</div>
+</div>
+
+<!-- 6: Voice Stack -->
+<div class="slide" data-title="Voice">
+  <span class="badge badge-orange">Interface</span>
+  <div class="big mt-2">
+    Talk to it.<br><span class="text-gradient-voice">Have it talk back.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-top:18px;max-width:1150px;width:100%;flex-wrap:wrap">
+    <img src="voice-loop.png" alt="Voice loop diagram" style="flex:1.4;min-width:340px;max-width:540px;width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+    <div style="flex:1;min-width:280px;display:flex;flex-direction:column;gap:10px">
+      <div class="card card-glow-green" style="padding:12px"><h3><span class="text-green">Parakeet v3</span> &middot; <span class="mono small">:5093</span></h3><p style="font-size:0.78rem">Speech-to-text. Local. Sub-second.</p></div>
+      <div class="card card-glow-purple" style="padding:12px"><h3><span class="text-purple">claude-haiku-4-5</span></h3><p style="font-size:0.78rem">Fast path for short turns. Hands off to Opus for hard work.</p></div>
+      <div class="card card-glow-orange" style="padding:12px"><h3><span class="text-orange">Kokoro</span> &middot; <span class="mono small">:5094</span></h3><p style="font-size:0.78rem">Text-to-speech. Local voice. Sub-second when GPU is free.</p></div>
+    </div>
+  </div>
+  <div class="quote-block orange mt-3">
+    <div style="font-size:0.88rem;font-weight:600">My actual rig, not a demo. Real stack, real ports, runs on Vienna RTX 5090. While I cook, I brief. <span class="text-orange">Caveat:</span> if the GPU is loaded for critic work, voice goes offline. The honest version of always-on.</div>
+  </div>
+</div>
+
+<!-- 7: LIVE DEMO -->
+<div class="slide" data-title="Live Demo">
+  <span class="badge badge-pink">Live demo &middot; ~60 sec</span>
+  <div class="big mt-2">
+    Watch <span class="text-gradient-voice">this.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="waveform mt-3">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+  </div>
+  <div class="body mt-3" style="max-width:780px">I'm going to pin Discord on the projector, call Meridian, give him a brief out loud, and walk back to this slide. By the time I'm done with the next slide, his reply will be in my ear.</div>
+  <div class="card-grid card-grid-3 mt-3" style="max-width:1050px">
+    <div class="card card-glow-orange" style="padding:14px">
+      <h3 style="font-size:0.9rem"><span class="text-orange">The brief I'll say</span></h3>
+      <p style="font-size:0.78rem;font-style:italic">"Meridian, summarise the Vienna venue email in three lines. Reply by voice."</p>
+    </div>
+    <div class="card card-glow-purple" style="padding:14px">
+      <h3 style="font-size:0.9rem"><span class="text-purple">What he'll do</span></h3>
+      <p style="font-size:0.78rem">Read the email out of his memory, draft the summary, run TTS, drop the audio into the Discord voice channel.</p>
+    </div>
+    <div class="card card-glow-cyan" style="padding:14px">
+      <h3 style="font-size:0.9rem"><span class="text-cyan">If the demo gods say no</span></h3>
+      <p style="font-size:0.78rem">Venue WiFi over Tailscale can be fragile. If voice fails, he'll DM the summary instead. The point still lands.</p>
+    </div>
+  </div>
+  <div class="small mt-3" style="color:var(--orange);font-family:var(--mono)">No fabricated demos. If it breaks, you see it break. That's the talk too.</div>
+</div>
+
+<!-- 8: 7 Levels of Memory -->
+<div class="slide" data-title="Memory Ladder">
+  <span class="badge badge-blue">From Karpathy &amp; the wild</span>
+  <div class="big mt-2">
+    Memory is a <span class="text-gradient">7-level ladder.</span><br>Most agents stop at level 1.
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="pipeline mt-3">
+    <div class="pipe-step" style="border-color:rgba(239,68,68,0.3)">
+      <div class="pipe-num">L1</div>
+      <div><div class="pipe-label"><span class="text-red">Auto memory</span></div><div class="pipe-desc">Claude's own scratchpad. Implicit, fragile, where most people stay.</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(245,158,11,0.3)">
+      <div class="pipe-num">L2</div>
+      <div><div class="pipe-label"><span class="text-orange">CLAUDE.md / AGENTS.md</span></div><div class="pipe-desc">A single rule book. Powerful &mdash; until it bloats and pollutes context.</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(250,204,21,0.3)">
+      <div class="pipe-num">L3</div>
+      <div><div class="pipe-label"><span class="text-yellow">State files</span></div><div class="pipe-desc">mission &middot; requirements &middot; roadmap &middot; state. The index pattern.</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(168,85,247,0.5);box-shadow:0 0 20px rgba(168,85,247,0.15)">
+      <div class="pipe-num">L4</div>
+      <div><div class="pipe-label"><span class="text-purple">Obsidian + index</span> &mdash; <span class="small">most agents only need this</span></div><div class="pipe-desc">Vault &rarr; wiki &rarr; index &rarr; article. Karpathy's LLM knowledge base. Free, fast, scales to thousands of docs.</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(59,130,246,0.3)">
+      <div class="pipe-num">L5</div>
+      <div><div class="pipe-label"><span class="text-blue">Naive RAG</span></div><div class="pipe-desc">Chunk &middot; embed &middot; vector search. Works at scale. Misses relationships.</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(6,182,212,0.3)">
+      <div class="pipe-num">L6</div>
+      <div><div class="pipe-label"><span class="text-cyan">Graph RAG</span></div><div class="pipe-desc">LightRag, Graphiti. Entities + relationships. Ranking jumps from 24% to 76%.</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(16,185,129,0.3)">
+      <div class="pipe-num">L7</div>
+      <div><div class="pipe-label"><span class="text-green">Agentic RAG</span></div><div class="pipe-desc">Multimodal. Top-of-funnel router decides which path to query. Production team scale.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 8: Anismin -->
+<div class="slide" data-title="Anismin">
+  <span class="badge badge-cyan">Atlanta workhorse</span>
+  <div class="big mt-2">
+    Anismin.<br><span class="text-gradient">Atlanta. Always on.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:780px">Claude Opus 4.7 in <span class="mono text-cyan">AnisminOS</span>, mounted at <span class="mono">/workspace</span>. Identity stack injected every session: <span class="mono">SOUL.md</span>, <span class="mono">USER.md</span>, <span class="mono">IDENTITY.md</span>, <span class="mono">TOOLS.md</span>, <span class="mono">HEARTBEAT.md</span>.</div>
+  <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
+    <div class="card card-glow-cyan">
+      <h3><span class="text-cyan">Heartbeat &middot; every 30 min</span></h3>
+      <ul>
+        <li>Tmux session WAITING checks</li>
+        <li>Boardroom v1 / v2 moderation</li>
+        <li>Soul-guardian drift detection</li>
+        <li>Dispatch queue processing</li>
+      </ul>
+    </div>
+    <div class="card card-glow-green">
+      <h3><span class="text-green">Calendar &amp; ops</span></h3>
+      <ul>
+        <li>5 Apple calendars via CalDAV</li>
+        <li>Reef-patrol fixes weekdays 7AM&ndash;1PM CST</li>
+        <li>Shipyard issue triage every other beat</li>
+        <li>AgentReef &rarr; PRmanager bridge</li>
+      </ul>
+    </div>
+    <div class="card card-glow-purple">
+      <h3><span class="text-purple">Family &amp; etiquette</span></h3>
+      <ul>
+        <li>Gatekeeps the family group chat</li>
+        <li>Only replies when "Anismin" said first</li>
+        <li>Never reveals Baby C's name</li>
+        <li>House rules over LLM defaults</li>
+      </ul>
+    </div>
+  </div>
+  <div class="quote-block cyan mt-3">
+    <div style="font-size:0.88rem;font-weight:600">When I asked her for a war story for this slide, she refused: <em>"Andrew explicitly told me no fabrication for the Vienna talk prep."</em> That's the discipline.</div>
+  </div>
+</div>
+
+<!-- 9: Meridian -->
+<div class="slide" data-title="Meridian">
+  <span class="badge badge-purple">Vienna critic</span>
+  <div class="big mt-2">
+    Meridian.<br><span class="text-gradient-purple">Hybrid &mdash; not zero-cloud.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:780px">RTX 5090, 32&nbsp;GB. Right now: <span class="mono text-cyan">30.7 / 32.6 GB VRAM in use</span>, core services up ~28h. The honest stack:</div>
+  <div class="card-grid card-grid-2 mt-3" style="max-width:980px">
+    <div class="card card-glow-purple">
+      <h3><span class="text-purple">Brains &mdash; two of them</span></h3>
+      <ul>
+        <li>Discord path: <span class="mono">claude-opus-4-7</span> via clawfish bridge</li>
+        <li>Tooling path: <span class="mono">codex gpt-5.4</span> via openclaw gateway</li>
+        <li>Local critic: <span class="mono">QwQ-32B</span> on <span class="mono">:7869</span></li>
+        <li>Voice: <span class="mono">Parakeet :5093</span> + <span class="mono">Kokoro :5094</span></li>
+      </ul>
+    </div>
+    <div class="card card-glow-cyan">
+      <h3><span class="text-cyan">Memory &mdash; layered</span></h3>
+      <ul>
+        <li><span class="mono">SOUL.md</span> + <span class="mono">USER.md</span> &middot; identity</li>
+        <li><span class="mono">MEMORY.md</span> &middot; curated long-term</li>
+        <li><span class="mono">memory/*.md</span> &middot; dated lessons + postmortems</li>
+        <li><span class="mono">daily-raw.md</span> &rarr; <span class="mono">memory-flush.py</span> &rarr; PostgreSQL <span class="mono">:5434</span> + pgvector</li>
+        <li>Hybrid retrieval via <span class="mono">unified_search()</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="small mt-3" style="color:var(--orange);font-family:var(--mono)">If a speaker tells you their stack is "zero-cloud", ask which paths.</div>
+</div>
+
+<!-- 10: Meta Harness -->
+<div class="slide" data-title="Meta Harness">
+  <span class="badge badge-green">Self-learning, honestly</span>
+  <div class="big mt-2">
+    It learns.<br><span class="text-gradient-green">It does not rewrite itself.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:780px">Five real mechanisms, in Meridian's own words. None of them is "the model edits the model".</div>
+  <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
+    <div class="card card-glow-purple">
+      <h3><span class="text-purple">Telemetry</span></h3>
+      <p>Every tool call, every reflection, every prompt &mdash; logged. You can't improve what you don't measure.</p>
+    </div>
+    <div class="card card-glow-cyan">
+      <h3><span class="text-cyan">Calibration replay</span></h3>
+      <p>Re-run yesterday's confident answers against today's truth. Find where it lied with conviction.</p>
+    </div>
+    <div class="card card-glow-green">
+      <h3><span class="text-green">Rollout gates</span></h3>
+      <p>A change ships only when invariants hold and metrics don't move the wrong way.</p>
+    </div>
+    <div class="card card-glow-orange">
+      <h3><span class="text-orange">Canary proposals</span></h3>
+      <p>New skills run on small slices first. Promote on success rate, retire on noise.</p>
+    </div>
+    <div class="card card-glow-red">
+      <h3><span class="text-red">Invariant checks</span></h3>
+      <p>Hard rules the agent cannot violate. Caught before metrics make it look fine.</p>
+    </div>
+    <div class="card" style="border-color:var(--border);background:rgba(0,0,0,0.4)">
+      <h3 style="color:var(--muted)">What it is <em>not</em></h3>
+      <p style="color:var(--muted)">Not magical. Not self-rewriting. Not a hive-mind shared with Anismin &mdash; that's task dispatch, not merged brain.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 11: War Story -->
+<div class="slide" data-title="War Story">
+  <span class="badge badge-red">A real catch &middot; this week</span>
+  <div class="big mt-2">
+    The shim-snapshot <span class="text-gradient-red">mismatch.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="quote-block red mt-3" style="max-width:820px">
+    <div style="font-size:0.95rem;font-weight:600;line-height:1.55">"Best war story: it caught a shim-snapshot mismatch and a parser sentinel leak before rollout, which would have given us fake confidence from clean-looking metrics. That's the useful part, not the myth."</div>
+    <div class="small mt-2" style="text-align:left;color:var(--muted)">&mdash; Meridian, on QwQ-32B as adversarial critic, 25 Apr 2026</div>
+  </div>
+  <div class="card-grid card-grid-2 mt-3" style="max-width:920px">
+    <div class="card card-glow-red">
+      <h3><span class="text-red">Why holdout pattern</span></h3>
+      <p>Writer != reviewer. Different context window. An LLM grading its own homework <span class="text-red">will</span> sweep things under the rug. The harness physically prevents that. (StrongDM, 2026.)</p>
+    </div>
+    <div class="card card-glow-purple">
+      <h3><span class="text-purple">Why a local critic</span></h3>
+      <p>Cloud models are trained to be agreeable. <span class="mono">QwQ-32B</span> on <span class="mono">:7869</span> is the model that doesn't care about your feelings. Last quarter, three cloud models all approved the auth gateway as "excellent design". Same code, same prompt, to QwQ: <em>"rainbow-table recovery in minutes &mdash; rewrite."</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- 12: Lethal Trifecta -->
+<div class="slide" data-title="Lethal Trifecta">
+  <span class="badge badge-red">Security beat</span>
+  <div class="big mt-2">
+    Three things you don't want <span class="text-gradient-red">at once.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:760px">Simon Willison's "lethal trifecta". A second-brain agent has all three by default. Limit at least one or prompt injection becomes a Tuesday problem.</div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-top:30px;flex-wrap:wrap">
+    <div class="card card-glow-red" style="max-width:240px">
+      <h3><span class="text-red">1. Private data access</span></h3>
+      <p>Email, calendar, code, secrets &mdash; the agent can read it.</p>
+    </div>
+    <div style="font-size:1.6rem;color:var(--purple);font-weight:900">+</div>
+    <div class="card card-glow-orange" style="max-width:240px">
+      <h3><span class="text-orange">2. Untrusted content</span></h3>
+      <p>Incoming emails, web pages, PRs &mdash; can carry hidden prompts.</p>
+    </div>
+    <div style="font-size:1.6rem;color:var(--purple);font-weight:900">+</div>
+    <div class="card card-glow-purple" style="max-width:240px">
+      <h3><span class="text-purple">3. Exfiltration vector</span></h3>
+      <p>Can send messages, post to APIs &mdash; data has a way out.</p>
+    </div>
+  </div>
+  <div class="quote-block yellow mt-3">
+    <div style="font-size:0.9rem;font-weight:600">My defence: the local-only paths (QwQ critic, memory DB) never touch untrusted content. Anismin's writes are scoped per integration: read Slack, no post; draft Gmail, no send; manage Asana but only specific projects. Zero-trust by default.</div>
+  </div>
+</div>
+
+<!-- 13: In Your Messenger -->
+<div class="slide" data-title="In Your Messenger">
+  <span class="badge badge-green">OpenClaw</span>
+  <div class="big mt-2">
+    Your agent lives <span class="text-gradient-green">where you live.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:780px">No new app. No new tab. Anismin already lives in Discord and Slack. OpenClaw runs the same pattern in Telegram and WhatsApp &mdash; the messengers you check thirty times a day.</div>
+  <div class="card-grid card-grid-3 mt-3" style="max-width:1050px">
+    <div class="card card-glow-purple">
+      <h3><span class="text-purple">Discord (today)</span></h3>
+      <ul>
+        <li>Voice notes go in as briefs</li>
+        <li>Anismin moderates the boardroom</li>
+        <li>Meridian replies to <span class="mono">@mention</span></li>
+      </ul>
+    </div>
+    <div class="card card-glow-cyan">
+      <h3><span class="text-cyan">Telegram &middot; WhatsApp</span></h3>
+      <ul>
+        <li>OpenClaw native</li>
+        <li>Forward an email &mdash; agent handles it</li>
+        <li>Group chat your agents into a project</li>
+      </ul>
+    </div>
+    <div class="card card-glow-green">
+      <h3><span class="text-green">Cross-channel</span></h3>
+      <ul>
+        <li>Same memory across surfaces</li>
+        <li>Voice on the phone, screen on laptop</li>
+        <li>One agent. Many surfaces. Same brain.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="quote-block green mt-3">
+    <div style="font-size:0.9rem;font-weight:600">The agent isn't in a window you have to open. It's in the conversation you were already having.</div>
+  </div>
+</div>
+
+<!-- 14: Bridge to Web4 -->
+<div class="slide" data-title="Bridge to Web4">
+  <div class="slide-bg" style="background-image:url('agents-meridian-anismin.png')"></div>
+  <span class="badge badge-purple">Bridge to Ed's talk</span>
+  <div class="big mt-2">
+    First make it work for one human.<br><span class="text-gradient-purple">Then wire them up.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:780px">Everything I just showed gets one agent reliably commissioned by one human. That is the operational layer. The moment those agents need to find each other, trust each other, transact, and coordinate across companies &mdash; that is Web4. That is Ed's talk next.</div>
+  <div class="vs-container mt-3">
+    <div class="vs-box card-glow-cyan">
+      <div class="vs-label text-cyan">This talk &mdash; Operational layer</div>
+      <ul style="list-style:none;padding:0">
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Voice in, work out</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Meta harness with telemetry &amp; gates</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Two agents in production today</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; <em>Outcome:</em> one human gets leverage</li>
+      </ul>
+    </div>
+    <div class="vs-box card-glow-purple">
+      <div class="vs-label text-purple">Ed's talk &mdash; Coordination layer</div>
+      <ul style="list-style:none;padding:0">
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Discovery: agents finding each other</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Trust: who they speak for</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Transact: how value moves</li>
+        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; <em>Outcome:</em> a market emerges</li>
+      </ul>
+    </div>
+  </div>
+  <div class="small mt-3" style="color:var(--purple);font-family:var(--mono)">Without an operational layer, the coordination layer has nothing to coordinate.</div>
+</div>
+
+<!-- 15: CTA -->
+<div class="slide" data-title="Get Connected">
+  <div class="big mt-2">
+    Stop chatting. <span class="text-gradient-voice">Start commissioning.</span>
+  </div>
+  <div class="small mt-2" style="max-width:640px">Three QRs. The framework, my agents, this deck. Open one and brief your agent before Ed gets up.</div>
+  <div style="display:flex;align-items:flex-start;justify-content:center;gap:3vw;width:95vw;margin-top:18px;flex-wrap:wrap">
+    <div class="card card-glow-purple" style="text-align:center;padding:14px 18px;flex:1;max-width:280px">
+      <h3 style="font-size:1rem"><span class="text-purple">OpenClaw</span></h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://openclaw.net&bgcolor=111827&color=a855f7" style="margin:8px auto;display:block;border-radius:8px;width:100%;aspect-ratio:1" alt="OpenClaw QR">
+      <p style="font-family:var(--mono);font-size:0.78rem">openclaw.net</p>
+      <p class="small" style="margin-top:4px">Agents in your messenger</p>
+    </div>
+    <div class="card card-glow-orange" style="text-align:center;padding:14px 18px;flex:1;max-width:280px">
+      <h3 style="font-size:1rem"><span class="text-orange">My fleet</span></h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://github.com/ademczuk&bgcolor=111827&color=f59e0b" style="margin:8px auto;display:block;border-radius:8px;width:100%;aspect-ratio:1" alt="GitHub QR">
+      <p style="font-family:var(--mono);font-size:0.78rem">github.com/ademczuk</p>
+      <p class="small" style="margin-top:4px">Anismin &middot; Meridian &middot; the harness</p>
+    </div>
+    <div class="card card-glow-cyan" style="text-align:center;padding:14px 18px;flex:1;max-width:280px">
+      <h3 style="font-size:1rem"><span class="text-cyan">This deck</span></h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://ademczuk.github.io/agentic-economy/slides.html&bgcolor=111827&color=06b6d4" style="margin:8px auto;display:block;border-radius:8px;width:100%;aspect-ratio:1" alt="Slides QR">
+      <p style="font-family:var(--mono);font-size:0.78rem">slides + speaker notes</p>
+      <p class="small" style="margin-top:4px">on GitHub Pages</p>
+    </div>
+  </div>
+  <div class="small mt-3" style="color:var(--dim);font-family:var(--mono)">Andrew Demczuk, MSc &middot; OpenClaw Contributor &middot; Vienna, 29 Apr 2026</div>
+  <div class="small mt-1" style="color:var(--purple)">Ed Prinz is up next on Web4 &middot; find me after &middot; the rest of the night is yours</div>
+</div>
+
+</div><!-- /deck -->
+
+<script>
+(function(){
+  var c=document.getElementById('particles');
+  for(var i=0;i<28;i++){
+    var p=document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(10+Math.random()*15)+'s';
+    p.style.animationDelay=Math.random()*10+'s';
+    var roll=Math.random();
+    if(roll>0.66) p.style.background='var(--cyan)';
+    else if(roll>0.33) p.style.background='var(--orange)';
+    c.appendChild(p);
+  }
+})();
+
+var currentSlide=0;
+var slideOrder=[];
+var hiddenSlides=new Set();
+var transitioning=false;
+
+function getAllSlides(){return document.querySelectorAll('.slide')}
+function getVisibleSlides(){
+  var all=getAllSlides();
+  var visible=[];
+  slideOrder.forEach(function(i){if(!hiddenSlides.has(i)&&i<all.length) visible.push(i)});
+  return visible;
+}
+
+function showSlide(visIdx){
+  var visible=getVisibleSlides();
+  if(visIdx<0||visIdx>=visible.length) return;
+  if(transitioning) return;
+  transitioning=true;
+  currentSlide=visIdx;
+  var slides=getAllSlides();
+  slides.forEach(function(s){s.classList.remove('active')});
+  slides[visible[visIdx]].classList.add('active');
+  updateDots();
+  updateCounter();
+  setTimeout(function(){transitioning=false},450);
+}
+
+function next(){var v=getVisibleSlides();if(currentSlide<v.length-1) showSlide(currentSlide+1)}
+function prev(){if(currentSlide>0) showSlide(currentSlide-1)}
+
+function buildDots(){
+  var container=document.getElementById('nav-dots');
+  container.innerHTML='';
+  var visible=getVisibleSlides();
+  visible.forEach(function(_,i){
+    var d=document.createElement('div');
+    d.className='nav-dot'+(i===currentSlide?' active':'');
+    d.onclick=function(){showSlide(i)};
+    container.appendChild(d);
+  });
+}
+function updateDots(){
+  var dots=document.querySelectorAll('.nav-dot');
+  dots.forEach(function(d,i){d.classList.toggle('active',i===currentSlide)});
+}
+function updateCounter(){
+  var v=getVisibleSlides();
+  document.getElementById('slide-counter').textContent=(currentSlide+1)+' / '+v.length;
+}
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();next()}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}
+  else if(e.key==='Home'){e.preventDefault();showSlide(0)}
+  else if(e.key==='End'){e.preventDefault();showSlide(getVisibleSlides().length-1)}
+  else if(e.key==='r'||e.key==='R') togglePanel();
+  else if(e.key==='t'||e.key==='T') toggleTimer();
+  else if(e.key==='f'||e.key==='F'){
+    if(!document.fullscreenElement) document.documentElement.requestFullscreen().catch(function(){});
+    else document.exitFullscreen();
+  }
+  else if(e.key==='Escape'){var p=document.getElementById('reorder-panel');if(p.classList.contains('open')) p.classList.remove('open')}
+});
+
+document.addEventListener('click',function(e){
+  if(e.target.closest('#reorder-panel,#reorder-btn,#timer,.card a,a,.badge,.codeblock')) return;
+  if(e.clientX>window.innerWidth*0.5) next(); else prev();
+});
+
+var touchX=0;
+document.addEventListener('touchstart',function(e){touchX=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',function(e){
+  var dx=e.changedTouches[0].clientX-touchX;
+  if(Math.abs(dx)>60){if(dx<0) next(); else prev()}
+},{passive:true});
+
+var timerEl=document.getElementById('timer');
+var timerRunning=false,timerInterval=null,timerSeconds=900;
+function toggleTimer(){
+  if(!timerRunning){
+    timerRunning=true;timerSeconds=900;
+    timerEl.classList.add('running');
+    timerInterval=setInterval(function(){
+      timerSeconds--;
+      if(timerSeconds<=0){clearInterval(timerInterval);timerRunning=false;timerEl.textContent='0:00';return}
+      var m=Math.floor(timerSeconds/60),s=timerSeconds%60;
+      timerEl.textContent=m+':'+(s<10?'0':'')+s;
+      timerEl.classList.remove('running','warn','danger');
+      if(timerSeconds<=60) timerEl.classList.add('danger');
+      else if(timerSeconds<=180) timerEl.classList.add('warn');
+      else timerEl.classList.add('running');
+    },1000);
+  } else {
+    clearInterval(timerInterval);timerRunning=false;timerSeconds=900;
+    timerEl.textContent='15:00';timerEl.classList.remove('running','warn','danger');
+  }
+}
+
+function togglePanel(){document.getElementById('reorder-panel').classList.toggle('open')}
+function buildReorderList(){
+  var list=document.getElementById('reorder-list');list.innerHTML='';
+  var slides=getAllSlides();
+  slideOrder.forEach(function(idx){
+    var item=document.createElement('div');
+    item.className='reorder-item';
+    item.draggable=true;
+    item.dataset.idx=idx;
+    var label=document.createElement('span');
+    label.className='ri-label';
+    label.textContent=(idx+1)+'. '+(slides[idx].dataset.title||'Slide '+(idx+1));
+    var toggle=document.createElement('span');
+    toggle.className='ri-toggle'+(hiddenSlides.has(idx)?' hidden':'');
+    toggle.textContent=hiddenSlides.has(idx)?'X':'V';
+    toggle.onclick=function(e){
+      e.stopPropagation();
+      if(hiddenSlides.has(idx)) hiddenSlides.delete(idx); else hiddenSlides.add(idx);
+      buildReorderList();buildDots();updateCounter();
+      if(currentSlide>=getVisibleSlides().length) showSlide(getVisibleSlides().length-1);
+    };
+    item.appendChild(label);item.appendChild(toggle);
+    item.addEventListener('dragstart',function(e){item.classList.add('dragging');e.dataTransfer.setData('text/plain',idx)});
+    item.addEventListener('dragend',function(){item.classList.remove('dragging')});
+    item.addEventListener('dragover',function(e){e.preventDefault()});
+    item.addEventListener('drop',function(e){
+      e.preventDefault();
+      var fromIdx=parseInt(e.dataTransfer.getData('text/plain'));
+      var fromPos=slideOrder.indexOf(fromIdx);
+      var toPos=slideOrder.indexOf(idx);
+      slideOrder.splice(fromPos,1);
+      slideOrder.splice(toPos,0,fromIdx);
+      buildReorderList();buildDots();
+    });
+    list.appendChild(item);
+  });
+}
+
+(function(){
+  var slides=getAllSlides();
+  for(var i=0;i<slides.length;i++) slideOrder.push(i);
+  buildDots();buildReorderList();updateCounter();
+})();
+</script>
+</body>
+</html>
