@@ -29,7 +29,7 @@
 
 ## Slide 2 — The Dark Factory (~60 sec)
 
-> "We did this in 2001. We put robots on assembly lines and turned the lights off. Foxconn, the people who make your iPhone, hit 85% lights-out at their Taiwan battery plants last year lights-out across their production. Siemens Amberg ships at 15 defects per million. Tesla Berlin still has humans on final assembly, because we're not all the way there.
+> "We did this in 2001. We put robots on assembly lines and turned the lights off. Foxconn, the people who make your iPhone, hit 85% lights-out at their Taiwan battery plants last year. Siemens Amberg ships at roughly eleven defects per million. Tesla Berlin still has humans on final assembly, because we're not all the way there.
 >
 > Dan Shapiro looked at this in 2024 and said: same thing is happening to code. Then StrongDM did it. They ship production code with no hand-coded software engineering. That's where this talk lives."
 
@@ -178,11 +178,11 @@
 
 ## Slide 15 — Bridge to Web4 (~45 sec)
 
-> "Everything I just showed gets one agent reliably commissioned by one human. That's the operational layer.
+> "Everything I just showed gets one agent reliably commissioned by one human. That's the operational layer. The foundation Web4 needs.
 >
-> The moment those agents need to find each other, trust each other, transact, coordinate across companies. That is when the new internet truly comes alive. Without an operational layer, the coordination layer has nothing to coordinate. That's why these talks are back-to-back.
+> The next layer is where agents find each other, trust each other, transact, coordinate across companies. That is Ed's talk. Without the operational layer, the coordination layer has nothing to coordinate.
 >
-> Ed — over to you."
+> Ed, over to you."
 
 **Cue:** turn slightly toward Ed. Let the handoff happen.
 
