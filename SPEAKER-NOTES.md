@@ -9,12 +9,15 @@
 
 ## Pre-talk checklist (T-15 min)
 
-- [ ] Discord client logged in, voice channel open on phone
+- [ ] Discord client logged in, voice **and text** channels both visible on the projector (not just voice)
 - [ ] Tailscale connected to Vienna workstation, ping Meridian (`/meridian status`)
 - [ ] Anismin online check (Atlanta heartbeat in last 15 min)
 - [ ] Slides loaded · `F` for fullscreen · `T` starts the 15-min timer
 - [ ] Mic off on the phone until slide 7
-- [ ] Backup: open Discord chat to Anismin in another window in case voice flops
+- [ ] **T-5 min: send a silent priming text to Meridian in Discord**: *"Tonight: Fiskaly Wien talk. When I say 'log tonight's talk', the file is `memory/2026-04-29-fiskaly.md`. Do not pre-write it."* This verifies write access without staging the artifact.
+- [ ] Confirm GPU load before slide 7. If VRAM > 31 GB, voice may be offline (you'll fall back to the text path)
+- [ ] AV tech briefing: *"At slide 7, I speak into my phone for ~10 seconds. About 12 seconds later, a file path appears in Discord text on screen. About 18 seconds later, audio comes back."*
+- [ ] Backup: open Discord chat to Anismin in another window in case Meridian's path falls over entirely
 - [ ] Water on the lectern. The talk has dense beats — your throat will ask for it on slide 9.
 
 ---
@@ -83,30 +86,40 @@
 
 ## Slide 7 — LIVE DEMO (~60 sec)
 
-> "I'll show you. Pinning Discord on the projector now."
+> "I'll show you. I'm not going to ask him to read me an email. I'm going to commission him. Watch the Discord text channel."
 
 **Action:**
-1. Switch projector to Discord voice channel (or make sure it's already up)
-2. Press push-to-talk
-3. Say out loud: *"Meridian, summarise the Vienna venue email in three lines. Reply by voice."*
-4. Walk back to slide. Click forward to slide 8.
-5. Continue talking through slide 8. Meridian's voice reply comes back in your ear / the room. Acknowledge: "There he is."
+1. Make sure Discord text channel is visible on the projector (not just voice channel)
+2. Press push-to-talk on the phone
+3. Say out loud, slowly:
+   *"Meridian, log tonight's talk in your memory. Event: OpenClaw Agentic Economy Night, Fiskaly Wien, 29 April 2026. Lesson: stop chatting, start commissioning. Save it to your dated lessons, post the file path, confirm by voice."*
+4. Release PTT. Walk back to the slides. Click forward to slide 8.
+5. Continue talking through slide 8. Around T+12s, the file path appears in Discord text on the projector: `memory/2026-04-29-fiskaly.md`. Around T+18s, Meridian's voice comes back. Acknowledge: *"There he is. He just wrote level four memory while I was talking. That's the index pattern."*
 
-**If voice fails:**
-- DM Meridian instead, read his text reply aloud.
-- Don't apologise. Say: "That's the venue Wi-Fi over Tailscale. Same talk happens, different tube."
+**If voice fails but text posts:**
+- The file path on the projector IS the proof. Read it out: *"He wrote that file while I was talking. That's the point."*
+
+**If both fail:**
+- *"Voice is offline. GPU's loaded for critic work. That's the honest version of always-on, exactly what slide 6 said. If it breaks, you see it break. That's the talk too."*
+- Click forward. Do not apologise. Do not retry.
 
 ---
 
 ## Slide 8 — 7 Levels of Memory (~80 sec — heaviest slide)
 
-> "While Meridian works, here's how he remembers. Memory is a seven-level ladder. Most agents stop at level one: Claude's own scratchpad. They drift, they lose context, they sound confused.
+> "Meridian just did that because he remembered the format I like, my voice, the structure of his dated lessons folder. Most agents don't. They drift. They lose context. They sound confused by turn three. Memory is the difference between a demo and a colleague. And it's a seven-level ladder.
 >
-> Level two is a CLAUDE dot md file, one rule book. Powerful until it bloats. Three is splitting that into mission, requirements, roadmap, state. Four, and this is where most agents should sit: Karpathy's pattern: Obsidian as the vault, an index points to wikis, articles point to articles. Free, scales to thousands of docs.
+> Level one: Claude's own scratchpad. Implicit, fragile, where most stay.
 >
-> Levels five through seven are real RAG: naive vector search, graph RAG, agentic RAG with multimodal routers. Most teams overshoot. The right answer is usually level four with discipline."
+> Level two is a CLAUDE dot md file. One rule book. Powerful until it bloats and pollutes context.
+>
+> Level three: split that into mission, requirements, roadmap, state. The index pattern. Meridian just wrote to level three when he saved that file.
+>
+> Level four, and this is where most personal agents should sit: Karpathy's pattern. Obsidian as the vault, an index points to wikis, articles point to articles. Free, scales to thousands of docs.
+>
+> Levels five through seven are real RAG: naive vector search, graph RAG, agentic RAG with multimodal routers. Most teams overshoot. The sweet spot for most personal agents is level four with discipline."
 
-**Cue:** point at L4 (highlighted).
+**Cue:** point at L4 (highlighted). If the file path is now visible on Discord, gesture at it on "level three when he saved that file."
 
 ---
 
