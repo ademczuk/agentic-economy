@@ -325,41 +325,44 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="small mt-3" style="color:var(--purple);font-family:var(--mono)">A brief is a contract. A chat is a hostage situation.</div>
 </div>
 
-<!-- 6: THE COMMISSION CARD -->
-<div class="slide" data-title="The Commission Card">
-  <span class="badge badge-yellow">Steal this tonight</span>
+<!-- 6: THE SIX-FIELD BRIEF -->
+<div class="slide" data-title="The Six-Field Brief">
+  <span class="badge badge-yellow">The contract</span>
   <div class="big mt-2">
-    The <span class="text-gradient-yellow">Commission Card.</span>
+    A six-field brief.<br><span class="text-gradient-yellow">Same fields a contractor expects.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:760px">Six fields. One file. The whole pattern in 200 bytes. Photograph this slide.</div>
-  <div class="codeblock mt-3"><span class="cc"># commission.md</span>
-
-<span class="cf">agent:</span>     <span class="cv">meridian</span>
-<span class="cf">deadline:</span>  <span class="cv">tonight</span>
-<span class="cf">verify:</span>    <span class="cv">write result + evidence to memory</span>
-
-<span class="cf">Goal:</span>
-  <span class="cs">Log this talk to memory and extract 3 reusable lessons.</span>
-
-<span class="cf">Context:</span>
-  <span class="cs">- Fiskaly talk, 30 min</span>
-  <span class="cs">- founder audience, Vienna, 22:00 energy</span>
-
-<span class="cf">Done means:</span>
-  <span class="cs">- memory entry saved</span>
-  <span class="cs">- 3 lessons extracted</span>
-  <span class="cs">- 1 follow-up suggestion</span>
-
-<span class="cf">Escalate if:</span>
-  <span class="cs">- missing context</span>
-  <span class="cs">- claim cannot be verified</span>
-  <span class="cs">- confidence &lt; 0.7</span>
-
-<span class="cc"># In Discord:</span>
-<span class="ck">@meridian commission:</span> <span class="cv">&lt;paste card&gt;</span>
-</div>
-  <div class="small mt-3" style="color:var(--yellow);font-family:var(--mono)">I'm about to commission this card live. Watch the Discord text channel.</div>
+  <div class="body mt-2" style="max-width:760px">If you can write a brief for a freelancer, you can commission an agent. Six fields. No code. Two minutes to write the first one.</div>
+  <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
+    <div class="card card-glow-purple">
+      <h3><span class="text-purple">Goal</span></h3>
+      <p>The outcome you want. One sentence. <em>"Log tonight's talk and extract three reusable lessons."</em></p>
+    </div>
+    <div class="card card-glow-cyan">
+      <h3><span class="text-cyan">Context</span></h3>
+      <p>What the agent needs to know. <em>"30-min talk at Fiskaly, founder audience, 22:00."</em></p>
+    </div>
+    <div class="card card-glow-green">
+      <h3><span class="text-green">Done means</span></h3>
+      <p>How you'll know it worked. <em>"Memory entry saved. 3 lessons. 1 follow-up suggestion."</em></p>
+    </div>
+    <div class="card card-glow-orange">
+      <h3><span class="text-orange">Escalate if</span></h3>
+      <p>What's a stop sign. <em>"Missing context, can't verify a claim, low confidence &mdash; ping me."</em></p>
+    </div>
+    <div class="card card-glow-pink">
+      <h3><span class="text-pink">Deadline</span></h3>
+      <p>When you need it back. <em>"Tonight."</em> Or "by Monday morning." Or "next 5 minutes."</p>
+    </div>
+    <div class="card card-glow-yellow">
+      <h3><span class="text-yellow">Verify</span></h3>
+      <p>How the result is proven. <em>"Write result and evidence to memory. The file is the proof."</em></p>
+    </div>
+  </div>
+  <div class="quote-block yellow mt-3" style="max-width:840px">
+    <div style="font-size:0.95rem;font-weight:600;line-height:1.5">In a moment I'll speak this brief out loud. The agent in the room is Meridian, on a workstation in this city. Watch the Discord channel on screen &mdash; the work appears there.</div>
+  </div>
+  <div class="small mt-2" style="color:var(--muted);font-family:var(--mono)">Template URL on the closing slide. No need to write anything down now.</div>
 </div>
 
 <!-- 7: DECOMPOSE & ROUTE (live, move 1+2) -->
@@ -404,11 +407,11 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
       </ul>
     </div>
     <div class="card card-glow-orange">
-      <h3><span class="text-orange">Every failure becomes a regression guard</span></h3>
+      <h3><span class="text-orange">Every failure becomes a tripwire</span></h3>
       <ul>
-        <li>If the agent ever tries to write garbage there, an invariant catches it</li>
-        <li>That invariant came from a real failure, not a hypothesis</li>
-        <li>Tomorrow the same class of mistake costs zero</li>
+        <li>The first time the agent tries to write nonsense, we catch it</li>
+        <li>We add a tripwire so the same mistake can't happen again</li>
+        <li>Tomorrow that class of bug costs zero</li>
         <li>The system gets less stupid every week</li>
       </ul>
     </div>
@@ -449,28 +452,40 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="small mt-3" style="color:var(--pink);font-family:var(--mono)">Six moves. One card. The pattern just ran in front of you.</div>
 </div>
 
-<!-- 10: THE CARD COMPLETED -->
-<div class="slide" data-title="Card Completed">
-  <span class="badge badge-green">What just happened</span>
+<!-- 10: WHAT JUST HAPPENED -->
+<div class="slide" data-title="What Just Happened">
+  <span class="badge badge-green">DONE &middot; ~18 seconds</span>
   <div class="big mt-2">
-    The card is <span class="text-gradient-green">closed.</span>
+    Six moves. <span class="text-gradient-green">One brief.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="codeblock mt-3"><span class="cc"># commission.md (closed)</span>
-
-<span class="cf">status:</span>     <span class="cs">DONE</span>
-<span class="cf">artifact:</span>   <span class="cv">memory/2026-04-29-fiskaly.md</span>
-<span class="cf">duration:</span>   <span class="cs">~18 seconds</span>
-<span class="cf">verified:</span>   <span class="cs">file exists, 3 lessons present, follow-up logged</span>
-
-<span class="cy">Lessons extracted:</span>
-  <span class="cs">1. Drunk founders absorb patterns by watching, not by lecture.</span>
-  <span class="cs">2. The interface that lets you walk away is the unlock.</span>
-  <span class="cs">3. No artifact = no commission. Every claim is a file path.</span>
-
-<span class="cy">Follow-up:</span>
-  <span class="cs">- Cross-link to existing memory/talks/* for callback continuity</span>
-</div>
+  <div class="body mt-2" style="max-width:780px">While I was talking through three slides, the agent already finished. Here's what it actually did.</div>
+  <div class="pipeline mt-3" style="max-width:840px">
+    <div class="pipe-step" style="border-color:rgba(168,85,247,0.4)">
+      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
+      <div><div class="pipe-label"><span class="text-purple">Decomposed</span> the goal into 4 sub-tasks</div><div class="pipe-desc">read the talk &middot; reflect to find lessons &middot; write to memory &middot; confirm by voice</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(6,182,212,0.4)">
+      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
+      <div><div class="pipe-label"><span class="text-cyan">Routed</span> each sub-task to the right place</div><div class="pipe-desc">heavy reasoning &rarr; cloud Opus &middot; file write &rarr; deterministic tool &middot; voice &rarr; local Haiku + TTS</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(16,185,129,0.4)">
+      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
+      <div><div class="pipe-label"><span class="text-green">Verified</span> by writing a file you can check</div><div class="pipe-desc">the file path posted in Discord text &mdash; if the file's not there, the commission failed</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(245,158,11,0.4)">
+      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
+      <div><div class="pipe-label"><span class="text-orange">Documented</span> three lessons into the wiki</div><div class="pipe-desc">tomorrow's commissions start knowing what tonight's commission learned</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(236,72,153,0.4)">
+      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
+      <div><div class="pipe-label"><span class="text-pink">Approved</span> only what needed judgment</div><div class="pipe-desc">I didn't approve typos or file paths &mdash; only "is this actually a lesson?"</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(250,204,21,0.4)">
+      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
+      <div><div class="pipe-label"><span class="text-yellow">Followed up</span> with a callback for next time</div><div class="pipe-desc">cross-linked into older talks &mdash; the system is sharper than it was 20 minutes ago</div></div>
+    </div>
+  </div>
   <div class="small mt-3" style="color:var(--green);font-family:var(--mono)">That was the whole pattern. Now I'll show you what runs underneath.</div>
 </div>
 
