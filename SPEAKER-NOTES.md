@@ -1,342 +1,257 @@
-# Speaker Notes — Quit chatting with your agents (v6)
+# Speaker Notes — Quit chatting with your agents (v8 / story-spine)
 
 **Talk:** Quit chatting with your agents and get them to work for you
 **Event:** OpenClaw × neob.ai · Agentic Economy Night · Fiskaly Wien
 **Date:** Wednesday 29 April 2026 · ~22:00 slot · 30 min · paired with Ed Prinz on Web4
-**Length target:** 30 minutes · 18 slides · ~100 sec each
+**Length target:** 30 minutes · 12 slides · variable timing
 
-The talk teaches a pattern (the workbench: 6 moves) by *running it live in the middle of the talk*. The demo is not theatre at the end — it is the teaching moment in the middle.
+The talk is one story: *I commission an agent to write this talk into memory, in front of you, while I explain how. Eighteen seconds in, the file exists. That's the workbench.* Everything else hangs off the bet.
 
 ---
 
 ## Pre-talk checklist (T-30 min)
 
-- [ ] Discord client logged in. **Voice and text channels both visible on the projector.**
+- [ ] Discord client logged in. **Voice and text channels both visible on the projector** (or one tap away).
 - [ ] Tailscale connected to Vienna workstation. Ping Meridian (`/meridian status`)
-- [ ] Anismin online check (Atlanta heartbeat in last 15 min)
 - [ ] Slides loaded. `F` for fullscreen. `T` starts the 30-min timer.
-- [ ] **T-10 min: send a silent priming text to Meridian in Discord**: *"Tonight: Fiskaly Wien talk. When I commission you live, expect the card to ask for memory log + 3 lessons. Save to `memory/2026-04-29-fiskaly.md`. Do not pre-write."*
+- [ ] **T-10 min: send a silent priming text to Meridian in Discord**: *"Tonight: Fiskaly Wien talk. When I commission you live, the brief will ask for memory log + 3 lessons. Save to `memory/2026-04-29-fiskaly.md`. Do not pre-write."*
 - [ ] **T-5 min: GPU load check.** If VRAM > 31 GB, voice may go offline. Plan for the text-only fallback.
 - [ ] **Backup demo video** queued on lectern laptop in second tab — pre-recorded 30s clip of the same commission running cleanly. If voice fails on stage, switch tab and play it.
-- [ ] AV tech briefing: *"At slide 6 I'll start commissioning. At slide 7 I'll speak into my phone for ~10 seconds. About 12 seconds later, a file path appears in Discord text on the screen. About 18 seconds later, audio comes back. The Discord text channel stays visible until the end of the talk."*
-- [ ] Water on the lectern. The talk has dense beats — your throat will ask for it on slide 9.
+- [ ] AV tech briefing: *"At slide 4 I'll speak into my phone for ~10 seconds. About 12 seconds later, a file path appears in Discord text on the screen. About 18 seconds later, audio comes back. The Discord text channel needs to be visible the whole time."*
+- [ ] Water on the lectern.
 
 ---
 
-## Slide 1 — The Hook (~90 sec)
+## Slide 1 — Title (~75 sec)
 
-**Walk on. Don't introduce yourself yet.** The title slide IS the hook.
-
-> "You went home tonight. You opened a chat window. You started over from scratch. Again.
+> "Quit chatting with your agents and get them to work for you. I'm Andrew. The talk is in the title.
 >
-> Sixty to ninety minutes every evening, you spend reloading your own brain — because the smartest tool you own has no working memory, no routing, no verification, no follow-up.
+> Here's the line that runs through it: a brief is a contract. A chat is a hostage situation.
 >
-> *That* is tonight's talk. I'm Andrew."
+> Tonight I'm going to bet a real piece of work on it. Live. In front of you."
 
-**Beat:** pause on "That is tonight's talk." Let them recognise themselves. Then introduce yourself.
+**Cue:** click forward immediately. Don't pause. The pace here sets up the bet.
 
 ---
 
-## Slide 2 — Karpathy's thread (~90 sec)
+## Slide 2 — The Bet (~120 sec)
 
-> "Andrej Karpathy gave us this framing in three pieces.
->
-> 2023: the LLM is the kernel of a new operating system. Not a chatbot. A kernel.
->
-> June 2025, he updated it: the LLM is the CPU. The context window is RAM. *You* are the operating system. You decide what to load. You decide how to swap.
->
-> 2026, this year: Composio's report named it 'stalled pilot syndrome.' The kernel works. The OS is what's missing. The integration layer is where this year is won.
->
-> Tonight's talk: build the OS. Not buy it. Build it."
+**This is the load-bearing slide. Read it slowly.**
 
-**Cue:** the dark factory hero is in the background. Don't explain the image. Let it sit.
+> "Right now, on a workstation in this city, my agent is waiting for a brief. His name is Meridian.
+>
+> In about eight minutes, I'm going to commission him to log this exact talk into his memory. While I keep explaining how, he'll do it. By minute eighteen, the file will exist. You'll see the path appear on screen.
+>
+> If the bet pays off, you've watched the workbench complete a real piece of work in front of you. If it fails, you'll see exactly where it failed and why. Either way, that's the talk."
+
+**Beat:** pause on "either way, that's the talk." Let the bet land. The audience now has stakes.
 
 ---
 
-## Slide 3 — The thesis (~90 sec)
+## Slide 3 — The Brief (~150 sec)
 
-> "Here's what an OS for complex work looks like. Not an AI assistant. A *disciplined workbench*.
+> "Before I commission, here's the thing I'm about to send him. A brief. Six fields.
 >
-> You describe an outcome. The system handles the rest. Six moves. One spine.
+> Goal: what you want. Context: what he needs to know. Done means: how you'll know it worked. Escalate if: what's a stop sign. Deadline: when you need it back. Verify: how the result is proven.
 >
-> Decompose. Route. Verify. Document. Approve. Follow-up.
+> If you can write a brief for a freelancer, you can commission an agent. Two minutes to write the first one. No code. No SDK. No platform.
 >
-> I'm going to teach you the six moves by running them in front of you. In about three minutes."
+> The deadline I'm giving him: eighteen seconds. The verify: write the result to a file at a known path. If the file exists, the commission paid off. If not, it didn't."
 
-**Cue:** read the six cards left to right, briskly. Don't elaborate yet. The pattern will land in Part 2.
+**Cue:** point at the six cards. Don't read all of them. Land on Goal and Verify.
 
 ---
 
-## Slide 4 — The chat trap (~75 sec)
+## Slide 4 — The Commission (~75 sec — DEMO)
 
-> "Quick recognition beat. You typed four thousand words yesterday. Re-pasting context. Re-framing prompts. 'No, not like that.' 'Closer.'
->
-> Your agent shipped nothing.
->
-> The interface itself became the work. A colleague would have left by now."
+**ACTION SEQUENCE:**
 
-**Beat:** hold on "left by now". Get the laugh.
-
----
-
-## Slide 5 — Commission, don't converse (~75 sec)
-
-> "A colleague gets a brief and walks away. You don't sit on Slack watching their cursor blink. So why do you do it with your agent?
->
-> A brief is a contract. A chat is a hostage situation."
-
-**Cue:** the VS card lands the contrast visually. You don't need to read both columns.
-
----
-
-## Slide 6 — The Commission Card (~120 sec — the artifact slide)
-
-> "This slide is the talk. Photograph it now.
->
-> *commission.md*. Six fields. agent, deadline, verify, goal, context, done means, escalate if. About two hundred bytes. Whole pattern in one file.
->
-> I'm about to commission this exact card live. The agent on the receiving end is Meridian, who lives on a workstation in this city. Watch the Discord text channel — that's where his work will appear."
-
-**Action:**
-1. Confirm Discord text channel is visible on projector.
-2. Press push-to-talk on phone. Speak slowly:
+1. Confirm Discord text channel is visible on projector
+2. Press push-to-talk on phone
+3. Speak slowly:
    *"Meridian, log tonight's talk in your memory. Event: OpenClaw Agentic Economy Night, Fiskaly Wien, 29 April 2026. Goal: extract three reusable lessons. Save to your dated lessons folder, post the file path in Discord, confirm by voice when done."*
-3. Release PTT. Walk to centre of stage. Click forward to slide 7.
+4. Release PTT. Walk back to slides. Click forward to slide 5.
 
-**Backup:** if voice is off (GPU loaded), say so plainly: *"Voice is offline, GPU is busy with critic work — exactly like slide 11 will warn. I'll DM the same card. The pattern still runs."* Type the card in Discord. Continue.
+**While walking back:**
+> "He has the brief. The clock starts. Let me name what's about to happen, in order, while it happens."
 
----
-
-## Slide 7 — Decompose & Route (Live, Move 1+2) (~100 sec)
-
-**This slide narrates what is happening on the Discord channel right now.**
-
-> "Move one and two. Decompose and route.
->
-> The card I just spoke is being parsed by Opus on the cloud. It looks at 'extract three lessons' and breaks it into four sub-tasks: read the talk, reflect to find lessons, write to memory, confirm by voice.
->
-> Now look at the routing. *Reflection is hard* — that goes to Opus. *Write the file* is deterministic — that's a tool, not a model. *Voice reply* must be fast — Haiku plus local TTS. The router never asks the smart model to do a dumb job. That is cost, quality, privacy, latency, in one decision."
-
-**Cue:** by now the file path should be appearing in Discord text. Gesture at the projector if you see it: *"There it is. The artifact just landed."*
+**Backup if voice fails at PTT:** *"Voice is offline, GPU is busy with a critic job. I'll DM the same brief instead. The pattern still runs."* Type the brief in Discord. Continue.
 
 ---
 
-## Slide 8 — Verify & Document (Live, Move 3+4) (~100 sec)
+## Slide 5 — The Six Moves (~180 sec)
 
-> "Move three and four. Verify and document.
->
-> Notice what just happened. The agent didn't say 'I did it.' The agent posted a file path. `memory/2026-04-29-fiskaly.md`. You can check that. If the file isn't there, the commission failed. There is no grey zone.
->
-> Every claim has an artifact. That's the verification rule.
->
-> And if this same agent ever tries to write garbage to that path, an invariant catches it before it ships. That invariant came from a real failure last quarter. Tomorrow, the same class of mistake costs zero. The system gets less stupid every week."
+**This slide narrates while the artifact is being produced. Read it as a play-by-play.**
 
----
+> "Move one: decompose. The goal *extract three lessons* becomes four sub-tasks. Read. Reflect. Write. Confirm. One outcome split into the smallest pieces that can each be done well.
+>
+> Move two: route. Each sub-task goes to the right brain. Reflection is hard, that's the cloud. Write-the-file is deterministic, that's a tool, no model. Voice reply must be fast, that's a small local model. The router never asks the smart model to do a dumb job. That's cost, quality, privacy, latency, in one decision.
+>
+> Move three: verify. He produces a file you can check. The path posts in Discord. If the file isn't there, the commission failed. There is no grey zone."
 
-## Slide 9 — Approve & Follow-up (Live, Move 5+6) (~100 sec)
+**Cue:** glance at the projector. The file path should be appearing now. Gesture: *"There it is. The file just landed."*
 
-> "Move five and six. Approve and follow up.
+> "Move four: document. The lesson goes into his wiki. Tomorrow's commission starts knowing what tonight's commission learned. And every past failure is already armed as a tripwire — the system gets less stupid every week.
 >
-> The voice just came back in my ear. The card is closed. Now the human bit, in the right place, doing the right thing.
+> Move five: approve. The judgment bit. *Is lesson two actually a lesson?* — that's me. Risk, taste, what to publish. I do not approve typos or file paths.
 >
-> What I approve: was lesson two actually a lesson? Should this be public yet? Is the slug ugly? Judgment, risk boundaries, product taste.
->
-> What I do *not* approve: typos, file paths, model picks, whether the JSON parsed.
->
-> And then follow-up. The lessons land in Meridian's wiki. Tomorrow's commission starts knowing them. If a lesson contradicts an old one, the harness pings me. The system is sharper than it was twenty minutes ago.
->
-> Six moves. One card. The pattern just ran in front of you."
+> Move six: follow up. Cross-link. Index. The system is sharper than it was twenty minutes ago. Tomorrow's commission inherits everything tonight just learned."
+
+**Cue:** the artifact should be visible by now. Click forward.
 
 ---
 
-## Slide 10 — Card completed (~75 sec)
+## Slide 6 — The Bet Paid Off (~90 sec)
 
-> "Here's the closed card. Status DONE. Artifact saved. Eighteen seconds total. Three lessons extracted.
+> "Eighteen seconds. While I was naming the moves, the agent finished. The path is on screen. The lessons are saved. The follow-up is queued.
 >
-> Now I'll show you what runs underneath."
+> I spoke a six-field brief out loud. Once. Walked away. Meridian decomposed, routed, verified, documented, surfaced for approval, queued follow-up. The room watched an artifact appear at a real file path. Not a slide. Not a claim. A file.
+>
+> That's a workbench. That's commissioning. The chat window doesn't do that."
 
-**Cue:** brief slide, used for transition into Part 3.
-
----
-
-## Slide 11 — Voice rig (~75 sec)
-
-> "The rig you just heard. Not a demo, my actual stack.
->
-> Parakeet v3 on port 5093 for speech-to-text. Local. Sub-second.
->
-> Anthropic Haiku — claude-haiku-4-5 — as the fast turn via clawfish. Hard work hands off to Opus.
->
-> Kokoro on port 5094 for text-to-speech. Local voice.
->
-> Honest caveat: when the GPU is loaded for critic work, voice goes offline. The honest version of always-on. The talk you just watched ran on this stack. If it works at midnight in a Vienna venue, it works in your kitchen."
+**Beat:** hold the green DONE badge on screen for the room to see. Three seconds of silence is fine.
 
 ---
 
-## Slide 12 — Anismin (~100 sec)
+## Slide 7 — The Team (~120 sec)
 
-> "Meet Anismin. Atlanta VPS. Twenty-dollar box. Claude Opus four point seven, in something I call AnisminOS. Identity stack injected every session — SOUL, USER, IDENTITY, TOOLS, HEARTBEAT.
+> "Two real agents in production for the last six months. The one you just watched is Meridian, in Vienna. There's also Anismin, in Atlanta.
 >
-> Every thirty minutes she runs a heartbeat. Tmux session checks. Boardroom moderation. Calendar routing across five Apple calendars. Reef-patrol fixes weekday mornings. Family group chat — only replies when someone says her name first, never reveals my niece's name. House rules over LLM defaults.
+> Meridian is hybrid, not zero-cloud. Has a local critic that doesn't care about my feelings. Last quarter, three cloud models all approved an auth gateway as 'excellent design.' Same code to the local critic: 'rainbow-table recovery in minutes — rewrite.' That kind of catch is why a workbench includes a critic that doesn't work for you.
 >
-> Two real quotes from her, this week.
+> Anismin runs my calendars, triages issues every thirty minutes, moderates the family group chat. Won't say my niece's name unless asked. When I asked her for a war story for this slide, she refused. Said *'Andrew told me no fabrication for the Vienna talk prep.'* That's the discipline.
 >
-> First: *'Andrew explicitly told me no fabrication for the Vienna talk prep.'* When I asked her for a war story for this slide, she refused.
->
-> Second: *'Drunk founders absorb a framework via pattern recognition while watching, not lecture-then-demo.'* That's why the demo just ran in the middle of this talk and not at the end. Her structural advice changed the deck."
+> Then she gave me the structural advice that rewrote this talk. 'Drunk founders absorb a framework via pattern recognition while watching, not lecture-then-demo.' That's why the demo just ran in the middle. She was right."
 
-**Beat:** pause after the second quote. The audience will catch that the agent helped design the talk. Let them sit with it.
+**Beat:** pause on "she was right". Let the room catch that the agent helped design the talk.
 
 ---
 
-## Slide 13 — Meridian + war story (~100 sec)
+## Slide 8 — The Honest Beat (~75 sec)
 
-> "And meet Meridian. Vienna. RTX 5090, 32 GB. Right now, about 31 of 32 in use. Twenty-eight hours of uptime.
+> "Before you start, one uncomfortable truth.
 >
-> Honest disclosure: hybrid, not zero-cloud. The Discord brain is Claude Opus through a bridge called clawfish. The tooling brain is Codex 5.4 through the openclaw gateway. The local pieces are QwQ-32B as the adversarial critic on port seventy-eight-sixty-nine, Parakeet for STT, Kokoro for TTS.
+> The first two weeks of doing this feel slower than your old workflow. Not faster. Slower. You're learning to write a brief instead of typing into a chat. You're learning to wait for an artifact instead of reading a stream of tokens. You're learning to approve judgment, not typos.
 >
-> Memory layered. SOUL and USER as identity. MEMORY for curated long-term. Dated lessons in a folder. memory-flush dot py rolls it into Postgres on fifty-four-thirty-four with pgvector.
->
-> War story, his words: *'caught a shim-snapshot mismatch and a parser sentinel leak before rollout, which would have given us fake confidence from clean-looking metrics.'*
->
-> That is what a regression guard catches. Not a hypothesis. A real failure that turned into a permanent test."
+> If I don't say that out loud, the serious people in this room will discover it alone in week one and trust me less. So: it's slower at first. By week three it's not. By week eight you can't go back."
+
+**Beat:** "trust me less" is the credibility moment. Pause on it.
 
 ---
 
-## Slide 14 — Time freed (~90 sec)
-
-> "Here's what you actually get. Not a number on a slide. A different shape of week.
->
-> Without the workbench: read every message, decide every reply, review every diff, approve every merge, resolve every calendar conflict, write Notion docs nobody re-reads. End of the week, you're tired and behind, and Monday looks the same.
->
-> With the workbench: the agent triages, you read 8 things instead of 78. The regression guard runs first, you approve judgment not typos. Calendar conflicts are handled and only escalated when there's a person to choose between. The wiki gets sharper every commission.
->
-> Same hours worked. Twice the things shipped.
->
-> The advantage of small is focus, not headcount."
-
----
-
-## Slide 15 — Pitfalls and the uncomfortable truth (~100 sec)
-
-> "Before you start, four traps. Then one uncomfortable truth.
->
-> One: full-system thinking. Wanting the whole stack before you've run a single agent through a real workflow. Start with one card. One outcome. One artifact.
->
-> Two: better-model thinking. 'Maybe Opus 5 will fix it.' A stronger LLM won't fix your retrieval, your data, or your workflow. The bottleneck is the OS, not the kernel.
->
-> Three: skipping oversight. Set-it-and-forget-it agents go feral inside a week. Read every artifact for the first month. Earn the trust before you delegate it.
->
-> Four: wrong-tool fit. Enterprise orchestration platforms for solo problems. A markdown file and a shell loop beat a SaaS tier you'll never use.
->
-> And the uncomfortable truth — the first two weeks feel slower. You are learning to issue commissions instead of vibes. If I don't tell you that, the serious people in this room will discover it alone and trust me less."
-
-**Beat:** pause on "trust me less". The honest beat is the credibility moment.
-
----
-
-## Slide 16 — Day 1 / Day 30 / Day 90 (~90 sec)
+## Slide 9 — Day 1 / Day 30 / Day 90 (~90 sec)
 
 > "Monday morning starter kit.
 >
-> Day one: pick a recurring annoying task. Write one Commission Card for it. Save the artifact to one folder. Run it once, by hand if you have to. You now have an OS prototype. Tonight.
+> Day one: pick a recurring annoying task. Write one six-field brief for it. Save what comes back to one folder. Run it once, by hand if you have to. You now have an OS prototype. Tonight.
 >
-> Day thirty: an Obsidian vault with dated lessons, an index file, one regression guard that has caught something real. The agent runs from a markdown brief, not a chat.
+> Day thirty: an Obsidian vault of dated lessons, one tripwire that has caught something real, briefs running from markdown instead of chat. You stop re-pasting context every morning.
 >
-> Day ninety: routing across two or more models. Voice is optional. Shared memory across surfaces. You're commissioning, daily.
+> Day ninety: routing across two or more brains, one or two agents you trust, you're commissioning daily. Voice is optional, not the point.
 >
 > Nobody needs to be at Day 90 next week. Just don't be at Day 0 next month."
 
 ---
 
-## Slide 17 — Bridge to Web4 (~75 sec)
+## Slide 10 — Hostage Callback (~60 sec)
 
-> "Everything I just showed gets one agent reliably commissioned by one human. That's the operational layer. The foundation Web4 needs.
+> "The line that opened this talk:
 >
-> The next layer is where agents find each other, trust each other, transact, coordinate across companies. That is Ed's talk. Without the operational layer, the coordination layer has nothing to coordinate."
+> A brief is a contract. A chat is a hostage situation.
+>
+> You watched the contract execute in front of you. Eighteen seconds. Real file. Real lessons. Real follow-up.
+>
+> Walk home. Write one brief. Run it before you sleep."
+
+**Beat:** read the mega text on the slide. The callback is the spine closing.
 
 ---
 
-## Slide 18 — Vision and connect (~90 sec — the close)
+## Slide 11 — Connect (~60 sec)
 
-**Read Andrew's verbatim paragraph aloud, slowly. This is the benediction.**
+> "The deck is at the QR. The brief template is in the deck. Photograph it now.
+>
+> Build the machinery. Not be the person doing every task faster. Build the machinery that lets good tasks get done reliably, cheaply, with accountability.
+>
+> Ed Prinz is up next on Web4. The operational layer is built. He'll show you the coordination layer. Find me after."
 
-> "In 10 years, my work is less about manually stitching tools together and more about shaping reliable loops: defining what good means, giving the system enough context, watching the evidence, deciding which problems are worth pointing it at.
->
-> Small businesses. Creators. Researchers. Solo operators. Using systems like this to build software, run audits, analyse markets, automate operations, and maintain institutional memory — without needing a large staff or a huge SaaS budget.
->
-> The goal is not to be the person doing every task faster. The goal is to build the machinery that lets good tasks get done reliably, cheaply, and with accountability."
+---
 
-**Hold a beat.** Then:
+## Slide 12 — Walk Off (~30 sec)
 
-> "Three QRs. OpenClaw. My fleet, including the harness. This deck and the Commission Card template.
->
-> Photograph the Card. Run one tonight.
->
-> Ed Prinz is up next on Web4. Find me after."
+**Read it. Walk off. Don't elaborate.**
+
+> "Stop chatting. Start commissioning. Tonight."
+
+**Beat:** silence. Walk to the side of the stage. Hand the room to Ed.
 
 ---
 
 ## Time discipline
 
-| Slot | Slide | Duration |
+| Slot | Slide | Cumulative |
 |---|---|---|
-| 0:00–1:30 | 1. Hook | 90s |
-| 1:30–3:00 | 2. Karpathy | 90s |
-| 3:00–4:30 | 3. Thesis | 90s |
-| 4:30–5:45 | 4. Chat trap | 75s |
-| 5:45–7:00 | 5. Commission | 75s |
-| 7:00–9:00 | 6. The Card (commission live) | 120s |
-| 9:00–10:40 | 7. Decompose & Route (live) | 100s |
-| 10:40–12:20 | 8. Verify & Document (live) | 100s |
-| 12:20–14:00 | 9. Approve & Follow-up (live) | 100s |
-| 14:00–15:15 | 10. Card completed | 75s |
-| 15:15–16:30 | 11. Voice rig | 75s |
-| 16:30–18:10 | 12. Anismin | 100s |
-| 18:10–19:50 | 13. Meridian + war story | 100s |
-| 19:50–21:20 | 14. Time freed | 90s |
-| 21:20–23:00 | 15. Pitfalls + truth | 100s |
-| 23:00–24:30 | 16. Day 1/30/90 | 90s |
-| 24:30–25:45 | 17. Bridge to Web4 | 75s |
-| 25:45–27:15 | 18. Vision + QRs | 90s |
-| 27:15–30:00 | Q&A buffer or breath room | 165s |
+| 0:00–1:15 | 1. Title | 1:15 |
+| 1:15–3:15 | 2. The Bet | 3:15 |
+| 3:15–5:45 | 3. The Brief | 5:45 |
+| 5:45–7:00 | 4. Commission (live demo) | 7:00 |
+| 7:00–10:00 | 5. Six Moves (narration) | 10:00 |
+| 10:00–11:30 | 6. Bet Paid Off | 11:30 |
+| 11:30–13:30 | 7. The Team | 13:30 |
+| 13:30–14:45 | 8. Honest Beat | 14:45 |
+| 14:45–16:15 | 9. Day 1/30/90 | 16:15 |
+| 16:15–17:15 | 10. Hostage Callback | 17:15 |
+| 17:15–18:15 | 11. Connect | 18:15 |
+| 18:15–18:45 | 12. Walk Off | 18:45 |
 
-If you're past slide 11 with under 14 minutes left, skip slide 14 (Time freed) — its content survives in the closing benediction.
+**Total: ~18:45 of content. Buffer: 11:15 for organic stretch, audience reactions, demo wait time, Q&A.**
 
-If the live demo runs long (over 20s on slide 7), don't wait. Click forward and narrate from slide 8. The artifact will appear when it appears; the slides keep moving.
+This deck is deliberately under the 30-min budget. The bet on slide 2 promises an 18-minute demo arc; over-running there is fine. Under-running gives Andrew breathing room and Q&A latitude.
 
 ---
 
-## Cut-list (if running over)
+## What to do if the demo runs long
 
-In order of expendability:
-1. Slide 14 (Time freed) — the closing vision covers the same ground
-2. Slide 4 (Chat trap) — slide 5 carries the contrast
-3. Slide 11 (Voice rig) — the demo already showed the rig running
-4. Slide 17 (Bridge to Web4) — Ed picks up regardless
-
-Keep at all costs:
-- The hook (slide 1)
-- The Commission Card (slide 6)
-- The four pattern-naming slides (7, 8, 9, 10)
-- Anismin's two quotes (slide 12)
-- The honest beat on slide 15
-- The closing vision (slide 18)
+- The artifact should be visible by the end of slide 5. If it isn't, click forward to slide 6 anyway. The "DONE" framing on slide 6 still works as a verbal claim — when the artifact does appear (slide 7 or later), gesture and acknowledge: *"There it is. Took longer than usual. That's venue Wi-Fi."*
+- If voice never replies but text posts: same flow. Slide 6 is about the file existing, not the voice.
+- If both fail: the line is *"Voice is offline. The honest version of always-on, exactly what slide 8 will warn. If it breaks, you see it break. That's the talk too."* Click forward. Do not retry. Do not apologise.
 
 ---
 
-## Backup recovery lines
+## What to do if the demo runs short
 
-- **Voice fails on demo:** *"Voice is offline. GPU is busy with critic work, exactly what I'll show you on slide 11. The same card runs in Discord text — watch the channel."*
-- **Network drops entirely:** *"Venue Wi-Fi just took the day off. The pre-recorded demo is on the lectern. Same stack, same agent, recorded earlier today."* [switch tab, play 30s clip]
-- **Both fail:** *"If it breaks, you see it break. The talk's whole point is honesty about what's running. Slide 6 already has the Card. Steal it. Run one tonight."*
+- If the artifact appears on slide 4 (during the commission speech): perfect. Acknowledge: *"That fast. He didn't even let me finish the explanation."* Click through slide 5 quickly, dwelling only on moves 4-6 (the parts the audience didn't see directly).
+- If you finish all 12 slides in 20 minutes: stop. Take questions. Walk off at 27.
+
+---
+
+## The one cut, if running over
+
+**Cut slide 11 (Connect)**. Read the QR aloud, gesture at the projector, and go straight to slide 12 (Walk Off). The connect slide buys nothing the QR doesn't already buy.
 
 ---
 
 ## Common Q&A traps
 
-- *"Isn't this just AutoGPT?"* — No. AutoGPT had no holdout reviewer, no calibration replay, no invariant checks, no commission contract. The harness is the difference.
-- *"What about hallucinations?"* — They happen. The QwQ critic catches the dangerous ones. The non-dangerous ones don't ship because of rollout gates.
-- *"How much does this cost?"* — Anismin runs on a $20 VPS. Meridian's RTX 5090 was sunk cost from gaming. Cloud Opus is metered per call. The expensive thing is your time, and you're getting it back.
-- *"Will I need to learn to code?"* — To run a Commission Card, no. You write markdown. You read the artifact. The agent does the code. If you can write a brief for a contractor, you can commission an agent.
+- *"Isn't this just AutoGPT?"* — No. AutoGPT had no holdout reviewer, no calibration replay, no tripwires from past failures, no commission contract. The brief is the difference.
+- *"What about hallucinations?"* — They happen. The local critic catches the dangerous ones. The non-dangerous ones don't ship because the verify step requires a real artifact at a real path.
+- *"How much does this cost?"* — Anismin runs on a $20 VPS. Meridian's hardware was a sunk cost. Cloud Opus is metered per call. The expensive thing is your time, and you're getting it back.
+- *"Will I need to learn to code?"* — To run a brief, no. You write markdown. You read the artifact. The agent writes the code. If you can brief a freelancer, you can commission an agent.
 - *"What about Ed's Web4?"* — That's the next talk. Don't steal Ed's thunder.
+
+---
+
+## What changed from v7 (so you know what's gone)
+
+The 18-slide v7 deck is replaced. Major cuts:
+- Karpathy LLM-as-OS thread (cut: authority appeal, doesn't earn its slot)
+- Workbench thesis grid as standalone (cut: 6 moves emerge from the live demo)
+- Chat trap as standalone (cut: implicit in the hostage callback)
+- Voice rig diagram (cut: voice ran in the demo)
+- Time freed slide (cut: the live demo IS time freed)
+- Pitfalls grid (cut: one pitfall folded into the honest beat)
+- Web4 bridge as a slide (cut: one verbal sentence to Ed)
+- 10-year vision as standalone (cut: integrated into Connect)
+- 3 QRs at close → 1 QR (deck + brief template)
+
+The story is the spine. The bet is the hook. The artifact is the payoff. The hostage callback is the close. Everything else got out of the way.

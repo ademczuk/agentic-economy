@@ -39,7 +39,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .mega{font-size:clamp(2.4rem,5.6vw,4.2rem);font-weight:900;line-height:1.05;text-align:center;letter-spacing:-0.02em}
 .big{font-size:clamp(1.4rem,3.6vw,2.6rem);font-weight:700;line-height:1.15;text-align:center}
 .mid{font-size:clamp(1.05rem,2.3vw,1.6rem);font-weight:600;line-height:1.3;text-align:center}
-.body{font-size:clamp(0.85rem,1.45vw,1.1rem);line-height:1.6;color:var(--dim);text-align:center;max-width:760px}
+.body{font-size:clamp(0.9rem,1.55vw,1.2rem);line-height:1.6;color:var(--dim);text-align:center;max-width:820px}
 .small{font-size:clamp(0.7rem,1vw,0.85rem);color:var(--muted);text-align:center}
 .mono{font-family:var(--mono)}
 
@@ -66,7 +66,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);transition:border-color 0.3s}
 .card:hover{border-color:var(--border-hover)}
 .card h3{font-size:0.95rem;font-weight:700;margin-bottom:8px}
-.card p,.card li{font-size:0.82rem;color:var(--dim);line-height:1.5}
+.card p,.card li{font-size:0.85rem;color:var(--dim);line-height:1.5}
 .card ul{list-style:none;padding:0}
 .card li{padding:4px 0 4px 14px;position:relative}
 .card li::before{content:'';position:absolute;left:0;top:50%;width:5px;height:5px;border-radius:50%;background:var(--cyan);transform:translateY(-50%)}
@@ -80,23 +80,18 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .flow-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:0.78rem;font-weight:600;text-align:center;backdrop-filter:var(--blur);min-width:100px}
 .flow-arrow{color:var(--purple);font-size:1.1rem;font-weight:700}
 
-.pipeline{display:flex;flex-direction:column;gap:8px;max-width:760px;width:100%}
+.pipeline{display:flex;flex-direction:column;gap:8px;max-width:780px;width:100%}
 .pipe-step{display:flex;align-items:center;gap:14px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;backdrop-filter:var(--blur)}
 .pipe-num{font-family:var(--mono);font-size:0.85rem;font-weight:900;color:var(--purple);min-width:36px;text-align:center}
-.pipe-label{font-weight:700;font-size:0.88rem}
-.pipe-desc{font-size:0.76rem;color:var(--dim);margin-top:1px}
+.pipe-label{font-weight:700;font-size:0.92rem}
+.pipe-desc{font-size:0.78rem;color:var(--dim);margin-top:1px}
 
-.quote-block{background:var(--card);border-left:3px solid var(--purple);border-radius:0 10px 10px 0;padding:14px 18px;max-width:780px;width:100%;backdrop-filter:var(--blur)}
+.quote-block{background:var(--card);border-left:3px solid var(--purple);border-radius:0 10px 10px 0;padding:14px 18px;max-width:820px;width:100%;backdrop-filter:var(--blur)}
 .quote-block.green{border-left-color:var(--green)}
 .quote-block.red{border-left-color:var(--red)}
 .quote-block.cyan{border-left-color:var(--cyan)}
 .quote-block.orange{border-left-color:var(--orange)}
 .quote-block.yellow{border-left-color:var(--yellow)}
-
-.vs-container{display:flex;align-items:stretch;gap:18px;max-width:960px;width:100%}
-.vs-box{flex:1;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;backdrop-filter:var(--blur)}
-.vs-box h3{font-size:1rem;font-weight:700;margin-bottom:10px}
-.vs-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
 
 .mt-1{margin-top:8px}.mt-2{margin-top:14px}.mt-3{margin-top:22px}.mt-4{margin-top:30px}
 .text-purple{color:var(--purple)}.text-cyan{color:var(--cyan)}.text-green{color:var(--green)}
@@ -137,8 +132,8 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .card-glow-pink{border-color:rgba(236,72,153,0.3);box-shadow:0 0 20px rgba(236,72,153,0.1)}
 .card-glow-blue{border-color:rgba(59,130,246,0.3);box-shadow:0 0 20px rgba(59,130,246,0.1)}
 
-.waveform{display:flex;align-items:center;justify-content:center;gap:4px;height:44px;margin:0 auto}
-.waveform .bar{width:4px;background:linear-gradient(to top,var(--orange),var(--pink));border-radius:2px;animation:wave 1.2s ease-in-out infinite}
+.waveform{display:flex;align-items:center;justify-content:center;gap:4px;height:48px;margin:0 auto}
+.waveform .bar{width:5px;background:linear-gradient(to top,var(--orange),var(--pink));border-radius:2px;animation:wave 1.2s ease-in-out infinite}
 .waveform .bar:nth-child(1){animation-delay:0s;height:18px}
 .waveform .bar:nth-child(2){animation-delay:0.1s;height:32px}
 .waveform .bar:nth-child(3){animation-delay:0.2s;height:42px}
@@ -151,19 +146,9 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .waveform .bar:nth-child(10){animation-delay:0.1s;height:26px}
 @keyframes wave{0%,100%{transform:scaleY(0.5)}50%{transform:scaleY(1.2)}}
 
-.codeblock{background:rgba(10,14,26,0.85);border:1px solid var(--border);border-radius:10px;padding:14px 18px;font-family:var(--mono);font-size:clamp(0.72rem,1vw,0.92rem);color:var(--dim);white-space:pre;text-align:left;max-width:780px;width:100%;line-height:1.6;overflow-x:auto}
-.codeblock .ck{color:var(--purple);font-weight:600}
-.codeblock .cs{color:var(--green)}
-.codeblock .cc{color:var(--muted);font-style:italic}
-.codeblock .cv{color:var(--cyan)}
-.codeblock .cf{color:var(--orange)}
-.codeblock .cy{color:var(--yellow);font-weight:600}
-
-.move-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;backdrop-filter:var(--blur);position:relative;transition:all 0.3s}
-.move-card.active{border-color:rgba(168,85,247,0.6);box-shadow:0 0 30px rgba(168,85,247,0.25);transform:translateY(-3px)}
-.move-card .move-num{font-family:var(--mono);font-size:0.7rem;color:var(--muted);font-weight:700;letter-spacing:1px;margin-bottom:6px}
-.move-card .move-title{font-size:1rem;font-weight:800;margin-bottom:6px}
-.move-card .move-desc{font-size:0.78rem;color:var(--dim);line-height:1.5}
+/* Pulsing dot for "happening now" */
+.pulse-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--green);animation:pulse-glow 1.6s ease-in-out infinite;vertical-align:middle;margin-right:8px}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 4px var(--green);transform:scale(1)}50%{box-shadow:0 0 16px var(--green),0 0 32px rgba(16,185,129,0.4);transform:scale(1.2)}}
 </style>
 </head>
 <body>
@@ -180,7 +165,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Fiskaly Wien</span> <span style="color:var(--cyan)">&middot; 29 Apr 2026</span></div>
 </div>
 
-<div id="slide-counter">1 / 18</div>
+<div id="slide-counter">1 / 12</div>
 <div id="key-hint">&larr; &rarr; navigate &middot; R reorder &middot; F fullscreen &middot; T 30-min timer</div>
 <div id="timer" onclick="toggleTimer()">30:00</div>
 
@@ -191,152 +176,48 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 
 <div class="deck" id="deck">
 
-<!-- 1: HOOK -->
-<div class="slide active" data-title="The Hook">
-  <span class="badge badge-red">Cold open</span>
-  <div class="big mt-2">
-    Sixty to ninety minutes <span class="text-gradient-red">every evening,</span><br>reloading your own brain.
+<!-- 1: TITLE / WARM OPEN -->
+<div class="slide active" data-title="Title">
+  <span class="badge badge-purple">Fiskaly &times; neob.ai &middot; Agentic Economy</span>
+  <div class="mega mt-3">
+    Quit chatting<br>with your agents
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-3" style="max-width:780px">
-    Because the smartest tool you own has no working memory. No routing. No verification. No follow-up.
-    You went home tonight, opened a chat window, and started over from scratch. Again.
+  <div class="mid mt-2" style="font-weight:600;color:var(--text)">
+    and get them to <span class="text-gradient-voice">work for you</span>
   </div>
-  <div class="body mt-3" style="max-width:760px;font-weight:600;color:var(--text)">That's tonight's talk.</div>
-  <div class="small mt-4">Andrew Demczuk, MSc &middot; OpenClaw Contributor &middot; Fiskaly Wien, 29 Apr 2026</div>
-  <div class="small mt-1" style="font-family:var(--mono);color:var(--purple)">github.com/ademczuk &middot; openclaw.net</div>
+  <div class="body mt-3" style="max-width:680px">A brief is a contract. A chat is a hostage situation. Tonight I'm going to bet a real piece of work on it. Live.</div>
+  <div class="small mt-4">Andrew Demczuk, MSc &middot; OpenClaw Contributor &middot; Vienna, 29 Apr 2026</div>
 </div>
 
-<!-- 2: KARPATHY THREAD -->
-<div class="slide" data-title="Karpathy's Thread">
+<!-- 2: THE BET -->
+<div class="slide" data-title="The Bet">
   <div class="slide-bg full" style="background-image:url('hero-dark-factory.png')"></div>
-  <span class="badge badge-cyan">2023 &rarr; 2026</span>
-  <div class="big mt-2">
-    Karpathy said the LLM is the kernel.<br><span class="text-gradient-claw">He didn't ship the OS.</span>
+  <span class="badge badge-yellow"><span class="pulse-dot"></span>Happening tonight, on stage</span>
+  <div class="big mt-3">
+    Right now, on a workstation in this city,<br><span class="text-gradient-yellow">my agent is waiting for a brief.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="pipeline mt-3" style="max-width:840px">
-    <div class="pipe-step">
-      <div class="pipe-num">2023</div>
-      <div><div class="pipe-label"><span class="text-cyan">"LLM is the kernel of a new OS"</span></div><div class="pipe-desc">Orchestrates input, output, code, memory. The chatbot framing is wrong.</div></div>
-    </div>
-    <div class="pipe-step">
-      <div class="pipe-num">2025</div>
-      <div><div class="pipe-label"><span class="text-purple">"LLM is CPU. Context is RAM. <em>You</em> are the OS."</span></div><div class="pipe-desc">You decide what to load. You decide how to swap. Don't dump your hard drive into RAM.</div></div>
-    </div>
-    <div class="pipe-step" style="border-color:rgba(168,85,247,0.5);box-shadow:0 0 24px rgba(168,85,247,0.2)">
-      <div class="pipe-num">2026</div>
-      <div><div class="pipe-label"><span class="text-pink">The kernel works. The OS is what's missing.</span></div><div class="pipe-desc">Composio: "stalled pilot syndrome." Brilliant kernels, no integration layer. The OS layer is where this year is won.</div></div>
-    </div>
+  <div class="body mt-3" style="max-width:840px">
+    His name is Meridian. In about eight minutes I'm going to commission him to log <em>this exact talk</em> into his memory. While I keep explaining how, he'll do it. By minute eighteen, the file will exist. You'll see the path appear on screen.
   </div>
-  <div class="small mt-3" style="color:var(--purple);font-family:var(--mono)">Tonight's talk: build the OS.</div>
-</div>
-
-<!-- 3: FROM ASSISTANT TO WORKBENCH -->
-<div class="slide" data-title="The Thesis">
-  <span class="badge badge-purple">The thesis</span>
-  <div class="big mt-2">
-    Not just an AI assistant.<br>A <span class="text-gradient-purple">disciplined workbench.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">You describe an outcome. The system handles the rest. Six moves. One spine.</div>
-  <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
-    <div class="card card-glow-purple">
-      <h3><span class="text-purple">1. Decompose</span></h3>
-      <p>The outcome is split into research, design, implementation, verification, documentation, follow-up.</p>
-    </div>
-    <div class="card card-glow-cyan">
-      <h3><span class="text-cyan">2. Route</span></h3>
-      <p>Each piece goes to the right model. Cost. Quality. Privacy. Latency. Local or hosted.</p>
-    </div>
-    <div class="card card-glow-green">
-      <h3><span class="text-green">3. Verify</span></h3>
-      <p>Deterministic tools prove what happened. Every claim has an artifact. No vibes.</p>
-    </div>
-    <div class="card card-glow-orange">
-      <h3><span class="text-orange">4. Document</span></h3>
-      <p>Every failure becomes a regression guard. Knowledge flows back into a durable wiki.</p>
-    </div>
-    <div class="card card-glow-pink">
-      <h3><span class="text-pink">5. Approve</span></h3>
-      <p>Human approval is reserved for judgment calls, risk boundaries, and product taste.</p>
-    </div>
-    <div class="card card-glow-yellow">
-      <h3><span class="text-yellow">6. Follow-up</span></h3>
-      <p>The next commission starts smarter. The system gets sharper while you sleep.</p>
-    </div>
+  <div class="quote-block yellow mt-3">
+    <div style="font-size:1rem;font-weight:600">If the bet pays off, you've watched the workbench complete a real piece of work in front of you. If it fails, you'll see exactly where it failed and why. Either way, that's the talk.</div>
   </div>
 </div>
 
-<!-- 4: THE CHAT TRAP -->
-<div class="slide" data-title="The Chat Trap">
-  <span class="badge badge-red">The trap</span>
+<!-- 3: WHAT IS A BRIEF -->
+<div class="slide" data-title="The Brief">
+  <span class="badge badge-cyan">The contract</span>
   <div class="big mt-2">
-    You typed 4,000 words yesterday.<br><span class="text-gradient-red">Your agent shipped nothing.</span>
+    The brief is a six-field contract.<br><span class="text-gradient">Same fields a contractor expects.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-2">Re-paste the context. Re-frame the prompt. "No, not like that." "Closer." We've turned the smartest tool we own into a chat partner that needs constant supervision. The interface itself became the work.</div>
-  <div class="card-grid card-grid-2 mt-3" style="max-width:840px">
-    <div class="card card-glow-red">
-      <h3><span class="text-red">What you actually do all day</span></h3>
-      <ul>
-        <li>Re-paste context into a fresh window</li>
-        <li>"Try again" &middot; "Closer" &middot; "Not like that"</li>
-        <li>Lose the thread. Reframe the prompt</li>
-        <li>Forget the original ask halfway through</li>
-      </ul>
-    </div>
-    <div class="card card-glow-green">
-      <h3><span class="text-green">What got shipped without you</span></h3>
-      <p style="font-size:1.4rem;font-weight:900;color:var(--green);text-align:center;padding:14px 0">nothing</p>
-      <p>A colleague would have left by now.</p>
-    </div>
-  </div>
-</div>
-
-<!-- 5: COMMISSION DON'T CONVERSE -->
-<div class="slide" data-title="Commission">
-  <span class="badge badge-purple">The shift</span>
-  <div class="big mt-2">
-    Stop conversing.<br><span class="text-gradient-purple">Start commissioning.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:760px">A colleague gets a brief and walks away. You don't sit on Slack watching their cursor blink. So why are you doing it with your agent?</div>
-  <div class="vs-container mt-3">
-    <div class="vs-box card-glow-red">
-      <div class="vs-label text-red">Chatting</div>
-      <ul style="list-style:none;padding:0">
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Type, wait, read, type again</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Context evaporates between turns</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; You are the loop</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Output ends when you stop typing</li>
-      </ul>
-    </div>
-    <div class="vs-box card-glow-green">
-      <div class="vs-label text-green">Commissioning</div>
-      <ul style="list-style:none;padding:0">
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Brief, criteria, deadline, walk away</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Memory persists across runs</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; The harness is the loop</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Output lands while you sleep</li>
-      </ul>
-    </div>
-  </div>
-  <div class="small mt-3" style="color:var(--purple);font-family:var(--mono)">A brief is a contract. A chat is a hostage situation.</div>
-</div>
-
-<!-- 6: THE SIX-FIELD BRIEF -->
-<div class="slide" data-title="The Six-Field Brief">
-  <span class="badge badge-yellow">The contract</span>
-  <div class="big mt-2">
-    A six-field brief.<br><span class="text-gradient-yellow">Same fields a contractor expects.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:760px">If you can write a brief for a freelancer, you can commission an agent. Six fields. No code. Two minutes to write the first one.</div>
+  <div class="body mt-2" style="max-width:780px">If you can write a brief for a freelancer, you can commission an agent. Six fields. No code.</div>
   <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
     <div class="card card-glow-purple">
       <h3><span class="text-purple">Goal</span></h3>
-      <p>The outcome you want. One sentence. <em>"Log tonight's talk and extract three reusable lessons."</em></p>
+      <p>The outcome you want. <em>"Log tonight's talk and extract three reusable lessons."</em></p>
     </div>
     <div class="card card-glow-cyan">
       <h3><span class="text-cyan">Context</span></h3>
@@ -344,318 +225,146 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
     <div class="card card-glow-green">
       <h3><span class="text-green">Done means</span></h3>
-      <p>How you'll know it worked. <em>"Memory entry saved. 3 lessons. 1 follow-up suggestion."</em></p>
+      <p>How you'll know it worked. <em>"File saved. Three lessons. One follow-up."</em></p>
     </div>
     <div class="card card-glow-orange">
       <h3><span class="text-orange">Escalate if</span></h3>
-      <p>What's a stop sign. <em>"Missing context, can't verify a claim, low confidence &mdash; ping me."</em></p>
+      <p>What's a stop sign. <em>"Missing context, low confidence &mdash; ping me."</em></p>
     </div>
     <div class="card card-glow-pink">
       <h3><span class="text-pink">Deadline</span></h3>
-      <p>When you need it back. <em>"Tonight."</em> Or "by Monday morning." Or "next 5 minutes."</p>
+      <p>When you need it back. <em>"Tonight."</em> Or <em>"Next 5 minutes."</em></p>
     </div>
     <div class="card card-glow-yellow">
       <h3><span class="text-yellow">Verify</span></h3>
-      <p>How the result is proven. <em>"Write result and evidence to memory. The file is the proof."</em></p>
+      <p>How the result is proven. <em>"Write it to memory. The file is the proof."</em></p>
     </div>
   </div>
-  <div class="quote-block yellow mt-3" style="max-width:840px">
-    <div style="font-size:0.95rem;font-weight:600;line-height:1.5">In a moment I'll speak this brief out loud. The agent in the room is Meridian, on a workstation in this city. Watch the Discord channel on screen &mdash; the work appears there.</div>
-  </div>
-  <div class="small mt-2" style="color:var(--muted);font-family:var(--mono)">Template URL on the closing slide. No need to write anything down now.</div>
+  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">Watch the Discord channel on screen. The artifact will appear there.</div>
 </div>
 
-<!-- 7: DECOMPOSE & ROUTE (live, move 1+2) -->
-<div class="slide" data-title="Decompose & Route">
-  <span class="badge badge-cyan">Live &middot; Move 1 + 2</span>
+<!-- 4: THE COMMISSION (live) -->
+<div class="slide" data-title="The Commission">
+  <span class="badge badge-pink"><span class="pulse-dot"></span>Live now</span>
   <div class="big mt-2">
-    <span class="text-gradient">Decompose. Route.</span>
+    Watch <span class="text-gradient-voice">this.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">Card spoken aloud. Parakeet hears it. Claude Opus reads the goal and breaks it apart. Each chunk goes somewhere different.</div>
-  <div class="flow-row mt-3">
-    <div class="flow-box" style="border-color:rgba(168,85,247,0.4)"><span class="text-purple">Read</span><br><span style="font-size:0.7rem;color:var(--dim)">extract the talk</span><br><span style="font-size:0.65rem;color:var(--dim);font-family:var(--mono)">&rarr; Opus (cloud)</span></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-box" style="border-color:rgba(6,182,212,0.4)"><span class="text-cyan">Reflect</span><br><span style="font-size:0.7rem;color:var(--dim)">3 lessons</span><br><span style="font-size:0.65rem;color:var(--dim);font-family:var(--mono)">&rarr; Opus (cloud)</span></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-box" style="border-color:rgba(16,185,129,0.4)"><span class="text-green">Write</span><br><span style="font-size:0.7rem;color:var(--dim)">save to memory</span><br><span style="font-size:0.65rem;color:var(--dim);font-family:var(--mono)">&rarr; deterministic tool</span></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-box" style="border-color:rgba(245,158,11,0.4)"><span class="text-orange">Confirm</span><br><span style="font-size:0.7rem;color:var(--dim)">voice reply</span><br><span style="font-size:0.65rem;color:var(--dim);font-family:var(--mono)">&rarr; Haiku + Kokoro</span></div>
+  <div class="waveform mt-4">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
   </div>
-  <div class="card mt-3" style="max-width:820px;border-color:rgba(6,182,212,0.3)">
-    <h3><span class="text-cyan">How the router decides</span></h3>
-    <p style="font-size:0.85rem">Cost / quality / privacy / latency. Reflection is hard, that's Opus. Write to memory is deterministic, that's a tool, no model. Voice reply must be fast, that's Haiku + local TTS. <em>The router never asks the smart model to do a dumb job.</em></p>
+  <div class="body mt-4" style="max-width:780px">
+    Speaking the brief into Discord voice now. Meridian receives it. The work begins. I keep talking. The next slide names what's happening, in order, while it happens.
   </div>
+  <div class="small mt-4" style="color:var(--orange);font-family:var(--mono)">No fabricated demos. The artifact is the proof. If it breaks, you see it break.</div>
 </div>
 
-<!-- 8: VERIFY & DOCUMENT (live, move 3+4) -->
-<div class="slide" data-title="Verify & Document">
-  <span class="badge badge-green">Live &middot; Move 3 + 4</span>
+<!-- 5: THE SIX MOVES (named while artifact appears) -->
+<div class="slide" data-title="The Six Moves">
+  <span class="badge badge-purple">What just happened</span>
   <div class="big mt-2">
-    <span class="text-gradient-green">Verify. Document.</span>
+    Six moves. <span class="text-gradient-purple">Watch them land.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">The file is appearing in Discord text right now. Each chunk produced an artifact. Each artifact can be checked against truth.</div>
-  <div class="card-grid card-grid-2 mt-3" style="max-width:920px">
+  <div class="pipeline mt-3" style="max-width:840px">
+    <div class="pipe-step" style="border-color:rgba(168,85,247,0.4)">
+      <div class="pipe-num">1</div>
+      <div><div class="pipe-label"><span class="text-purple">Decompose</span> &middot; the goal becomes 4 sub-tasks</div><div class="pipe-desc">read, reflect, write, confirm &mdash; not one big mess</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(6,182,212,0.4)">
+      <div class="pipe-num">2</div>
+      <div><div class="pipe-label"><span class="text-cyan">Route</span> &middot; each sub-task goes to the right brain</div><div class="pipe-desc">heavy reasoning to the cloud &middot; file write to a tool, not a model &middot; voice to a fast local model</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(16,185,129,0.4)">
+      <div class="pipe-num">3</div>
+      <div><div class="pipe-label"><span class="text-green">Verify</span> &middot; produce a file you can check</div><div class="pipe-desc">no file, no commission &mdash; the path posts in Discord text. Not a vibe. A path</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(245,158,11,0.4)">
+      <div class="pipe-num">4</div>
+      <div><div class="pipe-label"><span class="text-orange">Document</span> &middot; the lesson lands in memory</div><div class="pipe-desc">the next commission starts knowing what this one learned. Tripwires from past mistakes are already armed</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(236,72,153,0.4)">
+      <div class="pipe-num">5</div>
+      <div><div class="pipe-label"><span class="text-pink">Approve</span> &middot; only judgment, never typos</div><div class="pipe-desc">"is lesson two actually a lesson?" - yes. Risk, taste, judgment. Not file paths or JSON syntax</div></div>
+    </div>
+    <div class="pipe-step" style="border-color:rgba(250,204,21,0.4)">
+      <div class="pipe-num">6</div>
+      <div><div class="pipe-label"><span class="text-yellow">Follow-up</span> &middot; the system is sharper than 20 min ago</div><div class="pipe-desc">cross-linked, indexed, searchable. The wiki grew. Tomorrow's commissions start smarter</div></div>
+    </div>
+  </div>
+  <div class="small mt-3" style="color:var(--green);font-family:var(--mono)">The path should be in Discord text by now. Look at the channel.</div>
+</div>
+
+<!-- 6: BET PAID OFF -->
+<div class="slide" data-title="Bet Paid Off">
+  <span class="badge badge-green"><span class="pulse-dot"></span>DONE &middot; ~18 seconds</span>
+  <div class="big mt-2">
+    The file <span class="text-gradient-green">exists.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-3" style="max-width:820px">
+    While I was naming the six moves, the agent finished. The path is on screen. The lessons are saved. The follow-up is queued. That was a real commission, in real time, in front of you.
+  </div>
+  <div class="card-grid card-grid-3 mt-3" style="max-width:980px">
     <div class="card card-glow-green">
-      <h3><span class="text-green">Every claim has an artifact</span></h3>
-      <ul>
-        <li>The reflection wrote a file: <span class="mono small">memory/2026-04-29-fiskaly.md</span></li>
-        <li>The path posts in Discord text. You can check it</li>
-        <li>"Three lessons extracted" is now a thing on disk, not a vibe</li>
-        <li>If the file isn't there, the commission failed. No grey zone</li>
-      </ul>
+      <h3 style="font-size:1rem"><span class="text-green">What I just did</span></h3>
+      <p>Spoke a six-field brief out loud. Once. Walked away.</p>
     </div>
-    <div class="card card-glow-orange">
-      <h3><span class="text-orange">Every failure becomes a tripwire</span></h3>
-      <ul>
-        <li>The first time the agent tries to write nonsense, we catch it</li>
-        <li>We add a tripwire so the same mistake can't happen again</li>
-        <li>Tomorrow that class of bug costs zero</li>
-        <li>The system gets less stupid every week</li>
-      </ul>
+    <div class="card card-glow-cyan">
+      <h3 style="font-size:1rem"><span class="text-cyan">What the agent just did</span></h3>
+      <p>Decomposed, routed, verified, documented, surfaced for approval, queued follow-up.</p>
+    </div>
+    <div class="card card-glow-purple">
+      <h3 style="font-size:1rem"><span class="text-purple">What the room just saw</span></h3>
+      <p>An artifact appear at a real file path. Not a slide. Not a claim. A file.</p>
     </div>
   </div>
   <div class="quote-block green mt-3">
-    <div style="font-size:0.92rem;font-weight:600">No artifact, no commission. The contract is the file path that appears, not the warm feeling that something happened.</div>
+    <div style="font-size:1rem;font-weight:600">That's a workbench. That's commissioning. The chat window doesn't do that.</div>
   </div>
 </div>
 
-<!-- 9: APPROVE & FOLLOW-UP (live, move 5+6) -->
-<div class="slide" data-title="Approve & Follow-up">
-  <span class="badge badge-pink">Live &middot; Move 5 + 6</span>
+<!-- 7: THE TEAM -->
+<div class="slide" data-title="The Team">
+  <div class="slide-bg" style="background-image:url('agents-meridian-anismin.png')"></div>
+  <span class="badge badge-cyan">Real agents, real work</span>
   <div class="big mt-2">
-    <span class="text-gradient-purple">Approve.</span> <span class="text-gradient-yellow">Follow-up.</span>
+    Two agents. <span class="text-gradient">Six months in production.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">Voice is back in my ear. The card is closed. Now the human bit, in the right place, doing the right thing.</div>
-  <div class="card-grid card-grid-2 mt-3" style="max-width:920px">
-    <div class="card card-glow-pink">
-      <h3><span class="text-pink">What I approve</span></h3>
-      <ul>
-        <li>Judgment calls (was lesson 2 actually a lesson?)</li>
-        <li>Risk boundaries (don't post this externally yet)</li>
-        <li>Product taste (rename the file, the slug is ugly)</li>
-      </ul>
-      <p style="font-size:0.78rem;margin-top:6px;font-style:italic">I do <em>not</em> approve typos, file paths, model picks, or whether the JSON parsed.</p>
+  <div class="card-grid card-grid-2 mt-3" style="max-width:980px">
+    <div class="card card-glow-cyan">
+      <h3 style="font-size:1.05rem"><span class="text-cyan">Anismin</span> &middot; Atlanta</h3>
+      <p>Runs my calendars, triages issues every 30 minutes, moderates the family chat (won't say my niece's name). Refused to fabricate a war story for this slide. <em>Andrew told me no fabrication for the Vienna talk prep.</em></p>
     </div>
-    <div class="card card-glow-yellow">
-      <h3><span class="text-yellow">What follows up</span></h3>
-      <ul>
-        <li>The lessons land in Meridian's wiki</li>
-        <li>Tomorrow's commission starts knowing them</li>
-        <li>If a lesson contradicts an old one, the harness pings me</li>
-        <li>The system is sharper than it was twenty minutes ago</li>
-      </ul>
+    <div class="card card-glow-purple">
+      <h3 style="font-size:1.05rem"><span class="text-purple">Meridian</span> &middot; Vienna</h3>
+      <p>The agent you just watched. Hybrid, not zero-cloud. Has a local critic that doesn't care about my feelings. Caught a real bug last quarter that three cloud models had approved as "excellent design".</p>
     </div>
   </div>
-  <div class="small mt-3" style="color:var(--pink);font-family:var(--mono)">Six moves. One card. The pattern just ran in front of you.</div>
+  <div class="quote-block cyan mt-3">
+    <div style="font-size:0.95rem;font-weight:600">"Drunk founders absorb a framework via pattern recognition while watching, not lecture-then-demo."</div>
+    <div class="small mt-1" style="text-align:left;color:var(--muted)">&mdash; Anismin, when I asked her how to structure this talk. She was right. That's why the demo just ran in the middle.</div>
+  </div>
 </div>
 
-<!-- 10: WHAT JUST HAPPENED -->
-<div class="slide" data-title="What Just Happened">
-  <span class="badge badge-green">DONE &middot; ~18 seconds</span>
+<!-- 8: THE HONEST BEAT -->
+<div class="slide" data-title="The Honest Beat">
+  <span class="badge badge-orange">Before you start</span>
   <div class="big mt-2">
-    Six moves. <span class="text-gradient-green">One brief.</span>
+    Two weeks of <span class="text-gradient-yellow">feeling slower.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">While I was talking through three slides, the agent already finished. Here's what it actually did.</div>
-  <div class="pipeline mt-3" style="max-width:840px">
-    <div class="pipe-step" style="border-color:rgba(168,85,247,0.4)">
-      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
-      <div><div class="pipe-label"><span class="text-purple">Decomposed</span> the goal into 4 sub-tasks</div><div class="pipe-desc">read the talk &middot; reflect to find lessons &middot; write to memory &middot; confirm by voice</div></div>
-    </div>
-    <div class="pipe-step" style="border-color:rgba(6,182,212,0.4)">
-      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
-      <div><div class="pipe-label"><span class="text-cyan">Routed</span> each sub-task to the right place</div><div class="pipe-desc">heavy reasoning &rarr; cloud Opus &middot; file write &rarr; deterministic tool &middot; voice &rarr; local Haiku + TTS</div></div>
-    </div>
-    <div class="pipe-step" style="border-color:rgba(16,185,129,0.4)">
-      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
-      <div><div class="pipe-label"><span class="text-green">Verified</span> by writing a file you can check</div><div class="pipe-desc">the file path posted in Discord text &mdash; if the file's not there, the commission failed</div></div>
-    </div>
-    <div class="pipe-step" style="border-color:rgba(245,158,11,0.4)">
-      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
-      <div><div class="pipe-label"><span class="text-orange">Documented</span> three lessons into the wiki</div><div class="pipe-desc">tomorrow's commissions start knowing what tonight's commission learned</div></div>
-    </div>
-    <div class="pipe-step" style="border-color:rgba(236,72,153,0.4)">
-      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
-      <div><div class="pipe-label"><span class="text-pink">Approved</span> only what needed judgment</div><div class="pipe-desc">I didn't approve typos or file paths &mdash; only "is this actually a lesson?"</div></div>
-    </div>
-    <div class="pipe-step" style="border-color:rgba(250,204,21,0.4)">
-      <div class="pipe-num" style="color:var(--green)">&#10003;</div>
-      <div><div class="pipe-label"><span class="text-yellow">Followed up</span> with a callback for next time</div><div class="pipe-desc">cross-linked into older talks &mdash; the system is sharper than it was 20 minutes ago</div></div>
-    </div>
-  </div>
-  <div class="small mt-3" style="color:var(--green);font-family:var(--mono)">That was the whole pattern. Now I'll show you what runs underneath.</div>
-</div>
-
-<!-- 11: VOICE RIG -->
-<div class="slide" data-title="Voice Rig">
-  <span class="badge badge-orange">Underneath</span>
-  <div class="big mt-2">
-    Talk to it. <span class="text-gradient-voice">Have it talk back.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-top:18px;max-width:1150px;width:100%;flex-wrap:wrap">
-    <img src="voice-loop.png" alt="Voice loop diagram" style="flex:1.4;min-width:340px;max-width:520px;width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,0.4)">
-    <div style="flex:1;min-width:280px;display:flex;flex-direction:column;gap:10px">
-      <div class="card card-glow-green" style="padding:12px"><h3><span class="text-green">Parakeet v3</span> &middot; <span class="mono small">:5093</span></h3><p style="font-size:0.78rem">Speech-to-text. Local. Sub-second.</p></div>
-      <div class="card card-glow-purple" style="padding:12px"><h3><span class="text-purple">Anthropic Haiku</span> &middot; <span class="mono small">claude-haiku-4-5</span></h3><p style="font-size:0.78rem">Fast path via clawfish. Hard work hands off to Opus.</p></div>
-      <div class="card card-glow-orange" style="padding:12px"><h3><span class="text-orange">Kokoro</span> &middot; <span class="mono small">:5094</span></h3><p style="font-size:0.78rem">Text-to-speech. Local voice. Sub-second when GPU is free.</p></div>
-    </div>
+  <div class="body mt-3" style="max-width:820px">
+    The first two weeks of doing this feel slower than your old workflow. Not faster. Slower. You're learning to write a brief instead of typing into a chat. You're learning to wait for an artifact instead of reading a stream of tokens. You're learning to approve judgment, not typos.
   </div>
   <div class="quote-block orange mt-3">
-    <div style="font-size:0.88rem;font-weight:600">Honest version of always-on: when the GPU is loaded for critic work, voice goes offline. The talk you just watched ran on this stack. If it works at midnight in a Vienna venue, it works in your kitchen.</div>
+    <div style="font-size:1rem;font-weight:600">If I don't say that out loud, the serious people in this room will discover it alone in week one and trust me less. So: it's slower at first. By week three it's not. By week eight you can't go back.</div>
   </div>
 </div>
 
-<!-- 12: ANISMIN -->
-<div class="slide" data-title="Anismin">
-  <span class="badge badge-cyan">Atlanta workhorse</span>
-  <div class="big mt-2">
-    Anismin.<br><span class="text-gradient">Atlanta. Always on.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">Claude Opus 4.7 in <span class="mono text-cyan">AnisminOS</span>, mounted at <span class="mono">/workspace</span>. Identity stack injected every session: <span class="mono">SOUL.md</span>, <span class="mono">USER.md</span>, <span class="mono">IDENTITY.md</span>, <span class="mono">TOOLS.md</span>, <span class="mono">HEARTBEAT.md</span>.</div>
-  <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
-    <div class="card card-glow-cyan">
-      <h3><span class="text-cyan">Heartbeat &middot; every 30 min</span></h3>
-      <ul>
-        <li>Tmux session WAITING checks</li>
-        <li>Boardroom v1 / v2 moderation</li>
-        <li>Soul-guardian drift detection</li>
-        <li>Dispatch queue processing</li>
-      </ul>
-    </div>
-    <div class="card card-glow-green">
-      <h3><span class="text-green">Calendar &amp; ops</span></h3>
-      <ul>
-        <li>5 Apple calendars via CalDAV</li>
-        <li>Reef-patrol fixes weekdays 7AM&ndash;1PM CST</li>
-        <li>Shipyard issue triage every other beat</li>
-        <li>AgentReef &rarr; PRmanager bridge</li>
-      </ul>
-    </div>
-    <div class="card card-glow-purple">
-      <h3><span class="text-purple">Family &amp; etiquette</span></h3>
-      <ul>
-        <li>Gatekeeps the family group chat</li>
-        <li>Only replies when "Anismin" said first</li>
-        <li>Never reveals my niece's name</li>
-        <li>House rules over LLM defaults</li>
-      </ul>
-    </div>
-  </div>
-  <div class="card-grid card-grid-2 mt-3" style="max-width:920px">
-    <div class="quote-block cyan">
-      <div style="font-size:0.88rem;font-weight:600">"Andrew explicitly told me no fabrication for the Vienna talk prep."</div>
-      <div class="small mt-1" style="text-align:left;color:var(--muted)">When I asked her for a war story for this slide, she refused.</div>
-    </div>
-    <div class="quote-block cyan">
-      <div style="font-size:0.88rem;font-weight:600">"Drunk founders absorb a framework via pattern recognition while watching, not lecture-then-demo."</div>
-      <div class="small mt-1" style="text-align:left;color:var(--muted)">When I asked her how to structure this talk. She was right.</div>
-    </div>
-  </div>
-</div>
-
-<!-- 13: MERIDIAN + WAR STORY -->
-<div class="slide" data-title="Meridian">
-  <span class="badge badge-purple">Vienna critic</span>
-  <div class="big mt-2">
-    Meridian.<br><span class="text-gradient-purple">Hybrid. The honest version.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">RTX 5090, 32 GB. Right now: <span class="mono text-cyan">~31 / 32 GB VRAM in use</span>, ~28h uptime. The stack is hybrid, not zero-cloud.</div>
-  <div class="card-grid card-grid-2 mt-3" style="max-width:980px">
-    <div class="card card-glow-purple">
-      <h3><span class="text-purple">Brains &amp; tools</span></h3>
-      <ul>
-        <li>Discord brain: <span class="mono">claude-opus-4-7</span> via clawfish</li>
-        <li>Tooling brain: <span class="mono">Codex 5.4</span> via openclaw gateway</li>
-        <li>Local critic: <span class="mono">QwQ-32B</span> on <span class="mono">:7869</span></li>
-        <li>Voice: <span class="mono">Parakeet :5093</span> + <span class="mono">Kokoro :5094</span></li>
-      </ul>
-    </div>
-    <div class="card card-glow-cyan">
-      <h3><span class="text-cyan">Memory &mdash; layered</span></h3>
-      <ul>
-        <li><span class="mono">SOUL.md</span> + <span class="mono">USER.md</span> &middot; identity</li>
-        <li><span class="mono">MEMORY.md</span> &middot; curated long-term</li>
-        <li><span class="mono">memory/*.md</span> &middot; dated lessons + postmortems</li>
-        <li><span class="mono">memory-flush.py</span> &rarr; PostgreSQL <span class="mono">:5434</span> + pgvector</li>
-      </ul>
-    </div>
-  </div>
-  <div class="quote-block red mt-3" style="max-width:880px">
-    <div style="font-size:0.92rem;font-weight:600;line-height:1.55">"Caught a shim-snapshot mismatch and a parser sentinel leak before rollout, which would have given us fake confidence from clean-looking metrics. That's the useful part, not the myth."</div>
-    <div class="small mt-1" style="text-align:left;color:var(--muted)">&mdash; Meridian, on QwQ-32B as adversarial critic. The kind of failure that becomes a permanent regression guard.</div>
-  </div>
-</div>
-
-<!-- 14: TIME FREED -->
-<div class="slide" data-title="Time Freed">
-  <span class="badge badge-green">What you actually get</span>
-  <div class="big mt-2">
-    Time freed,<br><span class="text-gradient-green">not time spent.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">A typical week with Anismin running heartbeats, Meridian on hybrid duty, and the harness merging the receipts.</div>
-  <div class="card-grid card-grid-2 mt-3" style="max-width:920px">
-    <div class="card card-glow-red">
-      <h3><span class="text-red">Without the workbench</span></h3>
-      <ul>
-        <li>Inbox: read every message, decide every reply</li>
-        <li>PRs: review every diff, approve every merge</li>
-        <li>Calendar: ten conflicts a week, you resolve all of them</li>
-        <li>Memory: Notion docs nobody re-reads</li>
-        <li>End of week: tired, behind, the same things to do Monday</li>
-      </ul>
-    </div>
-    <div class="card card-glow-green">
-      <h3><span class="text-green">With the workbench</span></h3>
-      <ul>
-        <li>Inbox: agent triages, you read 8 things instead of 78</li>
-        <li>PRs: regression guard runs first; you approve judgment, not typos</li>
-        <li>Calendar: ten conflicts handled, escalated only when there's a person to choose between</li>
-        <li>Memory: the wiki gets sharper every commission</li>
-        <li>End of week: same hours worked, twice the things shipped</li>
-      </ul>
-    </div>
-  </div>
-  <div class="small mt-3" style="color:var(--green);font-family:var(--mono)">Same hours. Different outputs. The advantage of small is focus, not headcount.</div>
-</div>
-
-<!-- 15: PITFALLS + HONEST BEAT -->
-<div class="slide" data-title="Pitfalls &amp; Honesty">
-  <span class="badge badge-yellow">Before you start</span>
-  <div class="big mt-2">
-    Four traps. <span class="text-gradient-yellow">One uncomfortable truth.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="card-grid card-grid-4 mt-3" style="max-width:1150px">
-    <div class="card card-glow-red" style="padding:14px">
-      <h3 style="font-size:0.9rem"><span class="text-red">1. Full-system thinking</span></h3>
-      <p style="font-size:0.78rem">Wanting the whole stack before you've run a single agent through a real workflow. Start with one card, one outcome, one artifact.</p>
-    </div>
-    <div class="card card-glow-orange" style="padding:14px">
-      <h3 style="font-size:0.9rem"><span class="text-orange">2. Better-model thinking</span></h3>
-      <p style="font-size:0.78rem">"Maybe Opus 5 will fix it." A stronger LLM won't clean your data, fix your retrieval, or design your workflow. The bottleneck is the OS, not the kernel.</p>
-    </div>
-    <div class="card card-glow-purple" style="padding:14px">
-      <h3 style="font-size:0.9rem"><span class="text-purple">3. Skipping oversight</span></h3>
-      <p style="font-size:0.78rem">"Set it and forget it" agents go feral inside a week. Read every artifact for the first month. Earn the trust before you delegate it.</p>
-    </div>
-    <div class="card card-glow-blue" style="padding:14px">
-      <h3 style="font-size:0.9rem"><span class="text-blue">4. Wrong-tool fit</span></h3>
-      <p style="font-size:0.78rem">Enterprise orchestration platforms for solo problems. A markdown file and a shell loop beat a SaaS tier you'll never use.</p>
-    </div>
-  </div>
-  <div class="quote-block yellow mt-3">
-    <div style="font-size:0.95rem;font-weight:600">The uncomfortable truth: the first two weeks feel <em>slower</em>. You're learning to issue commissions instead of vibes. If I don't say that out loud, the serious people will discover it alone and trust me less.</div>
-  </div>
-</div>
-
-<!-- 16: DAY 1 / DAY 30 / DAY 90 -->
+<!-- 9: DAY 1 / DAY 30 / DAY 90 -->
 <div class="slide" data-title="Starter Kit">
   <span class="badge badge-cyan">Monday morning</span>
   <div class="big mt-2">
@@ -664,97 +373,81 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="divider mt-3"></div>
   <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
     <div class="card card-glow-cyan">
-      <h3><span class="text-cyan">Day 1 &middot; one card, one outcome</span></h3>
+      <h3 style="font-size:1rem"><span class="text-cyan">Day 1 &middot; one brief</span></h3>
       <ul>
         <li>Pick a recurring annoying task</li>
-        <li>Write one Commission Card for it</li>
-        <li>Save the artifact to one folder</li>
+        <li>Write one six-field brief for it</li>
+        <li>Save what comes back to one folder</li>
         <li>Run it once, by hand if you have to</li>
       </ul>
-      <p style="font-size:0.78rem;margin-top:6px;font-style:italic">You now have an OS prototype. Tonight.</p>
+      <p style="font-size:0.78rem;margin-top:6px;font-style:italic;color:var(--cyan)">You now have an OS prototype. Tonight.</p>
     </div>
     <div class="card card-glow-purple">
-      <h3><span class="text-purple">Day 30 &middot; the wiki and the guard</span></h3>
+      <h3 style="font-size:1rem"><span class="text-purple">Day 30 &middot; the wiki</span></h3>
       <ul>
-        <li>Obsidian vault with dated lessons</li>
-        <li>An index file pointing at your articles</li>
-        <li>One regression guard that has caught something real</li>
-        <li>The agent runs from a markdown brief, not a chat</li>
+        <li>An Obsidian vault of dated lessons</li>
+        <li>One tripwire that has caught something real</li>
+        <li>Briefs run from markdown, not chat</li>
+        <li>You stop re-pasting context every morning</li>
       </ul>
     </div>
     <div class="card card-glow-green">
-      <h3><span class="text-green">Day 90 &middot; routing and voice</span></h3>
+      <h3 style="font-size:1rem"><span class="text-green">Day 90 &middot; the workbench</span></h3>
       <ul>
-        <li>Routing across two or more models</li>
-        <li>Voice in / voice out (or stay text - it's optional)</li>
-        <li>Shared memory across surfaces (chat, terminal, phone)</li>
-        <li>You're commissioning, not chatting. Daily.</li>
+        <li>Routing across two or more brains</li>
+        <li>Voice optional, not the point</li>
+        <li>One agent, or two, that you trust</li>
+        <li>You're commissioning, daily</li>
       </ul>
     </div>
   </div>
-  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">No one needs to be at Day 90 next week. Just don't be at Day 0 next month.</div>
+  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">Nobody needs to be at Day 90 next week. Just don't be at Day 0 next month.</div>
 </div>
 
-<!-- 17: BRIDGE TO WEB4 -->
-<div class="slide" data-title="Bridge to Web4">
-  <div class="slide-bg" style="background-image:url('agents-meridian-anismin.png')"></div>
-  <span class="badge badge-purple">Bridge to Ed's talk</span>
-  <div class="big mt-2">
-    First make it work for one human.<br><span class="text-gradient-purple">Then wire them up.</span>
+<!-- 10: HOSTAGE CALLBACK -->
+<div class="slide" data-title="Hostage Callback">
+  <span class="badge badge-red">The line that started this</span>
+  <div class="mega mt-3" style="line-height:1.1">
+    A brief is a <span class="text-gradient">contract.</span><br>
+    A chat is a <span class="text-gradient-red">hostage situation.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:780px">Everything I just showed gets one agent reliably commissioned by one human. That's the operational layer. The foundation Web4 needs. The next layer is where agents find each other, trust each other, transact, coordinate across companies. That is Ed's talk.</div>
-  <div class="vs-container mt-3">
-    <div class="vs-box card-glow-cyan">
-      <div class="vs-label text-cyan">This talk &middot; Operational layer</div>
-      <ul style="list-style:none;padding:0">
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Voice in, work out</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Six moves of a workbench</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; One human gets leverage</li>
-      </ul>
-    </div>
-    <div class="vs-box card-glow-purple">
-      <div class="vs-label text-purple">Ed's talk &middot; Coordination layer</div>
-      <ul style="list-style:none;padding:0">
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Discovery, trust, transact</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; Agents finding agents across companies</li>
-        <li style="padding:5px 0;font-size:0.86rem;color:var(--dim)">&bull; A market emerges</li>
-      </ul>
-    </div>
+  <div class="body mt-3" style="max-width:760px">
+    You watched the contract execute in front of you. Eighteen seconds. Real file. Real lessons. Real follow-up.
+    Walk home. Write one brief. Run it before you sleep.
   </div>
 </div>
 
-<!-- 18: VISION + QRs -->
-<div class="slide" data-title="Vision &amp; Connect">
-  <span class="badge badge-pink">Closing</span>
+<!-- 11: BRIDGE TO ED + CTA -->
+<div class="slide" data-title="Connect">
+  <span class="badge badge-purple">Take it home</span>
   <div class="big mt-2">
     Build the <span class="text-gradient-purple">machinery.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="quote-block mt-3" style="max-width:840px">
-    <div style="font-size:0.95rem;font-weight:600;line-height:1.6">In 10 years, my work is less about manually stitching tools together and more about shaping reliable loops: defining what good means, giving the system enough context, watching the evidence, deciding which problems are worth pointing it at.<br><br>
-    Small businesses, creators, researchers, solo operators using systems like this to build software, run audits, analyse markets, automate operations, and maintain institutional memory without needing a large staff or a huge SaaS budget.<br><br>
-    The goal is not to be the person doing every task faster. The goal is to build the machinery that lets good tasks get done reliably, cheaply, and with accountability.</div>
-    <div class="small mt-2" style="text-align:left;color:var(--muted)">&mdash; Andrew Demczuk, the talk you just heard.</div>
+  <div class="body mt-3" style="max-width:820px">
+    Not be the person doing every task faster. Build the machinery that lets good tasks get done reliably, cheaply, with accountability. The deck and the brief template are at the QR. Photograph it now.
   </div>
-  <div style="display:flex;align-items:flex-start;justify-content:center;gap:2.5vw;width:95vw;margin-top:18px;flex-wrap:wrap">
-    <div class="card card-glow-purple" style="text-align:center;padding:12px 16px;flex:1;max-width:240px">
-      <h3 style="font-size:0.9rem"><span class="text-purple">OpenClaw</span></h3>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://openclaw.net&bgcolor=111827&color=a855f7" style="margin:6px auto;display:block;border-radius:8px;width:100%;aspect-ratio:1" alt="OpenClaw QR">
-      <p style="font-family:var(--mono);font-size:0.72rem">openclaw.net</p>
-    </div>
-    <div class="card card-glow-orange" style="text-align:center;padding:12px 16px;flex:1;max-width:240px">
-      <h3 style="font-size:0.9rem"><span class="text-orange">My fleet</span></h3>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://github.com/ademczuk&bgcolor=111827&color=f59e0b" style="margin:6px auto;display:block;border-radius:8px;width:100%;aspect-ratio:1" alt="GitHub QR">
-      <p style="font-family:var(--mono);font-size:0.72rem">github.com/ademczuk</p>
-    </div>
-    <div class="card card-glow-cyan" style="text-align:center;padding:12px 16px;flex:1;max-width:240px">
-      <h3 style="font-size:0.9rem"><span class="text-cyan">This deck + Card</span></h3>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://ademczuk.github.io/agentic-economy/slides.html&bgcolor=111827&color=06b6d4" style="margin:6px auto;display:block;border-radius:8px;width:100%;aspect-ratio:1" alt="Slides QR">
-      <p style="font-family:var(--mono);font-size:0.72rem">slides + commission.md template</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:30px;margin-top:24px;flex-wrap:wrap">
+    <div class="card card-glow-cyan" style="text-align:center;padding:16px 22px;max-width:300px">
+      <h3 style="font-size:1.05rem"><span class="text-cyan">Deck + brief template</span></h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=https://ademczuk.github.io/agentic-economy/slides.html&bgcolor=111827&color=06b6d4" style="margin:8px auto;display:block;border-radius:8px;width:240px;aspect-ratio:1" alt="Slides QR">
+      <p style="font-family:var(--mono);font-size:0.78rem">ademczuk.github.io/agentic-economy</p>
     </div>
   </div>
-  <div class="small mt-2" style="color:var(--purple)">Ed Prinz is up next on Web4. Find me after.</div>
+  <div class="small mt-3" style="color:var(--purple)">Ed Prinz is up next on Web4. The operational layer is built. He'll show you the coordination layer. Find me after.</div>
+</div>
+
+<!-- 12: BLACK SLIDE / WALK-OFF -->
+<div class="slide" data-title="Walk Off">
+  <div class="mega mt-3">
+    Stop chatting.
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="mega mt-3">
+    <span class="text-gradient-voice">Start commissioning.</span>
+  </div>
+  <div class="body mt-4" style="max-width:680px;font-style:italic">Tonight.</div>
 </div>
 
 </div><!-- /deck -->
@@ -840,7 +533,7 @@ document.addEventListener('keydown',function(e){
 });
 
 document.addEventListener('click',function(e){
-  if(e.target.closest('#reorder-panel,#reorder-btn,#timer,.card a,a,.badge,.codeblock')) return;
+  if(e.target.closest('#reorder-panel,#reorder-btn,#timer,.card a,a,.badge')) return;
   if(e.clientX>window.innerWidth*0.5) next(); else prev();
 });
 
