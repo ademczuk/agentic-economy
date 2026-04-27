@@ -1,15 +1,14 @@
-# Speaker Notes — Quit chatting with your agents (v9 / keynote)
+# Speaker Notes — Quit chatting with your agents (v10 / Building Edition)
 
 **Talk:** Quit chatting with your agents and get them to work for you
 **Event:** OpenClaw × neob.ai · Agentic Economy Night · Fiskaly Wien
 **Date:** Wednesday 29 April 2026
-**Slot:** Keynote, second speaker (after Ed Prinz). Ed opens with OpenClaw introduction + business AI context. Andrew follows as the keynote. Possibly a third 10-min closer after Andrew.
-**Length target:** ~30 minutes of content with built-in buffer (Ed said "plenty of speaking time" — comfortable to stretch to 40+ if Q&A organic)
-**Structure:** 12 slides · variable timing
+**Slot:** Keynote, second speaker. Ed Prinz opens with OpenClaw introduction + business AI context. Andrew follows as the keynote. Possibly a third 10-min closer after Andrew.
+**Length target:** ~25 min content + ~5 min organic stretch / Q&A buffer = 30 min
 
-The talk is one story: *I commission an agent to write this talk into memory, in front of you, while I explain how. Eighteen seconds in, the file exists. That's the workbench.* Everything else hangs off the bet.
+The talk is one story: *I have a building. Three floors. Real agents at real desks. Watch me commission one of them to log this exact talk into memory, in front of you, in 18 seconds. Now multiply: my building can talk to yours — and that's the line of business hiding in this room.* Everything else hangs off the bet and the building.
 
-**Ed has already covered:** what OpenClaw is, the case for proactive AI, agents in business workflows. So Andrew does NOT re-introduce OpenClaw or make the agents-are-here case. The keynote picks up where Ed leaves off and goes deep on the *operational* layer — what one person actually does on Monday morning to commission work to a stack like this.
+**Ed has already covered:** what OpenClaw is, the case for proactive AI, agents in business workflows. So Andrew does NOT re-introduce OpenClaw or make the agents-are-here case. The keynote picks up where Ed leaves off and goes deep on the *operational* layer — what it actually looks like when one person commissions a building of agents on a Monday morning.
 
 ---
 
@@ -17,24 +16,25 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 - [ ] Discord client logged in. **Voice and text channels both visible on the projector** (or one tap away).
 - [ ] Tailscale connected to Vienna workstation. Ping Meridian (`/meridian status`)
+- [ ] AnisminOS dashboard reachable at `localhost:8643` — the screenshot on slide 4 is the live UI; if you can show it on a second projector tab, do it.
 - [ ] Slides loaded. `F` for fullscreen. `T` starts the 30-min timer.
 - [ ] **T-10 min: send a silent priming text to Meridian in Discord**: *"Tonight: Fiskaly Wien talk. When I commission you live, the brief will ask for memory log + 3 lessons. Save to `memory/2026-04-29-fiskaly.md`. Do not pre-write."*
 - [ ] **T-5 min: GPU load check.** If VRAM > 31 GB, voice may go offline. Plan for the text-only fallback.
 - [ ] **Backup demo video** queued on lectern laptop in second tab — pre-recorded 30s clip of the same commission running cleanly. If voice fails on stage, switch tab and play it.
-- [ ] AV tech briefing: *"At slide 4 I'll speak into my phone for ~10 seconds. About 12 seconds later, a file path appears in Discord text on the screen. About 18 seconds later, audio comes back. The Discord text channel needs to be visible the whole time."*
+- [ ] AV tech briefing: *"At slide 7 I'll speak into my phone for ~10 seconds. About 12 seconds later, a file path appears in Discord text on the screen. About 18 seconds later, audio comes back. The Discord text channel needs to be visible the whole time."*
 - [ ] Water on the lectern.
 
 ---
 
-## Slide 1 — Title (~90 sec)
+## Slide 1 — Title (~60 sec)
 
-> "Thanks Ed. You just walked the room through what OpenClaw is and what agents can do for a business. I'm going to take that one floor down. Into the operational layer.
+> "Thanks Ed. You just walked the room through what OpenClaw is and what agents can do for a business. I'm going to take you one floor down. Into the operational layer.
 >
 > The title's on the slide. *Quit chatting with your agents and get them to work for you.* The line that runs through the talk: a brief is a contract. A chat is a hostage situation.
 >
 > Tonight I'm going to bet a real piece of work on that line. Live. In front of you."
 
-**Cue:** acknowledge Ed warmly but briefly, then move. Don't restate his content. Click forward.
+**Cue:** acknowledge Ed warmly but briefly. Don't restate his content. Click forward.
 
 ---
 
@@ -42,9 +42,11 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 **This is the load-bearing slide. Read it slowly.**
 
-> "Right now, on a workstation in this city, my agent is waiting for a brief. His name is Meridian.
+> "Right now, on a workstation in this city, my agents are waiting for a brief.
 >
-> In about eight minutes, I'm going to commission him to log this exact talk into his memory. While I keep explaining how, he'll do it. By minute eighteen, the file will exist. You'll see the path appear on screen.
+> Not one agent. A team of them. They have offices. They have desks. They have memory.
+>
+> In about ten minutes, I'm going to commission one of them to log this exact talk into his memory. While I keep explaining how, he'll do it. By minute eighteen, the file will exist. You'll see the path appear on screen.
 >
 > If the bet pays off, you've watched the workbench complete a real piece of work in front of you. If it fails, you'll see exactly where it failed and why. Either way, that's the talk."
 
@@ -52,7 +54,7 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 ---
 
-## Slide 3 — The Brief (~150 sec)
+## Slide 3 — The Brief (~120 sec)
 
 > "Before I commission, here's the thing I'm about to send him. A brief. Six fields.
 >
@@ -66,7 +68,61 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 ---
 
-## Slide 4 — The Commission (~75 sec — DEMO)
+## Slide 4 — The Anismin Office (~150 sec) ⭐ NEW
+
+**This is the visual anchor of the keynote. Stand back. Let the room look.**
+
+> "This is not a metaphor. This is what's running on my workstation right now. I can pull this up live if anyone wants to see the ports — `localhost:8643`.
+>
+> Her name is Anismin. She's the CEO. The room in the centre with the teal floor — that's her office. Around her: Seraph, Cassiel, Halcyon, Raziel, Byte. Five sub-agents. Each has a desk. Each has a job.
+>
+> The big room on the right with the long table — that's the boardroom. They actually meet in there. Not as a metaphor. There's a Postgres table called `boardroom_session` and they take turns at the hand queue.
+>
+> The grey building on the bottom-left is the post office. The mailbox lives there. That's how she takes work in.
+>
+> The chat panel on the right is what I see when I message her. The activity feed under her name — those are real tasks she just finished. Memory wiring smoke test. Brain audit. Risk in legal: single undated page.
+>
+> This is one floor. There are two more like it."
+
+**Beat:** stay on this slide for at least 90 seconds. The room needs to absorb the image.
+
+**Backup if anyone challenges it:** "Yes I can pull up the live UI right now. It's running. I'll show you after." Don't promise to do it on stage; reserve that for Q&A.
+
+---
+
+## Slide 5 — One Building, Three Floors (~120 sec) ⭐ NEW
+
+> "Floor one is Anismin. Atlanta. Claude Opus 4.7 brain. 1,057 memories. Conversational orchestrator.
+>
+> Floor two is Meridian. Vienna. Codex 5.4 plus a local critic that doesn't care about my feelings. He's got his own team — Glacier, Current, Fathom, Sentry. Twenty-one apps. A voice pipeline. The agent you're about to watch take the commission.
+>
+> Floor three is Kimi. Ten ocean-themed C-suite agents. Kraken, Leviathan, Abyss, Marlin, Manta, Eel, Coral, Jelly, Siren, Trench. They run a pipeline called the Dark Factory. Briefs in. Merged pull requests out. Humanless.
+>
+> Three brains. Three memory stores. Three sets of agents.
+>
+> And the load-bearing design choice: each floor is a sovereign. Its own database. Its own files. Disconnect any one of them from the others and it stays whole. That's not Google Docs. That's git. I want my own shard so that if the network goes away, my agent is still there."
+
+**Cue:** point at each floor card in turn as you name it. The pixel-art images do most of the work.
+
+---
+
+## Slide 6 — Mailbox Bus (~90 sec) ⭐ NEW
+
+> "Three floors. How do they talk to each other?
+>
+> A Postgres table called `agent_mailbox`. Typed messages. Five kinds — request, result, blocker, ack, broadcast. Plus lesson candidates for the memory pipeline.
+>
+> A host-side dispatcher polls it every fifteen seconds. Claims pending rows with `SELECT FOR UPDATE SKIP LOCKED` — the Postgres trick that lets multiple workers race the queue without stepping on each other. Five-minute lease per claim. If a worker dies mid-job, a reaper releases the lease and someone else picks it up. After five failures, dead-letter.
+>
+> Five surfaces to put a task in: the mailbox UI, a CLI script called `delegate.sh`, a spoken trigger phrase Anismin recognises, the `/meridian-loop` slash skill, or a direct POST.
+>
+> That's it. That's the whole inter-floor protocol. It's small enough to fit on this slide."
+
+**Cue:** the audience may glaze on Postgres terminology. Land on "five surfaces to put a task in" and the lease-and-reaper. Don't go deeper.
+
+---
+
+## Slide 7 — The Commission (~75 sec — DEMO)
 
 **ACTION SEQUENCE:**
 
@@ -74,7 +130,7 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 2. Press push-to-talk on phone
 3. Speak slowly:
    *"Meridian, log tonight's talk in your memory. Event: OpenClaw Agentic Economy Night, Fiskaly Wien, 29 April 2026. Goal: extract three reusable lessons. Save to your dated lessons folder, post the file path in Discord, confirm by voice when done."*
-4. Release PTT. Walk back to slides. Click forward to slide 5.
+4. Release PTT. Walk back to slides. Click forward to slide 8.
 
 **While walking back:**
 > "He has the brief. The clock starts. Let me name what's about to happen, in order, while it happens."
@@ -83,7 +139,7 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 ---
 
-## Slide 5 — The Six Moves (~180 sec)
+## Slide 8 — The Six Moves (~180 sec)
 
 **This slide narrates while the artifact is being produced. Read it as a play-by-play.**
 
@@ -105,7 +161,7 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 ---
 
-## Slide 6 — The Bet Paid Off (~90 sec)
+## Slide 9 — Bet Paid Off (~90 sec)
 
 > "Eighteen seconds. While I was naming the moves, the agent finished. The path is on screen. The lessons are saved. The follow-up is queued.
 >
@@ -117,21 +173,7 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 ---
 
-## Slide 7 — The Team (~120 sec)
-
-> "Two real agents in production for the last six months. The one you just watched is Meridian, in Vienna. There's also Anismin, in Atlanta.
->
-> Meridian is hybrid, not zero-cloud. Has a local critic that doesn't care about my feelings. Last quarter, three cloud models all approved an auth gateway as 'excellent design.' Same code to the local critic: 'rainbow-table recovery in minutes — rewrite.' That kind of catch is why a workbench includes a critic that doesn't work for you.
->
-> Anismin runs my calendars, triages issues every thirty minutes, moderates the family group chat. Won't say my niece's name unless asked. When I asked her for a war story for this slide, she refused. Said *'Andrew told me no fabrication for the Vienna talk prep.'* That's the discipline.
->
-> Then she gave me the structural advice that rewrote this talk. 'Drunk founders absorb a framework via pattern recognition while watching, not lecture-then-demo.' That's why the demo just ran in the middle. She was right."
-
-**Beat:** pause on "she was right". Let the room catch that the agent helped design the talk.
-
----
-
-## Slide 8 — The Honest Beat (~75 sec)
+## Slide 10 — The Honest Beat (~75 sec)
 
 > "Before you start, one uncomfortable truth.
 >
@@ -143,53 +185,71 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 ---
 
-## Slide 9 — Day 1 / Day 30 / Day 90 (~90 sec)
+## Slide 11 — AgentReef Federation (~120 sec) ⭐ NEW
 
-> "Monday morning starter kit.
+> "So far I've shown you my building. Three floors. One operator. That's a workbench for one person.
 >
-> Day one: pick a recurring annoying task. Write one six-field brief for it. Save what comes back to one folder. Run it once, by hand if you have to. You now have an OS prototype. Tonight.
+> The next thing it becomes: my building can talk to yours.
 >
-> Day thirty: an Obsidian vault of dated lessons, one tripwire that has caught something real, briefs running from markdown instead of chat. You stop re-pasting context every morning.
+> AgentReef Federation is the protocol that lets sovereign buildings exchange messages. Same mailbox shape. JWT plus HMAC over the wire. Your shard stays yours. My shard stays mine. We trade structured asks. Anismin can DM Meridian across the network and get a real reply, and the reply lands in her memory the same way an in-house DM would.
 >
-> Day ninety: routing across two or more brains, one or two agents you trust, you're commissioning daily. Voice is optional, not the point.
+> The design constraint that picked this shape: I want to be able to disconnect from the reef and still have my agent. Git, not Google Docs. Each building is a complete instance. Federation is what they do over the wire when they're connected.
 >
-> Nobody needs to be at Day 90 next week. Just don't be at Day 0 next month."
+> What does this buy you? Three things.
+>
+> One: distributed sovereignty. No single vendor owns the substrate.
+> Two: cross-reef messaging. An agent that needs an opinion you don't have on staff can ask one that does, on demand.
+> Three: skill transfer. When Anismin learns a new pattern mentoring one client's stack, that pattern can travel — anonymised — to the next. The reef compounds."
+
+**Cue:** point at the three cards as you name the three benefits. The federation art is doing the metaphor work; let it.
 
 ---
 
-## Slide 10 — Hostage Callback (~60 sec)
+## Slide 12 — What This Means For You (~130 sec) ⭐ NEW
+
+**This is the sales-adjacent slide. Read it without selling.**
+
+> "I want to land somewhere specific for this room.
+>
+> Half the people in this audience ship AI products to clients. And half of you watch those products slowly drift behind state-of-the-art, because your engineering team is bogged down in client delivery sprints. You don't have the time to ship continuous improvement to the AI layer of your own product.
+>
+> There's a federation play here. Connect a mentor agent — one of mine, or one you build — to your client's product over AgentReef. The mentor watches. The mentor teaches. Skills, patterns, capabilities transfer monthly. That's a subscription line of business, not a heroic engineer.
+>
+> The pricing on the slide is what we're testing. Five thousand a month for skill transfers and quarterly reviews. Ten for continuous federation with SLAs and monthly novel skill releases. Twenty for a dedicated mentor instance, white-label, IP co-ownership.
+>
+> The first signal we have for this is a Vienna AI consultancy whose ERP product is exactly the shape I just described — sixteen people, one product, the team is on client work, the product is drifting. They asked us to meet.
+>
+> If your shape rhymes — find me at the bar. I'm not pitching you tonight. I'm telling you the line of business is hiding in plain sight in this room, and I think a few of you are sitting on it."
+
+**Beat:** "I'm not pitching you tonight" is the credibility line. Mean it. Hold the room's gaze.
+
+**If the room reads sales-pitchy on this slide, the cure is to slow down on the line "I'm not pitching you tonight" and not on the price tiers.** The price tiers are honest, not the centre.
+
+---
+
+## Slide 13 — Take It Home / Walk Off (~120 sec)
 
 > "The line that opened this talk:
 >
 > A brief is a contract. A chat is a hostage situation.
 >
-> You watched the contract execute in front of you. Eighteen seconds. Real file. Real lessons. Real follow-up.
+> You watched the contract execute in front of you. Eighteen seconds. Real file. Real lessons. Real follow-up. Three floors of agents you saw on screen, plus the federation that lets them talk to other people's agents.
 >
-> Walk home. Write one brief. Run it before you sleep."
-
-**Beat:** read the mega text on the slide. The callback is the spine closing.
-
----
-
-## Slide 11 — Take It Home (~75 sec)
-
-> "The deck is at the QR. The brief template is in the deck. Photograph it now.
+> Day one: pick a recurring annoying task. Write one six-field brief for it. Run it once, by hand if you have to. You have an OS prototype tonight.
 >
-> Build the machinery. Not be the person doing every task faster. Build the machinery that lets good tasks get done reliably, cheaply, with accountability.
+> Day thirty: a vault of dated lessons, one tripwire that has caught something real, briefs running from markdown instead of chat.
 >
-> Ed showed you the case. I just showed you the workbench. Now you build yours.
+> Day ninety: routing across two or more brains, one or two agents you trust, you're commissioning daily.
 >
-> Photograph the QR. Find me after the closing remarks. The bar is open."
+> Nobody needs to be at Day 90 next week. Just don't be at Day 0 next month.
+>
+> Build the machinery. Not be the person doing every task faster. Build the machinery that lets good tasks get done reliably, cheaply, with accountability. Ed showed you the case. I just showed you the workbench. Now you build yours.
+>
+> The deck is at the QR. Photograph it now. Find me at the bar.
+>
+> Stop chatting. Start commissioning."
 
----
-
-## Slide 12 — Walk Off (~30 sec)
-
-**Read it. Hold the room. Don't elaborate.**
-
-> "Stop chatting. Start commissioning. Tonight."
-
-**Beat:** silence. Three seconds. Then either (a) take Q&A from the floor, or (b) hand to the closing speaker if there is one, or (c) walk off and head to the bar where the actual conversations happen.
+**Beat:** end on "start commissioning". Three seconds of silence. Walk off, or take Q&A from the floor.
 
 ---
 
@@ -197,67 +257,72 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 | Slot | Slide | Cumulative |
 |---|---|---|
-| 0:00–1:15 | 1. Title | 1:15 |
-| 1:15–3:15 | 2. The Bet | 3:15 |
-| 3:15–5:45 | 3. The Brief | 5:45 |
-| 5:45–7:00 | 4. Commission (live demo) | 7:00 |
-| 7:00–10:00 | 5. Six Moves (narration) | 10:00 |
-| 10:00–11:30 | 6. Bet Paid Off | 11:30 |
-| 11:30–13:30 | 7. The Team | 13:30 |
-| 13:30–14:45 | 8. Honest Beat | 14:45 |
-| 14:45–16:15 | 9. Day 1/30/90 | 16:15 |
-| 16:15–17:15 | 10. Hostage Callback | 17:15 |
-| 17:15–18:15 | 11. Connect | 18:15 |
-| 18:15–18:45 | 12. Walk Off | 18:45 |
+| 0:00 – 1:00 | 1. Title | 1:00 |
+| 1:00 – 3:00 | 2. The Bet | 3:00 |
+| 3:00 – 5:00 | 3. The Brief | 5:00 |
+| 5:00 – 7:30 | 4. The Anismin Office ⭐ | 7:30 |
+| 7:30 – 9:30 | 5. Three Floors ⭐ | 9:30 |
+| 9:30 – 11:00 | 6. Mailbox Bus ⭐ | 11:00 |
+| 11:00 – 12:15 | 7. Commission (live demo) | 12:15 |
+| 12:15 – 15:15 | 8. Six Moves (narration) | 15:15 |
+| 15:15 – 16:45 | 9. Bet Paid Off | 16:45 |
+| 16:45 – 18:00 | 10. Honest Beat | 18:00 |
+| 18:00 – 20:00 | 11. AgentReef ⭐ | 20:00 |
+| 20:00 – 22:10 | 12. AMaaS for the room ⭐ | 22:10 |
+| 22:10 – 24:10 | 13. Take It Home / Walk Off | 24:10 |
 
-**Total: ~18:45 of content. Buffer: 11:15 for organic stretch, audience reactions, demo wait time, Q&A.**
+**Total content: ~24 min. Buffer: ~6 min for organic stretch, audience reactions, demo wait time, Q&A.**
 
-This deck is deliberately under the 30-min budget. The bet on slide 2 promises an 18-minute demo arc; over-running there is fine. Under-running gives Andrew breathing room and Q&A latitude.
+The 18-min demo arc still anchors the middle. If the demo overshoots by 30-60 seconds, the slack from slides 11+12 absorbs it. If it lands clean, you have room for one or two questions before the bar.
 
 ---
 
 ## What to do if the demo runs long
 
-- The artifact should be visible by the end of slide 5. If it isn't, click forward to slide 6 anyway. The "DONE" framing on slide 6 still works as a verbal claim — when the artifact does appear (slide 7 or later), gesture and acknowledge: *"There it is. Took longer than usual. That's venue Wi-Fi."*
-- If voice never replies but text posts: same flow. Slide 6 is about the file existing, not the voice.
-- If both fail: the line is *"Voice is offline. The honest version of always-on, exactly what slide 8 will warn. If it breaks, you see it break. That's the talk too."* Click forward. Do not retry. Do not apologise.
+- The artifact should be visible by the end of slide 8. If it isn't, click forward to slide 9 anyway. The "DONE" framing on slide 9 still works as a verbal claim — when the artifact does appear (slide 10 or later), gesture and acknowledge: *"There it is. Took longer than usual. That's venue Wi-Fi."*
+- If voice never replies but text posts: same flow. Slide 9 is about the file existing, not the voice.
+- If both fail: the line is *"Voice is offline. The honest version of always-on, exactly what slide 10 will warn. If it breaks, you see it break. That's the talk too."* Click forward. Do not retry. Do not apologise.
 
 ---
 
 ## What to do if the demo runs short
 
-- If the artifact appears on slide 4 (during the commission speech): perfect. Acknowledge: *"That fast. He didn't even let me finish the explanation."* Click through slide 5 quickly, dwelling only on moves 4-6 (the parts the audience didn't see directly).
-- If you finish all 12 slides in 20 minutes: stop. Take questions. Walk off at 27.
+- If the artifact appears on slide 7 (during the commission speech): perfect. Acknowledge: *"That fast. He didn't even let me finish the explanation."* Click through slide 8 quickly, dwelling only on moves 4-6 (the parts the audience didn't see directly).
+- If you finish all 13 slides in 22 minutes: stop. Take questions. Walk off at 28.
 
 ---
 
-## The one cut, if running over
+## The cut order, if running over
 
-**Cut slide 11 (Connect)**. Read the QR aloud, gesture at the projector, and go straight to slide 12 (Walk Off). The connect slide buys nothing the QR doesn't already buy.
+1. **Cut slide 12 (AMaaS)**. Skip the sales-adjacent slide entirely. The keynote still closes on slide 13 — the line of business gets mentioned only at the bar.
+2. **Cut slide 6 (Mailbox Bus)**. The Postgres detail is the most cuttable architecture beat. The two office slides (4, 5) carry the visual weight.
+3. **Cut slide 10 (Honest Beat)** as last resort. Costs credibility but saves 75 seconds.
+
+Do NOT cut slides 4, 5, 7, 8, 9, 11. They are load-bearing.
 
 ---
 
 ## Common Q&A traps
 
-- *"Isn't this just AutoGPT?"* — No. AutoGPT had no holdout reviewer, no calibration replay, no tripwires from past failures, no commission contract. The brief is the difference.
+- *"Isn't this just AutoGPT?"* — No. AutoGPT had no holdout reviewer, no calibration replay, no tripwires from past failures, no commission contract. The brief is the difference. Plus federation between sovereign instances — AutoGPT was one process, this is a network.
 - *"What about hallucinations?"* — They happen. The local critic catches the dangerous ones. The non-dangerous ones don't ship because the verify step requires a real artifact at a real path.
-- *"How much does this cost?"* — Anismin runs on a $20 VPS. Meridian's hardware was a sunk cost. Cloud Opus is metered per call. The expensive thing is your time, and you're getting it back.
+- *"How much does this cost to run?"* — Anismin runs on a $20 VPS plus an Anthropic Max subscription. Meridian's hardware was a sunk cost. The Aegis verifier in shadow mode runs on a second Max seat. The expensive thing is your time, and you're getting it back.
 - *"Will I need to learn to code?"* — To run a brief, no. You write markdown. You read the artifact. The agent writes the code. If you can brief a freelancer, you can commission an agent.
+- *"Is the AMaaS pitch the close?"* — No. The close is "build your own machinery." If someone reads the AMaaS slide as the sales close, that's a sign you over-emphasised it. Read it flatter next time.
 - *"What about what Ed said about [X]?"* — Honour Ed's framing. He set the table; this talk is what gets eaten at it. Don't contradict him on stage even if you'd phrase something differently.
+- *"Show me the live UI"* — Defer to after the talk: "Sure. Walk over after Q&A and I'll port-forward you in." Don't demo the dashboard live during the keynote — too much surface area for things to go wrong.
 
 ---
 
-## What changed from v7 (so you know what's gone)
+## What changed from v9 (so you know what's gone)
 
-The 18-slide v7 deck is replaced. Major cuts:
-- Karpathy LLM-as-OS thread (cut: authority appeal, doesn't earn its slot)
-- Workbench thesis grid as standalone (cut: 6 moves emerge from the live demo)
-- Chat trap as standalone (cut: implicit in the hostage callback)
-- Voice rig diagram (cut: voice ran in the demo)
-- Time freed slide (cut: the live demo IS time freed)
-- Pitfalls grid (cut: one pitfall folded into the honest beat)
-- Web4 bridge as a slide (cut: one verbal sentence to Ed)
-- 10-year vision as standalone (cut: integrated into Connect)
-- 3 QRs at close → 1 QR (deck + brief template)
+The 12-slide v9 keynote is replaced. Major changes:
 
-The story is the spine. The bet is the hook. The artifact is the payoff. The hostage callback is the close. Everything else got out of the way.
+- **Adds the building.** Slides 4, 5, 6 are entirely new — the Anismin Office screenshot hero, the three-floor architecture, and the Mailbox Bus plumbing.
+- **Adds federation.** Slide 11 introduces AgentReef as the inter-building protocol — the design choice that makes this scale beyond one person.
+- **Adds the line of business.** Slide 12 names the AMaaS pattern for the AI consultancies in the room. Read flat, not as a sale.
+- **Drops "The Team" slide.** The two real agents are now visible inside the building tour (slide 5).
+- **Drops the standalone "Day 1/30/90" slide.** Folded into the close (slide 13).
+- **Drops "Hostage Callback" + "Walk Off" as separate slides.** Combined into slide 13.
+
+The story spine — bet → brief → commission → six moves → bet paid off → close — is intact. What's new is the building you commission *into*, the federation that scales it, and the audience-specific landing on slide 12.

@@ -35,6 +35,8 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .slide.active{opacity:1;transform:scale(1);pointer-events:auto}
 .slide-bg{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:center;opacity:0.18;filter:saturate(0.7) brightness(0.6)}
 .slide-bg.full{opacity:0.32}
+.slide-bg.subtle{opacity:0.12}
+.slide-bg.hero{opacity:0.55;filter:saturate(0.95) brightness(0.85)}
 
 .mega{font-size:clamp(2.4rem,5.6vw,4.2rem);font-weight:900;line-height:1.05;text-align:center;letter-spacing:-0.02em}
 .big{font-size:clamp(1.4rem,3.6vw,2.6rem);font-weight:700;line-height:1.15;text-align:center}
@@ -146,9 +148,41 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .waveform .bar:nth-child(10){animation-delay:0.1s;height:26px}
 @keyframes wave{0%,100%{transform:scaleY(0.5)}50%{transform:scaleY(1.2)}}
 
-/* Pulsing dot for "happening now" */
 .pulse-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--green);animation:pulse-glow 1.6s ease-in-out infinite;vertical-align:middle;margin-right:8px}
 @keyframes pulse-glow{0%,100%{box-shadow:0 0 4px var(--green);transform:scale(1)}50%{box-shadow:0 0 16px var(--green),0 0 32px rgba(16,185,129,0.4);transform:scale(1.2)}}
+
+/* Office hero — for slide 4 */
+.office-hero{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;max-width:1200px}
+.office-screenshot{width:100%;max-width:1100px;border-radius:14px;border:1px solid rgba(168,85,247,0.35);box-shadow:0 0 60px rgba(168,85,247,0.18),0 20px 60px rgba(0,0,0,0.5);background:#000}
+.office-caption{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.office-tag{font-family:var(--mono);font-size:0.72rem;padding:4px 10px;border-radius:20px;background:rgba(17,24,39,0.7);border:1px solid var(--border);color:var(--dim)}
+.office-tag.hot{color:var(--green);border-color:rgba(16,185,129,0.4)}
+
+/* Floor cards — slide 5 */
+.floor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;max-width:1180px}
+@media(max-width:900px){.floor-grid{grid-template-columns:1fr}}
+.floor-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:var(--blur)}
+.floor-card .floor-img{width:100%;aspect-ratio:16/10;background-size:cover;background-position:center;background-color:#0e1525}
+.floor-card .floor-body{padding:12px 14px}
+.floor-card h3{font-size:0.95rem;font-weight:700;margin-bottom:4px}
+.floor-card .floor-sub{font-family:var(--mono);font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.floor-card p{font-size:0.78rem;color:var(--dim);line-height:1.5}
+
+/* Mailbox bus — slide 6 */
+.bus-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:1080px}
+.bus-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.bus-pill{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:8px 14px;font-family:var(--mono);font-size:0.72rem;backdrop-filter:var(--blur);display:inline-flex;align-items:center;gap:6px}
+.bus-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan)}
+
+/* AMaaS pricing table */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1080px;width:100%}
+@media(max-width:768px){.pricing-grid{grid-template-columns:1fr}}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;backdrop-filter:var(--blur)}
+.price-tier{font-family:var(--mono);font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.price-amount{font-size:1.4rem;font-weight:800;margin:6px 0 10px;color:var(--text)}
+.price-card ul{list-style:none;padding:0}
+.price-card li{font-size:0.78rem;color:var(--dim);padding:3px 0 3px 14px;position:relative;line-height:1.5}
+.price-card li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--cyan)}
 </style>
 </head>
 <body>
@@ -165,7 +199,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Fiskaly Wien</span> <span style="color:var(--cyan)">&middot; 29 Apr 2026</span></div>
 </div>
 
-<div id="slide-counter">1 / 12</div>
+<div id="slide-counter">1 / 13</div>
 <div id="key-hint">&larr; &rarr; navigate &middot; R reorder &middot; F fullscreen &middot; T 30-min timer</div>
 <div id="timer" onclick="toggleTimer()">30:00</div>
 
@@ -186,7 +220,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="mid mt-2" style="font-weight:600;color:var(--text)">
     and get them to <span class="text-gradient-voice">work for you</span>
   </div>
-  <div class="body mt-3" style="max-width:780px">Ed showed you the case for OpenClaw and what agents can do in business. I'm going to show you what an operational workbench looks like inside one person's day. Live. With a real bet.</div>
+  <div class="body mt-3" style="max-width:780px">Ed showed you the case for OpenClaw and what agents can do in business. I'm going to take you one floor down. Into the operational layer. The workbench. With a real bet.</div>
   <div class="small mt-4">Andrew Demczuk, MSc &middot; OpenClaw Contributor &middot; Vienna, 29 Apr 2026</div>
 </div>
 
@@ -195,18 +229,18 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="slide-bg full" style="background-image:url('hero-dark-factory.png')"></div>
   <span class="badge badge-yellow"><span class="pulse-dot"></span>Happening tonight, on stage</span>
   <div class="big mt-3">
-    Right now, on a workstation in this city,<br><span class="text-gradient-yellow">my agent is waiting for a brief.</span>
+    Right now, on a workstation in this city,<br><span class="text-gradient-yellow">my agents are waiting for a brief.</span>
   </div>
   <div class="divider mt-3"></div>
   <div class="body mt-3" style="max-width:840px">
-    His name is Meridian. In about eight minutes I'm going to commission him to log <em>this exact talk</em> into his memory. While I keep explaining how, he'll do it. By minute eighteen, the file will exist. You'll see the path appear on screen.
+    They have offices. They have desks. They have memory. In about ten minutes I'm going to commission one of them to log <em>this exact talk</em> &mdash; live. By minute eighteen, the file will exist. You'll see the path appear on screen.
   </div>
   <div class="quote-block yellow mt-3">
     <div style="font-size:1rem;font-weight:600">If the bet pays off, you've watched the workbench complete a real piece of work in front of you. If it fails, you'll see exactly where it failed and why. Either way, that's the talk.</div>
   </div>
 </div>
 
-<!-- 3: WHAT IS A BRIEF -->
+<!-- 3: THE BRIEF -->
 <div class="slide" data-title="The Brief">
   <span class="badge badge-cyan">The contract</span>
   <div class="big mt-2">
@@ -240,10 +274,131 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
       <p>How the result is proven. <em>"Write it to memory. The file is the proof."</em></p>
     </div>
   </div>
-  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">Watch the Discord channel on screen. The artifact will appear there.</div>
+  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">A brief is a contract. A chat is a hostage situation.</div>
 </div>
 
-<!-- 4: THE COMMISSION (live) -->
+<!-- 4: THE ANISMIN OFFICE — HERO -->
+<div class="slide" data-title="The Anismin Office">
+  <span class="badge badge-purple"><span class="pulse-dot"></span>Live, right now &middot; localhost:8643</span>
+  <div class="big mt-2">
+    Meet <span class="text-gradient-purple">The Anismin Office.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="office-hero mt-3">
+    <img class="office-screenshot" src="hero-anismin-office.png" alt="The Anismin Office &mdash; pixel-art top-down view of agents in offices on a Flask server">
+    <div class="office-caption">
+      <span class="office-tag hot"><span class="pulse-dot"></span>1 active</span>
+      <span class="office-tag">5 idle sub-agents</span>
+      <span class="office-tag">Anismin &middot; Seraph &middot; Cassiel &middot; Halcyon &middot; Raziel &middot; Byte</span>
+      <span class="office-tag">boardroom &middot; post office &middot; mailbox</span>
+    </div>
+  </div>
+  <div class="body mt-3" style="max-width:880px">
+    This is not a metaphor. This is what's running on my workstation right now. Anismin's the CEO in the centre room. Five sub-agents in the rooms around her. A boardroom on the right. A post office downstairs. A live chat panel. <span class="text-purple">This is one floor.</span>
+  </div>
+</div>
+
+<!-- 5: ONE BUILDING, THREE FLOORS -->
+<div class="slide" data-title="Three Floors">
+  <span class="badge badge-cyan">One building &middot; three floors</span>
+  <div class="big mt-2">
+    She's not <span class="text-gradient">alone in the building.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="floor-grid mt-3">
+    <div class="floor-card card-glow-purple">
+      <div class="floor-img" style="background-image:url('hero-anismin-office.png')"></div>
+      <div class="floor-body">
+        <div class="floor-sub">Floor 1 &middot; :8643</div>
+        <h3><span class="text-purple">The Anismin Office</span></h3>
+        <p>Claude Opus 4.7 brain. Conversational orchestrator. Dispatch board, autonomous PR pipeline, 1,057 memories. <em>Atlanta.</em></p>
+      </div>
+    </div>
+    <div class="floor-card card-glow-cyan">
+      <div class="floor-img" style="background-image:url('the-meridian-office.png')"></div>
+      <div class="floor-body">
+        <div class="floor-sub">Floor 2 &middot; :5096</div>
+        <h3><span class="text-cyan">The Meridian Office</span></h3>
+        <p>Codex 5.4 + QwQ-32B local critic. Glacier, Current, Fathom, Sentry. 21 apps, voice pipeline, boardroom. <em>Vienna.</em></p>
+      </div>
+    </div>
+    <div class="floor-card card-glow-blue">
+      <div class="floor-img" style="background-image:url('the-kimi-office.png')"></div>
+      <div class="floor-body">
+        <div class="floor-sub">Floor 3 &middot; :9643</div>
+        <h3><span class="text-blue">The Kimi Office</span></h3>
+        <p>Kimi K2.6 swarm. Ten ocean-themed C-suite. The Dark Factory pipeline turns briefs into merged PRs.</p>
+      </div>
+    </div>
+  </div>
+  <div class="quote-block cyan mt-3">
+    <div style="font-size:0.95rem;font-weight:600">Each floor is a sovereign. Its own brain. Its own memory. <span class="text-cyan">Disconnect any one of them and the others stay whole.</span> That's not Google Docs. That's git.</div>
+  </div>
+</div>
+
+<!-- 6: MAILBOX BUS -->
+<div class="slide" data-title="Mailbox Bus">
+  <span class="badge badge-green">The plumbing</span>
+  <div class="big mt-2">
+    How floors <span class="text-gradient-green">talk to each other.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="bus-wrap mt-3">
+    <div class="flow-row mt-2">
+      <div class="flow-box" style="border-color:rgba(168,85,247,0.4)"><div style="font-family:var(--mono);font-size:0.62rem;color:var(--muted)">FLOOR 1</div>Anismin</div>
+      <div class="flow-arrow">&harr;</div>
+      <div class="flow-box card-glow-green" style="background:rgba(16,185,129,0.08)">
+        <div style="font-family:var(--mono);font-size:0.62rem;color:var(--green)">POSTGRES</div>agent_mailbox
+      </div>
+      <div class="flow-arrow">&harr;</div>
+      <div class="flow-box" style="border-color:rgba(6,182,212,0.4)"><div style="font-family:var(--mono);font-size:0.62rem;color:var(--muted)">FLOOR 2</div>Meridian</div>
+      <div class="flow-arrow">&harr;</div>
+      <div class="flow-box" style="border-color:rgba(59,130,246,0.4)"><div style="font-family:var(--mono);font-size:0.62rem;color:var(--muted)">FLOOR 3</div>Kimi</div>
+    </div>
+    <div class="bus-line mt-3">
+      <span class="bus-pill"><span class="dot"></span>typed messages</span>
+      <span class="bus-pill"><span class="dot"></span>SKIP LOCKED claim</span>
+      <span class="bus-pill"><span class="dot"></span>5-min lease</span>
+      <span class="bus-pill"><span class="dot"></span>auto-reaper</span>
+      <span class="bus-pill"><span class="dot"></span>dedupe key</span>
+      <span class="bus-pill"><span class="dot"></span>dead-letter after 5</span>
+    </div>
+    <div class="card-grid card-grid-3 mt-3" style="max-width:1080px">
+      <div class="card">
+        <h3 style="font-size:0.9rem"><span class="text-purple">Five surfaces to task</span></h3>
+        <ul>
+          <li>Mailbox UI (form + table)</li>
+          <li>CLI: <span class="mono" style="color:var(--cyan)">delegate.sh meridian "ask"</span></li>
+          <li>Spoken trigger phrase</li>
+          <li>Slash skill: <span class="mono" style="color:var(--cyan)">/meridian-loop</span></li>
+          <li>Direct POST /api/enqueue</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-size:0.9rem"><span class="text-cyan">Five message kinds</span></h3>
+        <ul>
+          <li>request &middot; result</li>
+          <li>blocker &middot; ack</li>
+          <li>broadcast</li>
+          <li>lesson_candidate</li>
+          <li>cross_agent_query / reply</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-size:0.9rem"><span class="text-green">The dispatcher ticks every 15s</span></h3>
+        <ul>
+          <li>pm2 process, host-side</li>
+          <li>Claims pending rows</li>
+          <li>Calls the named delegate</li>
+          <li>Writes the reply back</li>
+          <li>Anismin folds it in next turn</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7: THE COMMISSION (live) -->
 <div class="slide" data-title="The Commission">
   <span class="badge badge-pink"><span class="pulse-dot"></span>Live now</span>
   <div class="big mt-2">
@@ -255,12 +410,12 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
   </div>
   <div class="body mt-4" style="max-width:780px">
-    Speaking the brief into Discord voice now. Meridian receives it. The work begins. I keep talking. The next slide names what's happening, in order, while it happens.
+    Speaking the brief into Discord voice now. Meridian receives it on Floor 2. The work begins. I keep talking. The next slide names what's happening, in order, while it happens.
   </div>
   <div class="small mt-4" style="color:var(--orange);font-family:var(--mono)">No fabricated demos. The artifact is the proof. If it breaks, you see it break.</div>
 </div>
 
-<!-- 5: THE SIX MOVES (named while artifact appears) -->
+<!-- 8: THE SIX MOVES -->
 <div class="slide" data-title="The Six Moves">
   <span class="badge badge-purple">What just happened</span>
   <div class="big mt-2">
@@ -286,7 +441,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
     <div class="pipe-step" style="border-color:rgba(236,72,153,0.4)">
       <div class="pipe-num">5</div>
-      <div><div class="pipe-label"><span class="text-pink">Approve</span> &middot; only judgment, never typos</div><div class="pipe-desc">"is lesson two actually a lesson?" - yes. Risk, taste, judgment. Not file paths or JSON syntax</div></div>
+      <div><div class="pipe-label"><span class="text-pink">Approve</span> &middot; only judgment, never typos</div><div class="pipe-desc">"is lesson two actually a lesson?" &mdash; yes. Risk, taste, judgment. Not file paths or JSON syntax</div></div>
     </div>
     <div class="pipe-step" style="border-color:rgba(250,204,21,0.4)">
       <div class="pipe-num">6</div>
@@ -296,7 +451,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="small mt-3" style="color:var(--green);font-family:var(--mono)">The path should be in Discord text by now. Look at the channel.</div>
 </div>
 
-<!-- 6: BET PAID OFF -->
+<!-- 9: BET PAID OFF -->
 <div class="slide" data-title="Bet Paid Off">
   <span class="badge badge-green"><span class="pulse-dot"></span>DONE &middot; ~18 seconds</span>
   <div class="big mt-2">
@@ -325,31 +480,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
 </div>
 
-<!-- 7: THE TEAM -->
-<div class="slide" data-title="The Team">
-  <div class="slide-bg" style="background-image:url('agents-meridian-anismin.png')"></div>
-  <span class="badge badge-cyan">Real agents, real work</span>
-  <div class="big mt-2">
-    Two agents. <span class="text-gradient">Six months in production.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="card-grid card-grid-2 mt-3" style="max-width:980px">
-    <div class="card card-glow-cyan">
-      <h3 style="font-size:1.05rem"><span class="text-cyan">Anismin</span> &middot; Atlanta</h3>
-      <p>Runs my calendars, triages issues every 30 minutes, moderates the family chat (won't say my niece's name). Refused to fabricate a war story for this slide. <em>Andrew told me no fabrication for the Vienna talk prep.</em></p>
-    </div>
-    <div class="card card-glow-purple">
-      <h3 style="font-size:1.05rem"><span class="text-purple">Meridian</span> &middot; Vienna</h3>
-      <p>The agent you just watched. Hybrid, not zero-cloud. Has a local critic that doesn't care about my feelings. Caught a real bug last quarter that three cloud models had approved as "excellent design".</p>
-    </div>
-  </div>
-  <div class="quote-block cyan mt-3">
-    <div style="font-size:0.95rem;font-weight:600">"Drunk founders absorb a framework via pattern recognition while watching, not lecture-then-demo."</div>
-    <div class="small mt-1" style="text-align:left;color:var(--muted)">&mdash; Anismin, when I asked her how to structure this talk. She was right. That's why the demo just ran in the middle.</div>
-  </div>
-</div>
-
-<!-- 8: THE HONEST BEAT -->
+<!-- 10: THE HONEST BEAT -->
 <div class="slide" data-title="The Honest Beat">
   <span class="badge badge-orange">Before you start</span>
   <div class="big mt-2">
@@ -364,90 +495,99 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
 </div>
 
-<!-- 9: DAY 1 / DAY 30 / DAY 90 -->
-<div class="slide" data-title="Starter Kit">
-  <span class="badge badge-cyan">Monday morning</span>
+<!-- 11: AGENTREEF FEDERATION -->
+<div class="slide" data-title="AgentReef">
+  <div class="slide-bg subtle" style="background-image:url('agentreef-federation.png')"></div>
+  <span class="badge badge-cyan">Beyond the building</span>
   <div class="big mt-2">
-    Day 1. Day 30. <span class="text-gradient">Day 90.</span>
+    My building<br>can talk to <span class="text-gradient-claw">your building.</span>
   </div>
   <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:880px">
+    AgentReef Federation: a signed message bus between sovereign agent buildings. JWT + HMAC, your shard stays yours. <span class="text-cyan">Disconnect from the reef and your agents are still whole.</span>
+  </div>
   <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
     <div class="card card-glow-cyan">
-      <h3 style="font-size:1rem"><span class="text-cyan">Day 1 &middot; one brief</span></h3>
-      <ul>
-        <li>Pick a recurring annoying task</li>
-        <li>Write one six-field brief for it</li>
-        <li>Save what comes back to one folder</li>
-        <li>Run it once, by hand if you have to</li>
-      </ul>
-      <p style="font-size:0.78rem;margin-top:6px;font-style:italic;color:var(--cyan)">You now have an OS prototype. Tonight.</p>
+      <h3 style="font-size:0.95rem"><span class="text-cyan">Distributed, not centralised</span></h3>
+      <p>Git model, not Google Docs. Every agent keeps a complete database. Federation is over the wire, between sovereigns.</p>
     </div>
     <div class="card card-glow-purple">
-      <h3 style="font-size:1rem"><span class="text-purple">Day 30 &middot; the wiki</span></h3>
-      <ul>
-        <li>An Obsidian vault of dated lessons</li>
-        <li>One tripwire that has caught something real</li>
-        <li>Briefs run from markdown, not chat</li>
-        <li>You stop re-pasting context every morning</li>
-      </ul>
+      <h3 style="font-size:0.95rem"><span class="text-purple">Cross-reef messaging</span></h3>
+      <p>Anismin can ask Meridian for an opinion across the network. Same mailbox shape. Different building. Reply folds back into the conversation.</p>
     </div>
     <div class="card card-glow-green">
-      <h3 style="font-size:1rem"><span class="text-green">Day 90 &middot; the workbench</span></h3>
+      <h3 style="font-size:0.95rem"><span class="text-green">Skill transfer</span></h3>
+      <p>What Anismin learns mentoring one client's stack travels (anonymised) to the next. The reef compounds.</p>
+    </div>
+  </div>
+  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">"I want my own shard so that if I disconnect from the reef, my agent is still whole." &mdash; the design constraint that picked git over a single DB.</div>
+</div>
+
+<!-- 12: AMaaS — FOR THE ROOM -->
+<div class="slide" data-title="What this means for you">
+  <span class="badge badge-yellow">For the room &middot; Vienna</span>
+  <div class="big mt-2">
+    You sell AI to clients.<br>You don't have time to <span class="text-gradient-yellow">improve it.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:880px">
+    Half the people in this room ship AI products and watch them slowly drift behind state-of-the-art because the team is bogged down in client work. There's a federation play here. Connect a mentor agent to the client's product. The mentor teaches it. Skills, patterns, capabilities transfer monthly. <span class="text-yellow">That's a subscription line of business, not a heroic engineer.</span>
+  </div>
+  <div class="pricing-grid mt-3">
+    <div class="price-card">
+      <div class="price-tier">Starter</div>
+      <div class="price-amount">EUR 5K<span style="font-size:0.85rem;color:var(--muted);font-weight:500">/mo</span></div>
       <ul>
-        <li>Routing across two or more brains</li>
-        <li>Voice optional, not the point</li>
-        <li>One agent, or two, that you trust</li>
-        <li>You're commissioning, daily</li>
+        <li>5 skill transfers</li>
+        <li>Quarterly reviews</li>
+        <li>Anonymised cross-client learning</li>
+      </ul>
+    </div>
+    <div class="price-card card-glow-cyan">
+      <div class="price-tier" style="color:var(--cyan)">Growth</div>
+      <div class="price-amount">EUR 10K<span style="font-size:0.85rem;color:var(--muted);font-weight:500">/mo</span></div>
+      <ul>
+        <li>Unlimited skill transfers</li>
+        <li>Continuous federation</li>
+        <li>SLAs, monthly novel skills</li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Premium</div>
+      <div class="price-amount">EUR 20K<span style="font-size:0.85rem;color:var(--muted);font-weight:500">/mo</span></div>
+      <ul>
+        <li>Dedicated mentor instance</li>
+        <li>White-label, IP co-ownership</li>
+        <li>One mentor cluster serves ~20 clients</li>
       </ul>
     </div>
   </div>
-  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">Nobody needs to be at Day 90 next week. Just don't be at Day 0 next month.</div>
+  <div class="small mt-3" style="color:var(--yellow);font-family:var(--mono)">First Vienna signal: an AI consultancy whose ERP product is falling behind because the team is on client work. That's the shape. If your shape rhymes &mdash; find me at the bar.</div>
 </div>
 
-<!-- 10: HOSTAGE CALLBACK -->
-<div class="slide" data-title="Hostage Callback">
-  <span class="badge badge-red">The line that started this</span>
+<!-- 13: TAKE IT HOME / WALK OFF -->
+<div class="slide" data-title="Take It Home">
+  <span class="badge badge-purple">Take it home</span>
   <div class="mega mt-3" style="line-height:1.1">
     A brief is a <span class="text-gradient">contract.</span><br>
     A chat is a <span class="text-gradient-red">hostage situation.</span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-3" style="max-width:760px">
-    You watched the contract execute in front of you. Eighteen seconds. Real file. Real lessons. Real follow-up.
-    Walk home. Write one brief. Run it before you sleep.
+  <div class="body mt-3" style="max-width:840px">
+    Day one, write one six-field brief. Day thirty, you have a vault of dated lessons and one tripwire that has caught something real. Day ninety, you're commissioning daily. <span class="text-purple">Don't be at Day 0 next month.</span>
   </div>
-</div>
-
-<!-- 11: TAKE IT HOME -->
-<div class="slide" data-title="Take It Home">
-  <span class="badge badge-purple">Take it home</span>
-  <div class="big mt-2">
-    Build the <span class="text-gradient-purple">machinery.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="body mt-3" style="max-width:820px">
-    Not be the person doing every task faster. Build the machinery that lets good tasks get done reliably, cheaply, with accountability. Ed showed you the case. I just showed you the workbench. Now you build yours.
-  </div>
-  <div style="display:flex;align-items:center;justify-content:center;gap:30px;margin-top:24px;flex-wrap:wrap">
-    <div class="card card-glow-cyan" style="text-align:center;padding:16px 22px;max-width:300px">
-      <h3 style="font-size:1.05rem"><span class="text-cyan">Deck + brief template</span></h3>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=https://ademczuk.github.io/agentic-economy/slides.html&bgcolor=111827&color=06b6d4" style="margin:8px auto;display:block;border-radius:8px;width:240px;aspect-ratio:1" alt="Slides QR">
-      <p style="font-family:var(--mono);font-size:0.78rem">ademczuk.github.io/agentic-economy</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:30px;margin-top:18px;flex-wrap:wrap">
+    <div class="card card-glow-cyan" style="text-align:center;padding:14px 20px;max-width:280px">
+      <h3 style="font-size:1rem"><span class="text-cyan">Deck + brief template</span></h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=https://ademczuk.github.io/agentic-economy/slides.html&bgcolor=111827&color=06b6d4" style="margin:8px auto;display:block;border-radius:8px;width:200px;aspect-ratio:1" alt="Slides QR">
+      <p style="font-family:var(--mono);font-size:0.72rem">ademczuk.github.io/agentic-economy</p>
+    </div>
+    <div class="quote-block purple" style="max-width:480px;text-align:left">
+      <div style="font-size:1rem;font-weight:700;line-height:1.4">Build the machinery.</div>
+      <div style="font-size:0.85rem;color:var(--dim);margin-top:6px">Not be the person doing every task faster. Build the machinery that lets good tasks get done reliably, cheaply, with accountability. Ed showed you the case. I just showed you the workbench. Now you build yours.</div>
     </div>
   </div>
-  <div class="small mt-3" style="color:var(--purple)">Photograph the QR. Find me after the closing remarks. The bar is open.</div>
-</div>
-
-<!-- 12: BLACK SLIDE / WALK-OFF -->
-<div class="slide" data-title="Walk Off">
-  <div class="mega mt-3">
-    Stop chatting.
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="mega mt-3">
-    <span class="text-gradient-voice">Start commissioning.</span>
-  </div>
-  <div class="body mt-4" style="max-width:680px;font-style:italic">Tonight.</div>
+  <div class="mid mt-3" style="font-weight:700">Stop chatting. <span class="text-gradient-voice">Start commissioning.</span></div>
 </div>
 
 </div><!-- /deck -->
