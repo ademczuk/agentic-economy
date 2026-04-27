@@ -1,11 +1,15 @@
-# Speaker Notes — Quit chatting with your agents (v8 / story-spine)
+# Speaker Notes — Quit chatting with your agents (v9 / keynote)
 
 **Talk:** Quit chatting with your agents and get them to work for you
 **Event:** OpenClaw × neob.ai · Agentic Economy Night · Fiskaly Wien
-**Date:** Wednesday 29 April 2026 · ~22:00 slot · 30 min · paired with Ed Prinz on Web4
-**Length target:** 30 minutes · 12 slides · variable timing
+**Date:** Wednesday 29 April 2026
+**Slot:** Keynote, second speaker (after Ed Prinz). Ed opens with OpenClaw introduction + business AI context. Andrew follows as the keynote. Possibly a third 10-min closer after Andrew.
+**Length target:** ~30 minutes of content with built-in buffer (Ed said "plenty of speaking time" — comfortable to stretch to 40+ if Q&A organic)
+**Structure:** 12 slides · variable timing
 
 The talk is one story: *I commission an agent to write this talk into memory, in front of you, while I explain how. Eighteen seconds in, the file exists. That's the workbench.* Everything else hangs off the bet.
+
+**Ed has already covered:** what OpenClaw is, the case for proactive AI, agents in business workflows. So Andrew does NOT re-introduce OpenClaw or make the agents-are-here case. The keynote picks up where Ed leaves off and goes deep on the *operational* layer — what one person actually does on Monday morning to commission work to a stack like this.
 
 ---
 
@@ -22,15 +26,15 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 ---
 
-## Slide 1 — Title (~75 sec)
+## Slide 1 — Title (~90 sec)
 
-> "Quit chatting with your agents and get them to work for you. I'm Andrew. The talk is in the title.
+> "Thanks Ed. You just walked the room through what OpenClaw is and what agents can do for a business. I'm going to take that one floor down. Into the operational layer.
 >
-> Here's the line that runs through it: a brief is a contract. A chat is a hostage situation.
+> The title's on the slide. *Quit chatting with your agents and get them to work for you.* The line that runs through the talk: a brief is a contract. A chat is a hostage situation.
 >
-> Tonight I'm going to bet a real piece of work on it. Live. In front of you."
+> Tonight I'm going to bet a real piece of work on that line. Live. In front of you."
 
-**Cue:** click forward immediately. Don't pause. The pace here sets up the bet.
+**Cue:** acknowledge Ed warmly but briefly, then move. Don't restate his content. Click forward.
 
 ---
 
@@ -167,23 +171,25 @@ The talk is one story: *I commission an agent to write this talk into memory, in
 
 ---
 
-## Slide 11 — Connect (~60 sec)
+## Slide 11 — Take It Home (~75 sec)
 
 > "The deck is at the QR. The brief template is in the deck. Photograph it now.
 >
 > Build the machinery. Not be the person doing every task faster. Build the machinery that lets good tasks get done reliably, cheaply, with accountability.
 >
-> Ed Prinz is up next on Web4. The operational layer is built. He'll show you the coordination layer. Find me after."
+> Ed showed you the case. I just showed you the workbench. Now you build yours.
+>
+> Photograph the QR. Find me after the closing remarks. The bar is open."
 
 ---
 
 ## Slide 12 — Walk Off (~30 sec)
 
-**Read it. Walk off. Don't elaborate.**
+**Read it. Hold the room. Don't elaborate.**
 
 > "Stop chatting. Start commissioning. Tonight."
 
-**Beat:** silence. Walk to the side of the stage. Hand the room to Ed.
+**Beat:** silence. Three seconds. Then either (a) take Q&A from the floor, or (b) hand to the closing speaker if there is one, or (c) walk off and head to the bar where the actual conversations happen.
 
 ---
 
@@ -237,7 +243,7 @@ This deck is deliberately under the 30-min budget. The bet on slide 2 promises a
 - *"What about hallucinations?"* — They happen. The local critic catches the dangerous ones. The non-dangerous ones don't ship because the verify step requires a real artifact at a real path.
 - *"How much does this cost?"* — Anismin runs on a $20 VPS. Meridian's hardware was a sunk cost. Cloud Opus is metered per call. The expensive thing is your time, and you're getting it back.
 - *"Will I need to learn to code?"* — To run a brief, no. You write markdown. You read the artifact. The agent writes the code. If you can brief a freelancer, you can commission an agent.
-- *"What about Ed's Web4?"* — That's the next talk. Don't steal Ed's thunder.
+- *"What about what Ed said about [X]?"* — Honour Ed's framing. He set the table; this talk is what gets eaten at it. Don't contradict him on stage even if you'd phrase something differently.
 
 ---
 
