@@ -1,12 +1,14 @@
-# Speaker Notes — Quit chatting with your agents (v14 / two receipts on stage)
+# Speaker Notes — Quit chatting with your agents (v15 / cohesion cut)
 
 **Talk:** Quit chatting with your agents and get them to work for you
 **Event:** OpenClaw × neob.ai · Agentic Economy Night · Fiskaly Wien
 **Date:** Wednesday 29 April 2026
 **Slot:** Keynote, second speaker. Ed Prinz opens with OpenClaw introduction + business AI context. Andrew follows as the keynote. Possibly a third 10-min closer after Andrew.
-**Length target:** ~20 min content + ~10 min Q&A buffer = 30 min (v11 cut AMaaS; v12 cut standalone Mailbox Bus per Anismin's "everything before slide 7 is dilution" call; absorbed one sentence into the Three Floors slide)
+**Length target:** ~17 min content + ~13 min Q&A buffer = 30 min (v15 cut Three Floors and Honest Beat as standalone slides; receipt moved into Bet Paid Off; subscription line dropped from close)
 
-The talk is one story: *I have a building. Three floors. Real agents at real desks. Watch me commission one of them to log this exact talk into memory, in front of you, in 18 seconds. Now multiply: my building can talk to yours — and that's the line of business hiding in this room.* Everything else hangs off the bet and the building.
+The talk is one sentence: ***Stop chatting with your agents — hand them a contract, verify the receipt, and watch your workbench federate.***
+
+That's the spine. Bet → Brief → Office (the workbench is real) → Commission (live demo) → Six Moves (what's happening) → Bet Paid Off + Receipt (verify) → Federation (scale) → Take it home. Nine slides. Every slide serves the sentence; if a slide doesn't, it got cut.
 
 **Ed has already covered:** what OpenClaw is, the case for proactive AI, agents in business workflows. So Andrew does NOT re-introduce OpenClaw or make the agents-are-here case. The keynote picks up where Ed leaves off and goes deep on the *operational* layer — what it actually looks like when one person commissions a building of agents on a Monday morning.
 
@@ -129,23 +131,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 5 — One Building, Three Floors (~120 sec) ⭐
-
-> "Floor one is Anismin. Atlanta. Claude Opus 4.7 brain. 1,057 memories. Conversational orchestrator.
->
-> Floor two is Meridian. Vienna. Codex 5.4 plus a local critic that doesn't care about my feelings. He's got his own team — Glacier, Current, Fathom, Sentry. Twenty-one apps. A voice pipeline. The agent you're about to watch take the commission.
->
-> Floor three is Kimi. Ten ocean-themed C-suite agents. Kraken, Leviathan, Abyss, Marlin, Manta, Eel, Coral, Jelly, Siren, Trench. They run a pipeline called the Dark Factory. Briefs in. Merged pull requests out. Humanless.
->
-> Three brains. Three memory stores. Three sets of agents. Each floor is a sovereign — its own database, its own files. Disconnect any one of them from the others and it stays whole. That's not Google Docs. That's git.
->
-> The wiring: one shared `boardroom_meetings` table plus a typed `agent_mailbox` queue, both in Postgres. Real cross-floor seats, not chat. An exec on Floor 1 can claim a seat in a meeting Floor 3 opened, and vice versa."
-
-**Cue:** point at each floor card in turn as you name it. The pixel-art images do most of the work. The wiring sentence at the end is the one-line replacement for what was a whole Mailbox Bus slide in v11 — Anismin's call: *"everything before slide 7 is dilution; demo carries v11"*. Drop the slide, keep the substance.
-
----
-
-## Slide 6 — The Commission (~75 sec — DEMO)
+## Slide 5 — The Commission (~75 sec — DEMO)
 
 **ACTION SEQUENCE (v12 dual-verify, scoreboard-aware):**
 
@@ -166,7 +152,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 7 — The Six Moves (~180 sec)
+## Slide 6 — The Six Moves (~180 sec)
 
 **This slide narrates while the artifact is being produced. Read it as a play-by-play.**
 
@@ -188,7 +174,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 8 — Bet Paid Off (~90 sec)
+## Slide 7 — Bet Paid Off + Receipt (~150 sec) ⭐ v15 fold
 
 > "Eighteen seconds. While I was naming the moves, the agent finished. The path is on screen. The lessons are saved. The follow-up is queued.
 >
@@ -200,57 +186,27 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 9 — The Honest Beat (~75 sec)
+## Slide 8 — AgentReef Federation (~120 sec) ⭐ now also carries the floors framing
 
-> "Before you start, one uncomfortable truth.
+> "Take a step back. The Anismin Office is one floor of three. Meridian's on Floor 2 — that's the agent you just watched. Kimi's on Floor 3 — ten ocean-themed agents running a pipeline called the Dark Factory.
 >
-> The first two weeks of doing this feel slower than your old workflow. Not faster. Slower. You're learning to write a brief instead of typing into a chat. You're learning to wait for an artifact instead of reading a stream of tokens. You're learning to approve judgment, not typos.
+> Three sovereign brains. Three memory stores. Federated over a signed message bus. JWT plus HMAC. My shard stays mine. Yours stays yours.
 >
-> If I don't say that out loud, the serious people in this room will discover it alone in week one and trust me less. So: it's slower at first. By week three it's not. By week eight you can't go back."
-
-**Beat:** "trust me less" is the credibility moment. Pause on it.
-
----
-
-## Slide 10 — AgentReef Federation + Preflight Receipt (~140 sec) ⭐
-
-> "So far I've shown you my building. Three floors. One operator. That's a workbench for one person.
+> What this buys you: distributed sovereignty, no single vendor owns the substrate. Cross-reef messaging — Anismin can ask Meridian for an opinion across the network and the reply lands in her memory the same way an in-house DM would. And skill transfer — what Anismin learns mentoring one client's stack travels, anonymised, to the next. The reef compounds.
 >
-> The next thing it becomes: my building can talk to yours.
->
-> AgentReef Federation is the protocol that lets sovereign buildings exchange messages. Same mailbox shape. JWT plus HMAC over the wire. Your shard stays yours. My shard stays mine. We trade structured asks. Anismin can DM Meridian across the network and get a real reply, and the reply lands in her memory the same way an in-house DM would.
->
-> The design constraint that picked this shape: I want to be able to disconnect from the reef and still have my agent. Git, not Google Docs. Each building is a complete instance. Federation is what they do over the wire when they're connected.
->
-> What does this buy you? Three things.
->
-> One: distributed sovereignty. No single vendor owns the substrate.
-> Two: cross-reef messaging. An agent that needs an opinion you don't have on staff can ask one that does, on demand.
-> Three: skill transfer. When Anismin learns a new pattern mentoring one client's stack, that pattern can travel — anonymised — to the next. The reef compounds."
+> The design constraint that picked this shape: I want to disconnect from the reef and still have my agent. Git, not Google Docs. Each building is whole on its own."
 
 **Cue:** point at the three cards as you name the three benefits. The federation art is doing the metaphor work; let it.
 
-**v14 addition — the two-receipts moment at the bottom:**
-
-> "Look at the green page on screen. That's not a slide image. That's the live preflight receipt. It auto-refreshes every five seconds. Last night, after I wrote a checklist into the speaker notes saying 'check these six things by Tuesday EOD' — Floor 1 heartbeat, Floor 2 heartbeat, Floor 3 heartbeat, bet round-trip, auth gate, date substitution — the agents shipped a script that does all six and graded it green-yellow-red.
->
-> Then they shipped TWO receipt pages. One on KCS Floor 3. One on AnisminOS Floor 1. Same data, two signatures. The audience can't argue with that math. There's also a second URL on the side monitor — `localhost:8643/boardroom2/preflight` — a mirror from a different floor, attesting the same grade.
->
-> They turned a checklist into a cron, then turned the cron into a stage prop. Receipts, not promises. That's the workbench eating its own dog food."
-
-**Beat:** the "two signatures" line is the closer. If the side monitor is visible, gesture at it. Hold for three seconds before next slide.
-
-**Pre-talk check:** before starting, glance at both side-monitor URLs. Both should show `GREEN 6/6 checks passed` and a recent timestamp (`live — auto-refresh every 5s` glows green). If either is YELLOW or RED at start, decide: (a) refresh once, (b) accept it and let it become part of the talk, (c) skip the v14 addition entirely and revert to the v13 framing in your head.
-
 ---
 
-## Slide 11 — Take It Home / Walk Off (~120 sec)
+## Slide 9 — Take It Home / Walk Off (~120 sec) ⭐ v15 fold
 
 > "The line that opened this talk:
 >
 > A brief is a contract. A chat is a hostage situation.
 >
-> You watched the contract execute in front of you. Eighteen seconds. Real file. Real lessons. Real follow-up. Three floors of agents you saw on screen, plus the federation that lets them talk to other people's agents.
+> You watched the contract execute in front of you. Eighteen seconds. Real file. Real lessons. Real receipt. Three floors federated, one number on screen, the whole thing graded itself green.
 >
 > Day one: pick a recurring annoying task. Write one six-field brief for it. Run it once, by hand if you have to. You have an OS prototype tonight.
 >
@@ -260,9 +216,9 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 >
 > Nobody needs to be at Day 90 next week. Just don't be at Day 0 next month.
 >
-> Build the machinery. Not be the person doing every task faster. Build the machinery that lets good tasks get done reliably, cheaply, with accountability. Ed showed you the case. I just showed you the workbench. Now you build yours.
+> One honest beat before you go. The first two weeks of doing this feel slower. Not faster. Slower. By week three they're not. By week eight you can't go back. I tell you that because the serious people in this room would discover it alone in week one and trust me less.
 >
-> One last thing for the AI consultancies in the room: there's a subscription line of business hiding here too — federate a mentor agent to your product, monthly skill transfers. If your shape rhymes, find me at the bar.
+> Build the machinery. Not be the person doing every task faster. Build the machinery that lets good tasks get done reliably, cheaply, with accountability. Ed showed you the case. I just showed you the workbench. Now you build yours.
 >
 > The deck is at the QR. Photograph it now. Find me at the bar.
 >
@@ -272,7 +228,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Time discipline (v13 — preflight receipt added to slide 10)
+## Time discipline (v15 — cohesion cut)
 
 | Slot | Slide | Cumulative |
 |---|---|---|
@@ -280,15 +236,17 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 | 1:00 – 3:00 | 2. The Bet | 3:00 |
 | 3:00 – 5:00 | 3. The Brief | 5:00 |
 | 5:00 – 7:30 | 4. The Anismin Office ⭐ | 7:30 |
-| 7:30 – 9:30 | 5. Three Floors (incl. wiring sentence) ⭐ | 9:30 |
-| 9:30 – 10:45 | 6. Commission (Discord-image + Discord-lessons, no scoreboard claim) | 10:45 |
-| 10:45 – 13:45 | 7. Six Moves (narration) | 13:45 |
-| 13:45 – 15:15 | 8. Bet Paid Off | 15:15 |
-| 15:15 – 16:30 | 9. Honest Beat | 16:30 |
-| 16:30 – 18:50 | 10. AgentReef + Preflight Receipt ⭐ | 18:50 |
-| 18:50 – 20:50 | 11. Take It Home / Walk Off (incl. subscription mention) | 20:50 |
+| 7:30 – 8:45 | 5. Commission (live demo) | 8:45 |
+| 8:45 – 11:45 | 6. Six Moves (narration) | 11:45 |
+| 11:45 – 14:15 | 7. Bet Paid Off + Receipt ⭐ | 14:15 |
+| 14:15 – 16:15 | 8. Federation (floors folded in) ⭐ | 16:15 |
+| 16:15 – 18:15 | 9. Take It Home (honest beat folded in) ⭐ | 18:15 |
 
-**Total content: ~21 min. Buffer: ~9 min for organic stretch, audience reactions, demo wait time, Q&A.**
+**Total content: ~18 min. Buffer: ~12 min for organic stretch, audience reactions, demo wait time, Q&A.**
+
+The single-sentence story Anismin gave us: ***"Stop chatting with your agents — hand them a contract, verify the receipt, and watch your workbench federate."***
+
+Bet → Brief → Office → Commission → Moves → Bet Paid Off + Receipt → Federation → Close. Nine beats. Each beat is one slide.
 
 The 18-min demo arc still anchors the middle. If the demo overshoots by 30-60 seconds, the slack from slides 11+12 absorbs it. If it lands clean, you have room for one or two questions before the bar.
 
@@ -358,6 +316,28 @@ Cross-floor consult on Sunday 27 Apr. MeridianOS boardroom round-table (5 execs)
 - **Slide 12 (AMaaS)** — CUT and folded into close per Fathom; pricing moved to Q&A backup.
 - **Pre-flight risk burn-down** — Sentry's three failure modes added.
 - **Slide count 13 → 12.**
+
+## What changed from v14 → v15 (cohesion cut after `/solve-room` audit 2026-04-28 14:23)
+
+Andrew's read of v14: *"inconsistent, long-winded, not a cohesive message."*
+
+Anismin convened in `/solve-room` (Meridian + Kimi silent again — context-overflow + KCS swarm wedge). Single-brain authority verdict, three findings:
+
+1. **Inconsistency** — slides 5 + 10 both did architecture (floors vs federation, redundant). Slide 10 stuffed federation + receipt into one slot. Slide 11's subscription line undercut the workbench thesis ("operator > chatter" → soft pitch at the curtain).
+2. **Long-winded** — 11 slides for one story. Pre-slide-7 had dilution.
+3. **Cohesion** — no single-sentence anchor. The deck had three competing messages.
+
+Anismin's single sentence: ***"Stop chatting with your agents — hand them a contract, verify the receipt, and watch your workbench federate."***
+
+Restructure (11 → 9):
+
+- **DROP** standalone Three Floors slide (was 5). Floors framing folded into Federation slide.
+- **MOVE** preflight receipt from Federation slide to Bet Paid Off. Receipt is verification of the bet, not a federation footer.
+- **DROP** standalone Honest Beat slide (was 9). Folded into Take It Home as one sentence.
+- **DROP** subscription line from Take It Home. Undercuts the workbench thesis. Bar conversations only.
+- Federation slide opens with *"The Anismin Office is one floor of three"* — that's where the three-floors reveal lands now.
+
+Net: tighter spine, no architecture-vs-architecture friction, receipt sits where it earns its time.
 
 ## What changed from v13 → v14 (two-receipts ship 2026-04-28 evening)
 

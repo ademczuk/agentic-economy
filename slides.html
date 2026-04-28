@@ -199,7 +199,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Fiskaly Wien</span> <span style="color:var(--cyan)">&middot; 29 Apr 2026</span></div>
 </div>
 
-<div id="slide-counter">1 / 11</div>
+<div id="slide-counter">1 / 9</div>
 <div id="key-hint">&larr; &rarr; navigate &middot; R reorder &middot; F fullscreen &middot; T 30-min timer</div>
 <div id="timer" onclick="toggleTimer()">30:00</div>
 
@@ -301,48 +301,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
 </div>
 
-<!-- 5: ONE BUILDING, THREE FLOORS -->
-<div class="slide" data-title="Three Floors">
-  <span class="badge badge-cyan">One building &middot; three floors</span>
-  <div class="big mt-2">
-    She's not <span class="text-gradient">alone in the building.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="floor-grid mt-3">
-    <div class="floor-card card-glow-purple">
-      <div class="floor-img" style="background-image:url('hero-anismin-office.png')"></div>
-      <div class="floor-body">
-        <div class="floor-sub">Floor 1 &middot; :8643</div>
-        <h3><span class="text-purple">The Anismin Office</span></h3>
-        <p>Claude Opus 4.7 brain. Conversational orchestrator. Dispatch board, autonomous PR pipeline, 1,057 memories. <em>Atlanta.</em></p>
-      </div>
-    </div>
-    <div class="floor-card card-glow-cyan">
-      <div class="floor-img" style="background-image:url('the-meridian-office.png')"></div>
-      <div class="floor-body">
-        <div class="floor-sub">Floor 2 &middot; :5096</div>
-        <h3><span class="text-cyan">The Meridian Office</span></h3>
-        <p>Codex 5.4 + QwQ-32B local critic. Glacier, Current, Fathom, Sentry. 21 apps, voice pipeline, boardroom. <em>Vienna.</em></p>
-      </div>
-    </div>
-    <div class="floor-card card-glow-blue">
-      <div class="floor-img" style="background-image:url('the-kimi-office.png')"></div>
-      <div class="floor-body">
-        <div class="floor-sub">Floor 3 &middot; :9643</div>
-        <h3><span class="text-blue">The Kimi Office</span></h3>
-        <p>Kimi K2.6 swarm. Ten ocean-themed C-suite. The Dark Factory pipeline turns briefs into merged PRs.</p>
-      </div>
-    </div>
-  </div>
-  <div class="quote-block cyan mt-3">
-    <div style="font-size:0.95rem;font-weight:600">Each floor is a sovereign. Its own brain. Its own memory. <span class="text-cyan">Disconnect any one of them and the others stay whole.</span> That's not Google Docs. That's git.</div>
-  </div>
-  <div class="small mt-3" style="color:var(--green);max-width:980px">
-    The wiring: one shared <span class="mono">boardroom_meetings</span> table + a typed <span class="mono">agent_mailbox</span> queue, both in Postgres. Real cross-floor seats, not chat. An exec on Floor 1 can claim a seat in a meeting Floor 3 opened, and vice versa.
-  </div>
-</div>
-
-<!-- 7: THE COMMISSION (live) -->
+<!-- 5: THE COMMISSION (live) -->
 <div class="slide" data-title="The Commission">
   <span class="badge badge-pink"><span class="pulse-dot"></span>Live now</span>
   <div class="big mt-2">
@@ -362,7 +321,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="small mt-3" style="color:var(--orange);font-family:var(--mono)">No fabricated demos. The artifact is the proof. If it breaks, you see it break.</div>
 </div>
 
-<!-- 8: THE SIX MOVES -->
+<!-- 6: THE SIX MOVES -->
 <div class="slide" data-title="The Six Moves">
   <span class="badge badge-purple">What just happened</span>
   <div class="big mt-2">
@@ -398,51 +357,31 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="small mt-3" style="color:var(--green);font-family:var(--mono)">The path should be in Discord text by now. Look at the channel.</div>
 </div>
 
-<!-- 9: BET PAID OFF -->
+<!-- 7: BET PAID OFF + RECEIPT -->
 <div class="slide" data-title="Bet Paid Off">
   <span class="badge badge-green"><span class="pulse-dot"></span>DONE &middot; ~18 seconds</span>
   <div class="big mt-2">
-    The file <span class="text-gradient-green">exists.</span>
+    The file <span class="text-gradient-green">exists.</span><br>
+    <span style="font-size:0.7em;font-weight:600">And the building <span class="text-gradient-green">grades its own receipt.</span></span>
   </div>
   <div class="divider mt-3"></div>
-  <div class="body mt-3" style="max-width:820px">
-    While I was naming the six moves, the agent finished. The path is on screen. The lessons are saved. The follow-up is queued. That was a real commission, in real time, in front of you.
+  <div class="body mt-2" style="max-width:840px">
+    Real commission, real file, real time. The receipt below is live: every five seconds the agents probe their own federation and grade it. The auto-refresh is the verify step at building scale.
   </div>
-  <div class="card-grid card-grid-3 mt-3" style="max-width:980px">
-    <div class="card card-glow-green">
-      <h3 style="font-size:1rem"><span class="text-green">What I just did</span></h3>
-      <p>Spoke a six-field brief out loud. Once. Walked away.</p>
+  <div class="mt-3" style="max-width:1080px;width:100%">
+    <img src="preflight-receipt-kcs.png" alt="Federation preflight receipt &mdash; GREEN 6/6 checks passed" style="width:100%;border-radius:12px;border:1px solid rgba(16,185,129,0.4);box-shadow:0 0 60px rgba(16,185,129,0.15);background:#000">
+    <div style="font-family:var(--mono);font-size:0.72rem;color:var(--muted);margin-top:8px;text-align:center;line-height:1.6">
+      <span class="pulse-dot"></span>live, auto-refresh 5s &middot;
+      <span style="color:var(--green)">:9643/office/preflight</span>
+      (KCS-side) &middot;
+      <span style="color:var(--green)">:8643/boardroom2/preflight</span>
+      (AnisminOS mirror) &middot;
+      <span style="color:var(--cyan)">two URLs, two signatures, same math</span>
     </div>
-    <div class="card card-glow-cyan">
-      <h3 style="font-size:1rem"><span class="text-cyan">What the agent just did</span></h3>
-      <p>Decomposed, routed, verified, documented, surfaced for approval, queued follow-up.</p>
-    </div>
-    <div class="card card-glow-purple">
-      <h3 style="font-size:1rem"><span class="text-purple">What the room just saw</span></h3>
-      <p>An artifact appear at a real file path. Not a slide. Not a claim. A file.</p>
-    </div>
-  </div>
-  <div class="quote-block green mt-3">
-    <div style="font-size:1rem;font-weight:600">That's a workbench. That's commissioning. The chat window doesn't do that.</div>
   </div>
 </div>
 
-<!-- 10: THE HONEST BEAT -->
-<div class="slide" data-title="The Honest Beat">
-  <span class="badge badge-orange">Before you start</span>
-  <div class="big mt-2">
-    Two weeks of <span class="text-gradient-yellow">feeling slower.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="body mt-3" style="max-width:820px">
-    The first two weeks of doing this feel slower than your old workflow. Not faster. Slower. You're learning to write a brief instead of typing into a chat. You're learning to wait for an artifact instead of reading a stream of tokens. You're learning to approve judgment, not typos.
-  </div>
-  <div class="quote-block orange mt-3">
-    <div style="font-size:1rem;font-weight:600">If I don't say that out loud, the serious people in this room will discover it alone in week one and trust me less. So: it's slower at first. By week three it's not. By week eight you can't go back.</div>
-  </div>
-</div>
-
-<!-- 11: AGENTREEF FEDERATION -->
+<!-- 8: AGENTREEF FEDERATION -->
 <div class="slide" data-title="AgentReef">
   <div class="slide-bg subtle" style="background-image:url('agentreef-federation.png')"></div>
   <span class="badge badge-cyan">Beyond the building</span>
@@ -451,7 +390,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
   <div class="divider mt-3"></div>
   <div class="body mt-2" style="max-width:880px">
-    AgentReef Federation: a signed message bus between sovereign agent buildings. JWT + HMAC, your shard stays yours. <span class="text-cyan">Disconnect from the reef and your agents are still whole.</span>
+    The Anismin Office is one floor of three. Meridian on Floor 2, Kimi on Floor 3. Three sovereign brains, three memory stores, all federated over a signed message bus. JWT + HMAC, your shard stays yours. <span class="text-cyan">Disconnect from the reef and your agents are still whole.</span>
   </div>
   <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
     <div class="card card-glow-cyan">
@@ -463,27 +402,14 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
       <p>Anismin can ask Meridian for an opinion across the network. Same mailbox shape. Different building. Reply folds back into the conversation.</p>
     </div>
     <div class="card card-glow-green">
-      <h3 style="font-size:0.95rem"><span class="text-green">Skill transfer</span></h3>
-      <p>What Anismin learns mentoring one client's stack travels (anonymised) to the next. The reef compounds.</p>
+      <h3 style="font-size:0.95rem"><span class="text-green">My building &harr; yours</span></h3>
+      <p>Federate a mentor to your stack. Skills, patterns, capabilities transfer. The reef compounds.</p>
     </div>
   </div>
   <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">"I want my own shard so that if I disconnect from the reef, my agent is still whole." &mdash; the design constraint that picked git over a single DB.</div>
-
-  <div class="mt-3" style="max-width:1080px;width:100%">
-    <img src="preflight-receipt-kcs.png" alt="Federation preflight receipt &mdash; GREEN 6/6 checks passed" style="width:100%;border-radius:12px;border:1px solid rgba(16,185,129,0.4);box-shadow:0 0 60px rgba(16,185,129,0.15);background:#000">
-    <div style="font-family:var(--mono);font-size:0.72rem;color:var(--muted);margin-top:8px;text-align:center;line-height:1.6">
-      <span class="pulse-dot"></span>live, auto-refresh 5s &middot;
-      <span style="color:var(--green)">localhost:9643/office/preflight</span>
-      (KCS-side) &middot;
-      <span style="color:var(--green)">localhost:8643/boardroom2/preflight</span>
-      (AnisminOS mirror)
-      <br>
-      <span style="color:var(--cyan)">two URLs, two signatures, same math</span> &mdash; the agents shipped this last night because I wrote the checklist into the speaker notes
-    </div>
-  </div>
 </div>
 
-<!-- 12: TAKE IT HOME / WALK OFF -->
+<!-- 9: TAKE IT HOME / WALK OFF -->
 <div class="slide" data-title="Take It Home">
   <span class="badge badge-purple">Take it home</span>
   <div class="mega mt-3" style="line-height:1.1">
@@ -494,8 +420,8 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="body mt-3" style="max-width:840px">
     Day one, write one six-field brief. Day thirty, you have a vault of dated lessons and one tripwire that has caught something real. Day ninety, you're commissioning daily. <span class="text-purple">Don't be at Day 0 next month.</span>
   </div>
-  <div class="small mt-2" style="color:var(--yellow);max-width:760px">
-    There's also a subscription line of business hiding in this room &mdash; federate a mentor agent to your AI product, monthly skill transfers. <span style="color:var(--cyan)">Find me at the bar.</span>
+  <div class="small mt-2" style="color:var(--orange);max-width:760px;font-style:italic">
+    The first two weeks feel slower. By week three they're not. By week eight you can't go back.
   </div>
   <div style="display:flex;align-items:center;justify-content:center;gap:30px;margin-top:18px;flex-wrap:wrap">
     <div class="card card-glow-cyan" style="text-align:center;padding:14px 20px;max-width:280px">
