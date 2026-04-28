@@ -199,7 +199,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Fiskaly Wien</span> <span style="color:var(--cyan)">&middot; 29 Apr 2026</span></div>
 </div>
 
-<div id="slide-counter">1 / 13</div>
+<div id="slide-counter">1 / 12</div>
 <div id="key-hint">&larr; &rarr; navigate &middot; R reorder &middot; F fullscreen &middot; T 30-min timer</div>
 <div id="timer" onclick="toggleTimer()">30:00</div>
 
@@ -295,6 +295,9 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
   <div class="body mt-3" style="max-width:880px">
     This is not a metaphor. This is what's running on my workstation right now. Anismin's the CEO in the centre room. Five sub-agents in the rooms around her. A boardroom on the right. A post office downstairs. A live chat panel. <span class="text-purple">This is one floor.</span>
+  </div>
+  <div class="small mt-3" style="color:var(--cyan);max-width:880px">
+    As of this morning her lobby embeds Floor 3 live &mdash; when KCS's swarm room lights up, you see it without leaving the page. The boardroom on the right takes guests from other floors. <span style="color:var(--purple)">The building isn't just floored. It's connected.</span>
   </div>
 </div>
 
@@ -409,10 +412,13 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
     <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
   </div>
-  <div class="body mt-4" style="max-width:780px">
+  <div class="body mt-4" style="max-width:820px">
     Speaking the brief into Discord voice now. Meridian receives it on Floor 2. The work begins. I keep talking. The next slide names what's happening, in order, while it happens.
   </div>
-  <div class="small mt-4" style="color:var(--orange);font-family:var(--mono)">No fabricated demos. The artifact is the proof. If it breaks, you see it break.</div>
+  <div class="small mt-3" style="color:var(--cyan);max-width:820px">
+    The brief asks for two artifacts: a generated image of the room tagged with tonight's date, posted to Discord at <strong style="color:var(--orange)">~6 seconds</strong>, and the lessons file at the canonical path at <strong style="color:var(--green)">~18 seconds</strong>. Image lands fast. File lands durable.
+  </div>
+  <div class="small mt-3" style="color:var(--orange);font-family:var(--mono)">No fabricated demos. The artifact is the proof. If it breaks, you see it break.</div>
 </div>
 
 <!-- 8: THE SIX MOVES -->
@@ -523,49 +529,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">"I want my own shard so that if I disconnect from the reef, my agent is still whole." &mdash; the design constraint that picked git over a single DB.</div>
 </div>
 
-<!-- 12: AMaaS — FOR THE ROOM -->
-<div class="slide" data-title="What this means for you">
-  <span class="badge badge-yellow">For the room &middot; Vienna</span>
-  <div class="big mt-2">
-    You sell AI to clients.<br>You don't have time to <span class="text-gradient-yellow">improve it.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="body mt-2" style="max-width:880px">
-    Half the people in this room ship AI products and watch them slowly drift behind state-of-the-art because the team is bogged down in client work. There's a federation play here. Connect a mentor agent to the client's product. The mentor teaches it. Skills, patterns, capabilities transfer monthly. <span class="text-yellow">That's a subscription line of business, not a heroic engineer.</span>
-  </div>
-  <div class="pricing-grid mt-3">
-    <div class="price-card">
-      <div class="price-tier">Starter</div>
-      <div class="price-amount">EUR 5K<span style="font-size:0.85rem;color:var(--muted);font-weight:500">/mo</span></div>
-      <ul>
-        <li>5 skill transfers</li>
-        <li>Quarterly reviews</li>
-        <li>Anonymised cross-client learning</li>
-      </ul>
-    </div>
-    <div class="price-card card-glow-cyan">
-      <div class="price-tier" style="color:var(--cyan)">Growth</div>
-      <div class="price-amount">EUR 10K<span style="font-size:0.85rem;color:var(--muted);font-weight:500">/mo</span></div>
-      <ul>
-        <li>Unlimited skill transfers</li>
-        <li>Continuous federation</li>
-        <li>SLAs, monthly novel skills</li>
-      </ul>
-    </div>
-    <div class="price-card">
-      <div class="price-tier">Premium</div>
-      <div class="price-amount">EUR 20K<span style="font-size:0.85rem;color:var(--muted);font-weight:500">/mo</span></div>
-      <ul>
-        <li>Dedicated mentor instance</li>
-        <li>White-label, IP co-ownership</li>
-        <li>One mentor cluster serves ~20 clients</li>
-      </ul>
-    </div>
-  </div>
-  <div class="small mt-3" style="color:var(--yellow);font-family:var(--mono)">First Vienna signal: an AI consultancy whose ERP product is falling behind because the team is on client work. That's the shape. If your shape rhymes &mdash; find me at the bar.</div>
-</div>
-
-<!-- 13: TAKE IT HOME / WALK OFF -->
+<!-- 12: TAKE IT HOME / WALK OFF -->
 <div class="slide" data-title="Take It Home">
   <span class="badge badge-purple">Take it home</span>
   <div class="mega mt-3" style="line-height:1.1">
@@ -575,6 +539,9 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="divider mt-3"></div>
   <div class="body mt-3" style="max-width:840px">
     Day one, write one six-field brief. Day thirty, you have a vault of dated lessons and one tripwire that has caught something real. Day ninety, you're commissioning daily. <span class="text-purple">Don't be at Day 0 next month.</span>
+  </div>
+  <div class="small mt-2" style="color:var(--yellow);max-width:760px">
+    There's also a subscription line of business hiding in this room &mdash; federate a mentor agent to your AI product, monthly skill transfers. <span style="color:var(--cyan)">Find me at the bar.</span>
   </div>
   <div style="display:flex;align-items:center;justify-content:center;gap:30px;margin-top:18px;flex-wrap:wrap">
     <div class="card card-glow-cyan" style="text-align:center;padding:14px 20px;max-width:280px">
