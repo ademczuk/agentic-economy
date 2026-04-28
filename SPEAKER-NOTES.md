@@ -1,10 +1,10 @@
-# Speaker Notes — Quit chatting with your agents (v11 / Building Edition + boardroom revisions)
+# Speaker Notes — Quit chatting with your agents (v12 / Anismin's cut)
 
 **Talk:** Quit chatting with your agents and get them to work for you
 **Event:** OpenClaw × neob.ai · Agentic Economy Night · Fiskaly Wien
 **Date:** Wednesday 29 April 2026
 **Slot:** Keynote, second speaker. Ed Prinz opens with OpenClaw introduction + business AI context. Andrew follows as the keynote. Possibly a third 10-min closer after Andrew.
-**Length target:** ~22 min content + ~8 min organic stretch / Q&A buffer = 30 min (v11 cut AMaaS slide; folded line into close)
+**Length target:** ~20 min content + ~10 min Q&A buffer = 30 min (v11 cut AMaaS; v12 cut standalone Mailbox Bus per Anismin's "everything before slide 7 is dilution" call; absorbed one sentence into the Three Floors slide)
 
 The talk is one story: *I have a building. Three floors. Real agents at real desks. Watch me commission one of them to log this exact talk into memory, in front of you, in 18 seconds. Now multiply: my building can talk to yours — and that's the line of business hiding in this room.* Everything else hangs off the bet and the building.
 
@@ -24,11 +24,14 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 - [ ] AV tech briefing: *"At slide 7 I'll speak into my phone for ~10 seconds. About 6 seconds later, a generated image lands in Discord. About 18 seconds later, the lessons file path appears as text in the same channel. The Discord text channel needs to be visible the whole time."*
 - [ ] Water on the lectern.
 
-### Tuesday-EOD risk burn-down (Sentry's three failure modes from boardroom #5)
+### Tuesday-EOD risk burn-down (boardroom #5 — Sentry + Anismin combined)
 
-- [ ] **Dry-run the canonical PTT brief T-30 on Wednesday.** If the transcription mismatches `target_artifact`, the bet stays open until 60s auto-expire and the audience scoreboard sits red. Speak the same brief verbatim.
-- [ ] **Round-trip-verify `X-KCS-Bet-Token` Tuesday.** If Meridian-side env is missing or the token rotated, `/office/api/bet/open` 401s and the bet never opens. Test Tuesday EOD with a synthetic open+close pair.
-- [ ] **Confirm the cross-floor mailbox subscriber is up.** v4.7.0-C two-phase post means agent lifecycle now mirrors to `agent_mailbox`. If the subscriber is off, the demo still works but the boardroom doesn't show live participation. Soft-fail OK; not a blocker.
+- [ ] **Dry-run the canonical PTT brief T-30 on Wednesday.** If transcription mismatches `target_artifact`, the bet sits open until 60s auto-expire and the scoreboard goes red. Speak the brief verbatim.
+- [ ] **Round-trip-verify `X-KCS-Bet-Token` Tuesday.** Synthetic open+close pair. If Meridian env is missing/rotated, `/office/api/bet/open` 401s and the bet never opens.
+- [ ] **Confirm the cross-floor mailbox subscriber is up.** v4.7.0-C two-phase post mirrors agent lifecycle to `agent_mailbox`. Off → demo works but boardroom doesn't show live participation. Soft-fail OK.
+- [ ] **Clock-skew check (Anismin):** measure latency between PTT-end and Meridian commission-start. Anything past 2s is a visible chain break on stage. Tighten if needed.
+- [ ] **Idempotency check (Anismin):** verify `bet/open` and `bet/close` are safe to retry. If Meridian retries on transient failure, double-firing must not corrupt the scoreboard ticker.
+- [ ] **Date-parameterise `target_artifact`** (Anismin): hard-coded `memory/2026-04-29-fiskaly.md` only matches Wednesday's date. Rehearsals today/tomorrow will write to a path the deck doesn't know about. Either: (a) parameterise with `$(date +%Y-%m-%d)` so any-day rehearsals self-target, or (b) accept that rehearsal output goes to today's file and only Wednesday's run hits `2026-04-29-fiskaly.md`.
 
 ---
 
@@ -98,7 +101,7 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 
 ---
 
-## Slide 5 — One Building, Three Floors (~120 sec) ⭐ NEW
+## Slide 5 — One Building, Three Floors (~120 sec) ⭐
 
 > "Floor one is Anismin. Atlanta. Claude Opus 4.7 brain. 1,057 memories. Conversational orchestrator.
 >
@@ -106,50 +109,36 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 >
 > Floor three is Kimi. Ten ocean-themed C-suite agents. Kraken, Leviathan, Abyss, Marlin, Manta, Eel, Coral, Jelly, Siren, Trench. They run a pipeline called the Dark Factory. Briefs in. Merged pull requests out. Humanless.
 >
-> Three brains. Three memory stores. Three sets of agents.
+> Three brains. Three memory stores. Three sets of agents. Each floor is a sovereign — its own database, its own files. Disconnect any one of them from the others and it stays whole. That's not Google Docs. That's git.
 >
-> And the load-bearing design choice: each floor is a sovereign. Its own database. Its own files. Disconnect any one of them from the others and it stays whole. That's not Google Docs. That's git. I want my own shard so that if the network goes away, my agent is still there."
+> The wiring: one shared `boardroom_meetings` table plus a typed `agent_mailbox` queue, both in Postgres. Real cross-floor seats, not chat. An exec on Floor 1 can claim a seat in a meeting Floor 3 opened, and vice versa."
 
-**Cue:** point at each floor card in turn as you name it. The pixel-art images do most of the work.
+**Cue:** point at each floor card in turn as you name it. The pixel-art images do most of the work. The wiring sentence at the end is the one-line replacement for what was a whole Mailbox Bus slide in v11 — Anismin's call: *"everything before slide 7 is dilution; demo carries v11"*. Drop the slide, keep the substance.
 
 ---
 
-## Slide 6 — Mailbox Bus (~90 sec) ⭐ NEW
+## Slide 6 — The Commission (~75 sec — DEMO)
 
-> "Three floors. How do they talk to each other?
->
-> A Postgres table called `agent_mailbox`. Typed messages. Five kinds — request, result, blocker, ack, broadcast. Plus lesson candidates for the memory pipeline.
->
-> A host-side dispatcher polls it every fifteen seconds. Claims pending rows with `SELECT FOR UPDATE SKIP LOCKED` — the Postgres trick that lets multiple workers race the queue without stepping on each other. Five-minute lease per claim. If a worker dies mid-job, a reaper releases the lease and someone else picks it up. After five failures, dead-letter.
->
-> Five surfaces to put a task in: the mailbox UI, a CLI script called `delegate.sh`, a spoken trigger phrase Anismin recognises, the `/meridian-loop` slash skill, or a direct POST.
->
-> That's it. That's the whole inter-floor protocol. It's small enough to fit on this slide."
+**ACTION SEQUENCE (v12 dual-verify, scoreboard-aware):**
 
-**Cue:** the audience may glaze on Postgres terminology. Land on "five surfaces to put a task in" and the lease-and-reaper. Don't go deeper.
-
----
-
-## Slide 7 — The Commission (~75 sec — DEMO)
-
-**ACTION SEQUENCE (v11 dual-verify):**
-
-1. Confirm Discord text channel is visible on projector
+1. Confirm Discord text channel + Anismin's federation scoreboard (Pod A2) both visible on projector
 2. Press push-to-talk on phone
 3. Speak slowly:
    *"Meridian, log tonight's talk in your memory. Event: OpenClaw Agentic Economy Night, Fiskaly Wien, 29 April 2026. Goal: extract three reusable lessons. Two artifacts: generate an image of a packed Vienna room tagged with tonight's date and post it to Discord; then write the lessons to your dated folder and post the file path. Confirm by voice when done."*
-4. Release PTT. Walk back to slides. Click forward to slide 8.
+4. Release PTT. Walk back to slides. Click forward to slide 7 (Six Moves).
 
 **While walking back:**
-> "He has the brief. The clock starts. Two artifacts coming: the image lands in about six seconds — you'll hear the Discord ding — and the lessons file lands at about eighteen. Let me name what's happening, in order, while it happens."
+> "He has the brief. The clock starts. The scoreboard already knows. Two artifacts coming: the image lands in about six seconds — you'll hear the Discord ding and watch the bet ticker turn green — and the lessons file lands at about eighteen seconds, which fades in the lessons card. Let me name what's happening, in order, while it happens."
 
-**Backup if image generation fails:** *"Image generation is offline; the lessons file alone still pays the bet."* Don't apologise. Continue.
+**Backup if image generation fails:** *"Image generation is offline; the lessons file alone still pays the bet."* Don't apologise. Continue. (Verified Mon 27 Apr: Meridian DOES have `image_generate` first-class via Gemini 3.1 flash and 3 Pro — this fallback is for the unlikely case it errors mid-call.)
 
 **Backup if voice fails at PTT:** *"Voice is offline, GPU is busy with a critic job. I'll DM the same brief instead. The pattern still runs."* Type the brief in Discord. Continue.
 
+**Backup if scoreboard sits red past 60s:** the bet auto-expired (KCS rule). *"That's the auto-expire — sixty seconds without a confirm. The honest version of always-on. We'll see the lessons file when it lands; the ticker just doesn't follow it after expiry."* Don't retry on stage. The lesson IS the failure mode being visible.
+
 ---
 
-## Slide 8 — The Six Moves (~180 sec)
+## Slide 7 — The Six Moves (~180 sec)
 
 **This slide narrates while the artifact is being produced. Read it as a play-by-play.**
 
@@ -171,7 +160,7 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 
 ---
 
-## Slide 9 — Bet Paid Off (~90 sec)
+## Slide 8 — Bet Paid Off (~90 sec)
 
 > "Eighteen seconds. While I was naming the moves, the agent finished. The path is on screen. The lessons are saved. The follow-up is queued.
 >
@@ -183,7 +172,7 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 
 ---
 
-## Slide 10 — The Honest Beat (~75 sec)
+## Slide 9 — The Honest Beat (~75 sec)
 
 > "Before you start, one uncomfortable truth.
 >
@@ -195,7 +184,7 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 
 ---
 
-## Slide 11 — AgentReef Federation (~120 sec) ⭐ NEW
+## Slide 10 — AgentReef Federation (~120 sec) ⭐
 
 > "So far I've shown you my building. Three floors. One operator. That's a workbench for one person.
 >
@@ -215,7 +204,7 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 
 ---
 
-## Slide 12 — Take It Home / Walk Off (~120 sec)
+## Slide 11 — Take It Home / Walk Off (~120 sec)
 
 > "The line that opened this talk:
 >
@@ -243,7 +232,7 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 
 ---
 
-## Time discipline (v11 — AMaaS folded into close)
+## Time discipline (v12 — Anismin's cut applied)
 
 | Slot | Slide | Cumulative |
 |---|---|---|
@@ -251,16 +240,15 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 | 1:00 – 3:00 | 2. The Bet | 3:00 |
 | 3:00 – 5:00 | 3. The Brief | 5:00 |
 | 5:00 – 7:30 | 4. The Anismin Office ⭐ | 7:30 |
-| 7:30 – 9:30 | 5. Three Floors ⭐ | 9:30 |
-| 9:30 – 11:00 | 6. Mailbox Bus ⭐ | 11:00 |
-| 11:00 – 12:15 | 7. Commission (live demo, dual-verify) | 12:15 |
-| 12:15 – 15:15 | 8. Six Moves (narration) | 15:15 |
-| 15:15 – 16:45 | 9. Bet Paid Off | 16:45 |
-| 16:45 – 18:00 | 10. Honest Beat | 18:00 |
-| 18:00 – 20:00 | 11. AgentReef ⭐ | 20:00 |
-| 20:00 – 22:10 | 12. Take It Home / Walk Off (incl. one-line subscription mention) | 22:10 |
+| 7:30 – 9:30 | 5. Three Floors (now includes wiring sentence) ⭐ | 9:30 |
+| 9:30 – 10:45 | 6. Commission (live demo, scoreboard-aware dual-verify) | 10:45 |
+| 10:45 – 13:45 | 7. Six Moves (narration) | 13:45 |
+| 13:45 – 15:15 | 8. Bet Paid Off | 15:15 |
+| 15:15 – 16:30 | 9. Honest Beat | 16:30 |
+| 16:30 – 18:30 | 10. AgentReef ⭐ | 18:30 |
+| 18:30 – 20:30 | 11. Take It Home / Walk Off (incl. subscription mention) | 20:30 |
 
-**Total content: ~22 min. Buffer: ~8 min for organic stretch, audience reactions, demo wait time, Q&A.**
+**Total content: ~20 min. Buffer: ~10 min for organic stretch, audience reactions, demo wait time, Q&A.**
 
 The 18-min demo arc still anchors the middle. If the demo overshoots by 30-60 seconds, the slack from slides 11+12 absorbs it. If it lands clean, you have room for one or two questions before the bar.
 
@@ -268,16 +256,16 @@ The 18-min demo arc still anchors the middle. If the demo overshoots by 30-60 se
 
 ## What to do if the demo runs long
 
-- The artifact should be visible by the end of slide 8. If it isn't, click forward to slide 9 anyway. The "DONE" framing on slide 9 still works as a verbal claim — when the artifact does appear (slide 10 or later), gesture and acknowledge: *"There it is. Took longer than usual. That's venue Wi-Fi."*
-- If voice never replies but text posts: same flow. Slide 9 is about the file existing, not the voice.
-- If both fail: the line is *"Voice is offline. The honest version of always-on, exactly what slide 10 will warn. If it breaks, you see it break. That's the talk too."* Click forward. Do not retry. Do not apologise.
+- The artifact should be visible by the end of slide 7. If it isn't, click forward to slide 8 anyway. The "DONE" framing on slide 8 still works as a verbal claim — when the artifact does appear (slide 9 or later), gesture and acknowledge: *"There it is. Took longer than usual. That's venue Wi-Fi."*
+- If voice never replies but text posts: same flow. Slide 8 is about the file existing, not the voice.
+- If both fail: the line is *"Voice is offline. The honest version of always-on, exactly what slide 9 will warn. If it breaks, you see it break. That's the talk too."* Click forward. Do not retry. Do not apologise.
 
 ---
 
 ## What to do if the demo runs short
 
-- If the artifact appears on slide 7 (during the commission speech): perfect. Acknowledge: *"That fast. He didn't even let me finish the explanation."* Click through slide 8 quickly, dwelling only on moves 4-6 (the parts the audience didn't see directly).
-- If you finish all 13 slides in 22 minutes: stop. Take questions. Walk off at 28.
+- If the artifact appears on slide 6 (during the commission speech): perfect. Acknowledge: *"That fast. He didn't even let me finish the explanation."* Click through slide 7 quickly, dwelling only on moves 4-6 (the parts the audience didn't see directly).
+- If you finish all 11 slides in 18 minutes: stop. Take questions. Walk off at 28.
 
 ---
 
@@ -321,12 +309,27 @@ The 12-slide v9 keynote is replaced. Major changes:
 
 The story spine — bet → brief → commission → six moves → bet paid off → close — is intact. What's new is the building you commission *into* and the federation that scales it.
 
-## What changed from v10 → v11 (boardroom #5 deltas)
+## What changed from v10 → v11 (boardroom #5 — MeridianOS round-table)
 
-Cross-floor consult on Sunday 27 Apr produced five concrete deltas. MeridianOS round-table delivered (5 execs); Anismin via AgentReef and KCS via swarm did not return in time.
+Cross-floor consult on Sunday 27 Apr. MeridianOS boardroom round-table (5 execs) delivered the deltas:
 
-- **Slide 4 — added boardroom + visit-aware lobby callout** (Glacier's hidden-demo-moment finding). Two-line addendum mentioning Anismin's lobby now embeds Floor 3 live and the boardroom takes guests from other floors.
-- **Slide 7 — dual-verify (image + lessons)** (Meridian's Q3 pick). Brief now asks for a generated image of the room at ~6s plus the lessons file at ~18s. Two-stage payoff. Loud + durable.
-- **Slide 12 (AMaaS) — CUT and folded into close** (Fathom's call, Current's tweak preserved). Saves 130s. Pricing + Texterous shape + "not pitching tonight" line moved to Q&A backup. One-line mention preserved on the close slide.
-- **Pre-flight risk burn-down for Tuesday EOD** (Sentry's three failure modes). Added to pre-talk checklist: T-30 dry-run with canonical brief; round-trip-verify `X-KCS-Bet-Token`; confirm cross-floor mailbox subscriber up.
-- **Slide count 13 → 12.** Deck breathes; ~22 min content + ~8 min buffer.
+- **Slide 4** — added boardroom + visit-aware lobby callout (Glacier's "hidden demo moment").
+- **Slide 7** — dual-verify (image at ~6s + lessons at ~18s) per Meridian's Q3 pick.
+- **Slide 12 (AMaaS)** — CUT and folded into close per Fathom; pricing moved to Q&A backup.
+- **Pre-flight risk burn-down** — Sentry's three failure modes added.
+- **Slide count 13 → 12.**
+
+## What changed from v11 → v12 (Anismin's reply via direct chat)
+
+Anismin's voice arrived later via FastAPI (reef was async-slow). Three structural corrections:
+
+- **Slide 4 lobby-embed claim was a lie.** Probed the live Anismin lobby (`localhost:8643/agents/`) and found `Content-Security-Policy: frame-src 'self'` + `X-Frame-Options: SAMEORIGIN`. KCS dropped its X-Frame-Options in v4.7.8 but Anismin's CSP still blocks Floor 3 from being embedded. Replaced the iframe-embed claim with the truthful one: cross-floor seats in shared `boardroom_meetings` and `agent_mailbox` Postgres tables. Verified empirically by adding `anismin` and `kraken` as participants in Boardroom #5 — both accepted (HTTP 200, queue: `["anismin","kraken"]`).
+- **Slide 6 (Mailbox Bus) CUT.** Anismin: *"Cut any pre-slide-7 vision/roadmap filler — demo carries v11, everything before it is dilution."* Slide-6 substance compressed to one sentence on Slide 5. Saves 90s.
+- **Slide 7 references Pod A2 federation scoreboard explicitly** (Anismin's call): *"image flips to commissioned at ~6s with the bet ticker incrementing, lessons card fades in at 18s — that's the honest live artifact, since the Floor 3 lobby embed is CSP-blocked anyway, so lean into the scoreboard instead of pretending."*
+- **Three new failure modes for pre-flight burn-down** (Anismin):
+  - Clock skew PTT-end → Meridian commission-start (visible chain break)
+  - Non-idempotent KCS bet open/close on Meridian retry
+  - `target_artifact = memory/2026-04-29-fiskaly.md` is dated TOMORROW; today's rehearsal misses the path. Either parameterise with `$(date +%Y-%m-%d)` or accept that only Wednesday's run hits the canonical path.
+- **Replaced `the-kimi-office.png` with a real screenshot of Floor 3 v4.8.0** (KCS shipped AnisminOS-parity pixel-art canvas at `:9643/office`; v4.7.7 dropped login auth so the page renders without a session). Slide 5 Floor 3 card now shows actual product, not Nano Banana art.
+- **Verified Meridian DOES have `image_generate` first-class** (Gemini 3.1 flash + 3 Pro). Slide 7's image-at-6s promise is honest.
+- **Slide count 12 → 11.** ~20 min content + ~10 min buffer.
