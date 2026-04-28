@@ -195,11 +195,11 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 
 <div id="gource-overlay">
   <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Quit chatting</span> <span style="color:var(--purple)">&middot; Agentic Economy</span></div>
-  <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Andrew Demczuk, MSc</span> <span style="color:var(--cyan)">&middot; OpenClaw Contributor</span></div>
+  <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Andrew Demczuk, MSc</span> <span style="color:var(--cyan)">&middot; OpenClaw Core Maintainer</span></div>
   <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Fiskaly Wien</span> <span style="color:var(--cyan)">&middot; 29 Apr 2026</span></div>
 </div>
 
-<div id="slide-counter">1 / 9</div>
+<div id="slide-counter">1 / 10</div>
 <div id="key-hint">&larr; &rarr; navigate &middot; R reorder &middot; F fullscreen &middot; T 30-min timer</div>
 <div id="timer" onclick="toggleTimer()">30:00</div>
 
@@ -220,8 +220,8 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="mid mt-2" style="font-weight:600;color:var(--text)">
     and get them to <span class="text-gradient-voice">work for you</span>
   </div>
-  <div class="body mt-3" style="max-width:780px">Ed showed you the case for OpenClaw and what agents can do in business. I'm going to take you one floor down. Into the operational layer. The workbench. With a real bet.</div>
-  <div class="small mt-4">Andrew Demczuk, MSc &middot; OpenClaw Contributor &middot; Vienna, 29 Apr 2026</div>
+  <div class="body mt-3" style="max-width:780px">Ed just gave you the platform and the case &mdash; what OpenClaw is and what agents can actually do in business. I'm going one floor down. Tonight I'm showing you the workbench: what it looks like when one person commissions one, live, in front of you.</div>
+  <div class="small mt-4">Andrew Demczuk, MSc &middot; OpenClaw Core Maintainer &middot; Vienna, 29 Apr 2026</div>
 </div>
 
 <!-- 2: THE BET -->
@@ -238,6 +238,17 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="quote-block yellow mt-3">
     <div style="font-size:1rem;font-weight:600">If the bet pays off, you've watched the workbench complete a real piece of work in front of you. If it fails, you'll see exactly where it failed and why. Either way, that's the talk.</div>
   </div>
+  <div class="card-grid card-grid-2 mt-3" style="max-width:560px">
+    <div class="card card-glow-cyan" style="text-align:center;padding:14px 18px">
+      <div style="font-size:2rem;font-weight:900;color:var(--cyan)">88%</div>
+      <div style="font-size:0.78rem;color:var(--dim);margin-top:4px">of respondents report AI revenue gains</div>
+    </div>
+    <div class="card card-glow-red" style="text-align:center;padding:14px 18px">
+      <div style="font-size:2rem;font-weight:900;color:var(--red)">6%</div>
+      <div style="font-size:0.78rem;color:var(--dim);margin-top:4px">trust agents with core work</div>
+    </div>
+  </div>
+  <div class="small mt-2" style="color:var(--cyan);font-family:var(--mono)">The brief is the bridge. &mdash; NVIDIA State of AI 2026 &middot; HBR Analytic Services</div>
 </div>
 
 <!-- 3: THE BRIEF -->
@@ -335,7 +346,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
     <div class="pipe-step" style="border-color:rgba(6,182,212,0.4)">
       <div class="pipe-num">2</div>
-      <div><div class="pipe-label"><span class="text-cyan">Route</span> &middot; each sub-task goes to the right brain</div><div class="pipe-desc">heavy reasoning to the cloud &middot; file write to a tool, not a model &middot; voice to a fast local model</div></div>
+      <div><div class="pipe-label"><span class="text-cyan">Bespoke path</span> &middot; this pipeline exists for one task type</div><div class="pipe-desc">heavy reasoning to the cloud &middot; file write to a tool, not a model &middot; voice to a fast local model. Different task type, different pipeline. No generic factory.</div></div>
     </div>
     <div class="pipe-step" style="border-color:rgba(16,185,129,0.4)">
       <div class="pipe-num">3</div>
@@ -402,14 +413,48 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
       <p>Anismin can ask Meridian for an opinion across the network. Same mailbox shape. Different building. Reply folds back into the conversation.</p>
     </div>
     <div class="card card-glow-green">
-      <h3 style="font-size:0.95rem"><span class="text-green">My building &harr; yours</span></h3>
-      <p>Federate a mentor to your stack. Skills, patterns, capabilities transfer. The reef compounds.</p>
+      <h3 style="font-size:0.95rem"><span class="text-green">Two URLs, same math</span></h3>
+      <p><span class="mono">:9643</span> and <span class="mono">:8643</span> just graded the same receipt independently. <strong style="color:var(--text)">That's federation</strong> &mdash; not a future roadmap, the thing running on the workstation tonight.</p>
     </div>
   </div>
   <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">"I want my own shard so that if I disconnect from the reef, my agent is still whole." &mdash; the design constraint that picked git over a single DB.</div>
+  <div class="small mt-2" style="color:var(--purple);font-family:var(--mono);max-width:880px">Dark Factory is Kimi's internal pipeline. The three floors are the governance layer above it. This is Yegge's Wasteland, Willison's Dark Factory, Huntley's Weaving Loom &mdash; same camp.</div>
 </div>
 
-<!-- 9: TAKE IT HOME / WALK OFF -->
+<!-- 9: EU AI ACT — COMPLIANCE BUILT IN -->
+<div class="slide" data-title="August 2, 2026">
+  <span class="badge badge-orange"><span class="pulse-dot"></span>96 days from tonight</span>
+  <div class="big mt-2">
+    <span class="text-gradient-yellow">August 2, 2026.</span><br>
+    <span style="font-size:0.78em">EU AI Act Article 13 binds.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:840px">
+    Replayable audit logs become a requirement, not a nice-to-have. The workbench you just watched already has them &mdash; not because compliance, because the architecture demanded it.
+  </div>
+  <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
+    <div class="card card-glow-orange">
+      <h3 style="font-size:0.95rem"><span class="text-orange">Article 9</span> &middot; Risk Management</h3>
+      <p>Mandates an &laquo;automation boundary&raquo; &mdash; which actions need human approval. <strong style="color:var(--text)">That's the brief's <em>Escalate if</em> field.</strong> Markdown, not a policy engine.</p>
+    </div>
+    <div class="card card-glow-yellow">
+      <h3 style="font-size:0.95rem"><span class="text-yellow">Article 13</span> &middot; Interpretability</h3>
+      <p>Every action chain must be replayable, verifiable, not self-reported. <strong style="color:var(--text)">That's <span class="mono">boardroom_floor_events</span></strong> &mdash; one row per agent action, Postgres, time-ordered.</p>
+    </div>
+    <div class="card card-glow-cyan">
+      <h3 style="font-size:0.95rem"><span class="text-cyan">Article 50</span> &middot; Transparency</h3>
+      <p>Every agent must identify itself as non-human. <strong style="color:var(--text)">That's the audit log's <span class="mono">agent_id</span> column</strong> &mdash; agent identifier on every row, not a human alias. Machine-readable.</p>
+    </div>
+  </div>
+  <div class="small mt-3" style="color:var(--orange);font-family:var(--mono);max-width:880px">
+    Source: Nannini et al. &mdash; AI Agents Under EU Law, arXiv:2604.04604 &middot; CMS Law on Agentic AI Risk &amp; Compliance
+  </div>
+  <div class="quote-block orange mt-3">
+    <div style="font-size:0.95rem;font-weight:600">Compliance theatre is what you bolt on. <span class="text-gradient-yellow">Compliance built in is what survives the audit.</span></div>
+  </div>
+</div>
+
+<!-- 10: TAKE IT HOME / WALK OFF -->
 <div class="slide" data-title="Take It Home">
   <span class="badge badge-purple">Take it home</span>
   <div class="mega mt-3" style="line-height:1.1">
