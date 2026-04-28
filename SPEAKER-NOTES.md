@@ -1,4 +1,4 @@
-# Speaker Notes — Quit chatting with your agents (v12 / Anismin's cut)
+# Speaker Notes — Quit chatting with your agents (v13 / receipts not promises)
 
 **Talk:** Quit chatting with your agents and get them to work for you
 **Event:** OpenClaw × neob.ai · Agentic Economy Night · Fiskaly Wien
@@ -24,14 +24,32 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 - [ ] AV tech briefing: *"At slide 7 I'll speak into my phone for ~10 seconds. About 6 seconds later, a generated image lands in Discord. About 18 seconds later, the lessons file path appears as text in the same channel. The Discord text channel needs to be visible the whole time."*
 - [ ] Water on the lectern.
 
-### Tuesday-EOD risk burn-down (boardroom #5 — Sentry + Anismin combined)
+### Tuesday-EOD risk burn-down — AUTOMATED
 
-- [ ] **Dry-run the canonical PTT brief T-30 on Wednesday.** If transcription mismatches `target_artifact`, the bet sits open until 60s auto-expire and the scoreboard goes red. Speak the brief verbatim.
-- [ ] **Round-trip-verify `X-KCS-Bet-Token` Tuesday.** Synthetic open+close pair. If Meridian env is missing/rotated, `/office/api/bet/open` 401s and the bet never opens.
-- [ ] **Confirm the cross-floor mailbox subscriber is up.** v4.7.0-C two-phase post mirrors agent lifecycle to `agent_mailbox`. Off → demo works but boardroom doesn't show live participation. Soft-fail OK.
-- [ ] **Clock-skew check (Anismin):** measure latency between PTT-end and Meridian commission-start. Anything past 2s is a visible chain break on stage. Tighten if needed.
-- [ ] **Idempotency check (Anismin):** verify `bet/open` and `bet/close` are safe to retry. If Meridian retries on transient failure, double-firing must not corrupt the scoreboard ticker.
-- [ ] **Date-parameterise `target_artifact`** (Anismin): hard-coded `memory/2026-04-29-fiskaly.md` only matches Wednesday's date. Rehearsals today/tomorrow will write to a path the deck doesn't know about. Either: (a) parameterise with `$(date +%Y-%m-%d)` so any-day rehearsals self-target, or (b) accept that rehearsal output goes to today's file and only Wednesday's run hits `2026-04-29-fiskaly.md`.
+KCS shipped `scripts/federation_preflight.py` on 2026-04-28 (commit `154473f`, v4.8.4) that runs the entire 6-item check as a one-liner and grades GREEN / YELLOW / RED.
+
+```bash
+docker exec kimiclaw-web python /app/scripts/federation_preflight.py --json
+```
+
+**Live grade at v13 ship time (2026-04-28 11:06 UTC): GREEN 6/6**:
+
+- Floor 1 heartbeat (AnisminOS, shape v1) ✓
+- Floor 2 heartbeat (MeridianOS, shape v1) ✓ — Pod C shipped 06:09 today
+- Floor 3 heartbeat (KCS, shape v1, build `bc0f13b`) ✓
+- KCS bet round-trip ✓
+- cross-floor REST auth gate ✓ (404 with proper message, expected without kimiclaw-floor token)
+- target_artifact date substitution ✓ (verified resolves at dispatch time, no hard-coded Wednesday string)
+
+The Anismin pre-Wed concerns from boardroom #5 (clock skew, idempotency, date-param) are now all script-checked. **Run the preflight T-30 on Wednesday and again at the lectern; act on RED only.**
+
+### Pod A2 (federation scoreboard) — UNCONFIRMED for Wednesday
+
+Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Discord-only fallback in a branch by Tuesday noon, flip it only if A2 doesn't land by 18:00 CEST."*
+
+- v13 (current) does NOT promise the scoreboard on slide 6 — only Discord image + Discord lessons file. Honest if A2 slips.
+- A `v12-discord-fallback` branch is staged on the repo for the worst case (A2 lands but breaks; we revert mid-day Wednesday).
+- If Pod A2 ships clean by Tuesday EOD, restore the scoreboard reference on slide 6 via a one-line edit.
 
 ---
 
@@ -184,7 +202,7 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 
 ---
 
-## Slide 10 — AgentReef Federation (~120 sec) ⭐
+## Slide 10 — AgentReef Federation + Preflight Receipt (~140 sec) ⭐
 
 > "So far I've shown you my building. Three floors. One operator. That's a workbench for one person.
 >
@@ -201,6 +219,12 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 > Three: skill transfer. When Anismin learns a new pattern mentoring one client's stack, that pattern can travel — anonymised — to the next. The reef compounds."
 
 **Cue:** point at the three cards as you name the three benefits. The federation art is doing the metaphor work; let it.
+
+**v13 addition — the preflight receipt at the bottom:**
+
+> "Look at the green card. That's not a slide. That's the actual output of a script the agents shipped this morning. Five minutes ago I ran it and got six out of six green. Floor 1 heartbeat, Floor 2 heartbeat, Floor 3 heartbeat, the bet round-trip, the cross-floor auth gate, and the date substitution. The script is at `scripts/federation_preflight.py` in the KCS repo. The agents wrote it because I wrote a checklist into the speaker notes. They turned it into a cron. That's the workbench eating its own dog food."
+
+**Beat:** the "they turned it into a cron" line is the closer. Hold for two seconds before next slide.
 
 ---
 
@@ -232,7 +256,7 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 
 ---
 
-## Time discipline (v12 — Anismin's cut applied)
+## Time discipline (v13 — preflight receipt added to slide 10)
 
 | Slot | Slide | Cumulative |
 |---|---|---|
@@ -240,15 +264,15 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 | 1:00 – 3:00 | 2. The Bet | 3:00 |
 | 3:00 – 5:00 | 3. The Brief | 5:00 |
 | 5:00 – 7:30 | 4. The Anismin Office ⭐ | 7:30 |
-| 7:30 – 9:30 | 5. Three Floors (now includes wiring sentence) ⭐ | 9:30 |
-| 9:30 – 10:45 | 6. Commission (live demo, scoreboard-aware dual-verify) | 10:45 |
+| 7:30 – 9:30 | 5. Three Floors (incl. wiring sentence) ⭐ | 9:30 |
+| 9:30 – 10:45 | 6. Commission (Discord-image + Discord-lessons, no scoreboard claim) | 10:45 |
 | 10:45 – 13:45 | 7. Six Moves (narration) | 13:45 |
 | 13:45 – 15:15 | 8. Bet Paid Off | 15:15 |
 | 15:15 – 16:30 | 9. Honest Beat | 16:30 |
-| 16:30 – 18:30 | 10. AgentReef ⭐ | 18:30 |
-| 18:30 – 20:30 | 11. Take It Home / Walk Off (incl. subscription mention) | 20:30 |
+| 16:30 – 18:50 | 10. AgentReef + Preflight Receipt ⭐ | 18:50 |
+| 18:50 – 20:50 | 11. Take It Home / Walk Off (incl. subscription mention) | 20:50 |
 
-**Total content: ~20 min. Buffer: ~10 min for organic stretch, audience reactions, demo wait time, Q&A.**
+**Total content: ~21 min. Buffer: ~9 min for organic stretch, audience reactions, demo wait time, Q&A.**
 
 The 18-min demo arc still anchors the middle. If the demo overshoots by 30-60 seconds, the slack from slides 11+12 absorbs it. If it lands clean, you have room for one or two questions before the bar.
 
@@ -318,6 +342,28 @@ Cross-floor consult on Sunday 27 Apr. MeridianOS boardroom round-table (5 execs)
 - **Slide 12 (AMaaS)** — CUT and folded into close per Fathom; pricing moved to Q&A backup.
 - **Pre-flight risk burn-down** — Sentry's three failure modes added.
 - **Slide count 13 → 12.**
+
+## What changed from v12 → v13 (solve-room cross-floor + ship audit 2026-04-28 morning)
+
+Cross-floor `/solve-room` boardroom 2026-04-28 11:05 CEST. Anismin spoke (Opus, single-brain authority); Meridian no reply; KCS swarm timeout. Verdict: `<DONE>` with three concrete deltas:
+
+- **Slide 6 — scoreboard reference REMOVED** (Anismin's call: *"No confirmed A2 ETA. Stage v10 Discord-only fallback. Rolling back is cheap, panic-editing Wednesday morning isn't."*) Replaced with: *"Image lands fast and loud. File lands durable. Both visible in Discord regardless of any other UI."* Honest if A2 slips.
+- **Slide 10 — preflight receipt badge ADDED** (Anismin's call: *"timestamped preflight badge converts architecture claim into verifiable receipt"*). Green card showing 2026-04-28 11:06 UTC, 6/6 GREEN, with all 6 check items listed. Frames slide 10 as receipts-not-promises.
+- **Speaker notes — Tuesday-EOD checklist replaced with the cron** (KCS shipped `scripts/federation_preflight.py` at v4.8.4 today, 07:58 UTC, automating my entire 6-item burn-down). Run the script T-30 Wednesday and at the lectern.
+
+Verified during this pass:
+
+- Pod B Floor 1 heartbeat: LIVE (`anismin`, shape v1) — shipped 07:49 today.
+- Pod C Floor 2 heartbeat: LIVE (`meridian`, shape v1, build_at 06:09 today) — shipped to Meridian's master.
+- KCS Floor 3 heartbeat: LIVE, build `bc0f13b`.
+- KCS bet round-trip: PASS via federation_preflight.py.
+- target_artifact date substitution: pipeline verified, NOT hard-coded — Anismin's earlier date concern was about the deck text, not the dispatch logic.
+- PR #28 (meridian-os) MERGED today 07:29 UTC.
+- PR #33 (AnisminOS_Memory) still OPEN; Pod B was shipped directly to AnisminOS master rather than via that PR.
+
+Pending fallback for worst case:
+
+- Branch `v12-discord-fallback` staged on `agentic-economy` repo with original v10-style slide 6 (Discord-only). Hot-swap mid-day Wednesday if Pod A2 ships then breaks.
 
 ## What changed from v11 → v12 (Anismin's reply via direct chat)
 

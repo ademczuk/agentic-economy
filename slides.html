@@ -357,7 +357,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     Speaking the brief into Discord voice now. Meridian receives it on Floor 2. The work begins. I keep talking. The next slide names what's happening, in order, while it happens.
   </div>
   <div class="small mt-3" style="color:var(--cyan);max-width:840px">
-    The brief asks for two artifacts: a generated image of the room tagged with tonight's date, posted to Discord at <strong style="color:var(--orange)">~6 seconds</strong>, and the lessons file at the canonical path at <strong style="color:var(--green)">~18 seconds</strong>. Watch the federation scoreboard &mdash; the bet ticker increments live and the lessons card fades in when the file lands.
+    The brief asks for two artifacts: a generated image of the room tagged with tonight's date, posted to Discord at <strong style="color:var(--orange)">~6 seconds</strong>, and the lessons file at the canonical path at <strong style="color:var(--green)">~18 seconds</strong>. Image lands fast and loud. File lands durable. Both visible in Discord regardless of any other UI.
   </div>
   <div class="small mt-3" style="color:var(--orange);font-family:var(--mono)">No fabricated demos. The artifact is the proof. If it breaks, you see it break.</div>
 </div>
@@ -468,6 +468,18 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
   </div>
   <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">"I want my own shard so that if I disconnect from the reef, my agent is still whole." &mdash; the design constraint that picked git over a single DB.</div>
+
+  <div class="quote-block green mt-3" style="max-width:880px;border-left-color:var(--green)">
+    <div style="font-family:var(--mono);font-size:0.82rem;color:var(--green);font-weight:700">
+      <span class="pulse-dot"></span>federation_preflight &middot; 2026-04-28 11:06 UTC &middot; <span style="color:var(--text)">6/6 GREEN</span>
+    </div>
+    <div style="font-size:0.78rem;color:var(--dim);margin-top:6px;line-height:1.5">
+      Floor 1 heartbeat ✓ &middot; Floor 2 heartbeat ✓ &middot; Floor 3 heartbeat ✓ &middot; KCS bet round-trip ✓ &middot; cross-floor REST auth gate ✓ &middot; target_artifact date substitution ✓
+    </div>
+    <div style="font-size:0.7rem;color:var(--muted);margin-top:6px;font-family:var(--mono)">
+      KCS <span style="color:var(--cyan)">scripts/federation_preflight.py</span> &mdash; shipped today by the agents themselves. Receipts, not promises.
+    </div>
+  </div>
 </div>
 
 <!-- 12: TAKE IT HOME / WALK OFF -->
