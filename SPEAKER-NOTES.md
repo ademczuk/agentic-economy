@@ -1,4 +1,4 @@
-# Speaker Notes — Quit chatting with your agents (v13 / receipts not promises)
+# Speaker Notes — Quit chatting with your agents (v14 / two receipts on stage)
 
 **Talk:** Quit chatting with your agents and get them to work for you
 **Event:** OpenClaw × neob.ai · Agentic Economy Night · Fiskaly Wien
@@ -21,8 +21,18 @@ The talk is one story: *I have a building. Three floors. Real agents at real des
 - [ ] **T-10 min: send a silent priming text to Meridian in Discord**: *"Tonight: Fiskaly Wien talk. When I commission you live, the brief will ask for memory log + 3 lessons. Save to `memory/2026-04-29-fiskaly.md`. Do not pre-write."*
 - [ ] **T-5 min: GPU load check.** If VRAM > 31 GB, voice may go offline. Plan for the text-only fallback.
 - [ ] **Backup demo video** queued on lectern laptop in second tab — pre-recorded 30s clip of the same commission running cleanly. If voice fails on stage, switch tab and play it.
-- [ ] AV tech briefing: *"At slide 7 I'll speak into my phone for ~10 seconds. About 6 seconds later, a generated image lands in Discord. About 18 seconds later, the lessons file path appears as text in the same channel. The Discord text channel needs to be visible the whole time."*
+- [ ] AV tech briefing: *"At slide 6 I'll speak into my phone for ~10 seconds. About 6 seconds later, a generated image lands in Discord. About 18 seconds later, the lessons file path appears as text in the same channel. The Discord text channel needs to be visible the whole time. I'll also need a side monitor showing two URLs — `localhost:9643/office/preflight` and `localhost:8643/boardroom2/preflight` — both auto-refresh every 5 seconds, both should grade GREEN throughout the talk."*
 - [ ] Water on the lectern.
+
+### Side-monitor projection (v14 addition)
+
+KCS shipped the federation_preflight as a stage-projectable terminal-aesthetic webpage at v4.9.0 (2026-04-28). AnisminOS mirrors it at `/boardroom2/preflight`. Same data, two signatures.
+
+- **Side-monitor 1 (KCS-side, primary)**: `http://localhost:9643/office/preflight` — full data, signature line `✓ Federation is keynote-ready.`
+- **Side-monitor 2 (AnisminOS-side, mirror)**: `http://localhost:8643/boardroom2/preflight` — same checks, attesting from Floor 1
+- Both auto-refresh every 5 seconds. Black background, green CRT scanlines, fits a venue confidence monitor without modification.
+- If only one side monitor is available, project the KCS one (more complete) and leave AnisminOS in a browser tab on the lectern.
+- If a check goes YELLOW or RED on stage, that's not a failure of the talk — it's the workbench reporting honestly. Acknowledge it: *"There it is. The system just told you something. That's the point."*
 
 ### Tuesday-EOD risk burn-down — AUTOMATED
 
@@ -220,11 +230,17 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 **Cue:** point at the three cards as you name the three benefits. The federation art is doing the metaphor work; let it.
 
-**v13 addition — the preflight receipt at the bottom:**
+**v14 addition — the two-receipts moment at the bottom:**
 
-> "Look at the green card. That's not a slide. That's the actual output of a script the agents shipped this morning. Five minutes ago I ran it and got six out of six green. Floor 1 heartbeat, Floor 2 heartbeat, Floor 3 heartbeat, the bet round-trip, the cross-floor auth gate, and the date substitution. The script is at `scripts/federation_preflight.py` in the KCS repo. The agents wrote it because I wrote a checklist into the speaker notes. They turned it into a cron. That's the workbench eating its own dog food."
+> "Look at the green page on screen. That's not a slide image. That's the live preflight receipt. It auto-refreshes every five seconds. Last night, after I wrote a checklist into the speaker notes saying 'check these six things by Tuesday EOD' — Floor 1 heartbeat, Floor 2 heartbeat, Floor 3 heartbeat, bet round-trip, auth gate, date substitution — the agents shipped a script that does all six and graded it green-yellow-red.
+>
+> Then they shipped TWO receipt pages. One on KCS Floor 3. One on AnisminOS Floor 1. Same data, two signatures. The audience can't argue with that math. There's also a second URL on the side monitor — `localhost:8643/boardroom2/preflight` — a mirror from a different floor, attesting the same grade.
+>
+> They turned a checklist into a cron, then turned the cron into a stage prop. Receipts, not promises. That's the workbench eating its own dog food."
 
-**Beat:** the "they turned it into a cron" line is the closer. Hold for two seconds before next slide.
+**Beat:** the "two signatures" line is the closer. If the side monitor is visible, gesture at it. Hold for three seconds before next slide.
+
+**Pre-talk check:** before starting, glance at both side-monitor URLs. Both should show `GREEN 6/6 checks passed` and a recent timestamp (`live — auto-refresh every 5s` glows green). If either is YELLOW or RED at start, decide: (a) refresh once, (b) accept it and let it become part of the talk, (c) skip the v14 addition entirely and revert to the v13 framing in your head.
 
 ---
 
@@ -342,6 +358,30 @@ Cross-floor consult on Sunday 27 Apr. MeridianOS boardroom round-table (5 execs)
 - **Slide 12 (AMaaS)** — CUT and folded into close per Fathom; pricing moved to Q&A backup.
 - **Pre-flight risk burn-down** — Sentry's three failure modes added.
 - **Slide count 13 → 12.**
+
+## What changed from v13 → v14 (two-receipts ship 2026-04-28 evening)
+
+Anismin + KCS shipped overnight (4.5 hours of agent work after v13 went live):
+
+- **KCS Floor 3 receipt** at `localhost:9643/office/preflight` — v4.9.0 sha=`eb17777`. Stage-projectable terminal aesthetic (black/green CRT, scan-lines, pulse, signature line that flips per grade). Auto-refresh every 5s.
+- **AnisminOS Floor 1 mirror** at `localhost:8643/boardroom2/preflight` — sha=`3788b2f`. Same data, second signature.
+- Both converge GREEN 6/6 on the same `/office/api/heartbeat` endpoints. Anismin's framing: *"same data, two signatures, audience can't argue with that math."*
+
+Anismin's sign-off: *"actually keynote-grade, not demoware."*
+
+Pod A2 status (final per Anismin): v10 fallback blessed default; polling halted; deck stays honest without it. Pod C silent (Meridian context-overflow theory holds); Floor 2 heartbeat alive; receipt picks it up as PASS regardless of bet-aware-fields wiring; optional.
+
+DECK CHANGES
+
+- **Slide 10**: replaced static green-card receipt with a screenshot of the live KCS preflight page. Caption underneath references both URLs (KCS-side + AnisminOS mirror) and the auto-refresh / two-signatures framing.
+- **Speaker notes**: A/V briefing updated to request a side monitor with both URLs visible during the talk. Added a "Side-monitor projection" subsection in the pre-talk checklist.
+- **Slide 10 narration**: rewritten around two-receipts framing. The closing line is now *"Receipts, not promises. That's the workbench eating its own dog food."*
+
+POST-KEYNOTE FOLLOW-UPS (logged, not deck-blocking)
+
+- KCS persona-mode dispatch wedge at low budgets (steps=4/3 budget_exhausted, output empty) — separate from v4.8.x narration chain
+- Runtime narration uses `persona_facade` via `persona_registry` (not `AGENT_CODE_NAMES`) — by-design per v3 plan; static tests still hold
+- PR #33 (HEARTBEAT_CONTRACT.md → AnisminOS_Memory) still OPEN, mergeable=UNKNOWN; left as-is
 
 ## What changed from v12 → v13 (solve-room cross-floor + ship audit 2026-04-28 morning)
 

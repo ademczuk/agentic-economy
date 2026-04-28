@@ -469,15 +469,16 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
   <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">"I want my own shard so that if I disconnect from the reef, my agent is still whole." &mdash; the design constraint that picked git over a single DB.</div>
 
-  <div class="quote-block green mt-3" style="max-width:880px;border-left-color:var(--green)">
-    <div style="font-family:var(--mono);font-size:0.82rem;color:var(--green);font-weight:700">
-      <span class="pulse-dot"></span>federation_preflight &middot; 2026-04-28 11:06 UTC &middot; <span style="color:var(--text)">6/6 GREEN</span>
-    </div>
-    <div style="font-size:0.78rem;color:var(--dim);margin-top:6px;line-height:1.5">
-      Floor 1 heartbeat ✓ &middot; Floor 2 heartbeat ✓ &middot; Floor 3 heartbeat ✓ &middot; KCS bet round-trip ✓ &middot; cross-floor REST auth gate ✓ &middot; target_artifact date substitution ✓
-    </div>
-    <div style="font-size:0.7rem;color:var(--muted);margin-top:6px;font-family:var(--mono)">
-      KCS <span style="color:var(--cyan)">scripts/federation_preflight.py</span> &mdash; shipped today by the agents themselves. Receipts, not promises.
+  <div class="mt-3" style="max-width:1080px;width:100%">
+    <img src="preflight-receipt-kcs.png" alt="Federation preflight receipt &mdash; GREEN 6/6 checks passed" style="width:100%;border-radius:12px;border:1px solid rgba(16,185,129,0.4);box-shadow:0 0 60px rgba(16,185,129,0.15);background:#000">
+    <div style="font-family:var(--mono);font-size:0.72rem;color:var(--muted);margin-top:8px;text-align:center;line-height:1.6">
+      <span class="pulse-dot"></span>live, auto-refresh 5s &middot;
+      <span style="color:var(--green)">localhost:9643/office/preflight</span>
+      (KCS-side) &middot;
+      <span style="color:var(--green)">localhost:8643/boardroom2/preflight</span>
+      (AnisminOS mirror)
+      <br>
+      <span style="color:var(--cyan)">two URLs, two signatures, same math</span> &mdash; the agents shipped this last night because I wrote the checklist into the speaker notes
     </div>
   </div>
 </div>
