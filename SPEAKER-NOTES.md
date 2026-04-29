@@ -1,3 +1,47 @@
+# Speaker Notes — Quit chatting with your agents (v20)
+
+## What changed v19 → v20 (2026-04-29 14:00, build pipeline went OPERATIONAL)
+
+While the deck was at v19, the parallel CLI shipped commits `7045f30` (TODOs 2/3/4/6 — Codex executor) and `4b5fd0c` (dispatch_meridian session_id fix), wiring the last gaps in `swarm_implementation.py`. **Empirical proof:** smoke-pipeline-007 ran end-to-end today at 11:06 Vienna time:
+
+> `@build "Create a NEW file at scripts/tests/_pipeline_smoke_marker.txt..."` → spec (16.8s) → execute (469.8s) → QA NEEDS_REWORK (22.9s) → execute #2 (483.9s) → QA PASS (25.3s) → Meridian silent → Anismin fallback DONE → committed + pushed + **draft PR #35 opened.** Total: 25 min 28 sec, autonomous, single human action (Discord DM at the start).
+
+The keynote claim now changes from *"the autonomy loop runs on cron"* to *"Andrew can DM `@build` to Discord and a draft PR lands by next coffee."* That's the operational expression of the architecture.
+
+**NEW Slide 13: "From `@build` to draft PR"** (between Loop is Running and EU AI Act):
+- 7-stage horizontal flow with real durations (Spec → Execute → QA #1 → Execute #2 → QA #2 → Decide → PR #35)
+- Quote-block: smoke-pipeline-007 · run_id 56570ac9 · executed today 11:06 Vienna
+- Closing: *"Andrew can DM `@build` to Discord right now. A draft PR lands within 10-30 minutes."*
+
+**Slide 15 (Take It Home) — kicker extended:**
+> *"Andrew DM'd `@build` to Discord at 10:41 this morning. By 11:06, a draft PR was open. That's not theory. That's today."*
+
+Reads above the existing *"Karpathy's autoresearch, operational. Build yours."* line.
+
+**Total deck: 15 slides, ~25 min content, ~5 min Q&A buffer in 30-min slot.**
+
+**Slide 13 speaker notes:**
+
+> "Look at the slide. Twenty-five minutes, twenty-eight seconds. Autonomous. One human action — me typing `at-build` and the task into Discord at ten forty-one this morning. By eleven oh-six, a draft PR was open on GitHub.
+>
+> Stage by stage. Anismin writes the typed spec — sixteen point eight seconds. Codex executes in a temporary worktree — four hundred seventy seconds. Anismin reviews the diff and says NEEDS_REWORK — twenty-three seconds. Codex rewrites — four hundred eighty-four seconds. Anismin reviews again, says PASS — twenty-five seconds. Meridian was supposed to make the final call but a kwarg bug made her silent. The system has a fallback — Anismin steps in and rules DONE.
+>
+> Then the pipeline commits, pushes, opens PR thirty-five. Draft. Always draft. Human merge required. The HITL invariant.
+>
+> One Discord message in. Twenty-five minutes later, a PR ready for my review. That's the workbench. Stop chatting. Start commissioning."
+
+**Cue:** point at each box in the flow as you name it. Land hard on "PR thirty-five." Audience now has the date AND the run_id evidence.
+
+**Live demo option** (high-risk, high-reward — operator decision):
+- At Slide 1 or Slide 6 (Commission), DM `@build` with a small task to Discord. Continue the keynote. By Slide 14 or 15, check Discord for the PR-opened message. Risk: pipeline takes 10-30 min, talk takes ~25 min, so timing is tight. Reward: live empirical proof of the v2 capability on stage.
+- Backup if going live: pre-record screen capture of `@build` → PR happening, play it muted in slide 13 background.
+
+**Cut criteria:** if Ed gives <17 min, cut Slide 13 — the bet payoff on slide 8 + the autonomy loop on slide 12 still carry the story; slide 13 is the upgrade not the spine. Q&A trap covers it.
+
+**Q&A trap "Are you sure that worked? You wrote that slide."**: *"smoke-pipeline-007 ran at 11:06 today, run_id 56570ac9-9b86-4df6-bdcf-64f4229c204d. PR #35 was opened on github.com/ademczuk/AnisminOS_Memory by the pipeline itself, not by me. The PR was closed cleanly as a smoke test — branch deleted. Eight stages, all recorded in pipeline_run_events. I'd show you live but the round-trip is 25 minutes and we'd lose the rest of the talk. The DB rows are public if you want to verify."*
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v19)
 
 ## What changed v18 → v19 (2026-04-29 mid-afternoon, full system map surfaced)
