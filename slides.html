@@ -199,7 +199,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Fiskaly Wien</span> <span style="color:var(--cyan)">&middot; 29 Apr 2026</span></div>
 </div>
 
-<div id="slide-counter">1 / 11</div>
+<div id="slide-counter">1 / 13</div>
 <div id="key-hint">&larr; &rarr; navigate &middot; R reorder &middot; F fullscreen &middot; T 30-min timer</div>
 <div id="timer" onclick="toggleTimer()">30:00</div>
 
@@ -220,7 +220,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="mid mt-2" style="font-weight:600;color:var(--text)">
     and get them to <span class="text-gradient-voice">work for you</span>
   </div>
-  <div class="body mt-3" style="max-width:780px">Ed just gave you the platform and the case &mdash; what OpenClaw is and what agents can actually do in business. I'm going one floor down. Tonight I'm showing you the workbench: what it looks like when one person commissions one, live, in front of you.</div>
+  <div class="body mt-3" style="max-width:820px">Ed just gave you the platform and the case &mdash; what OpenClaw is, what agents can actually do in business. I'm going one floor down. Tonight: the workbench. And the architecture that <span class="text-gradient-red">audits itself.</span></div>
   <div class="small mt-4">Andrew Demczuk, MSc &middot; OpenClaw Core Maintainer &middot; Vienna, 29 Apr 2026</div>
 </div>
 
@@ -304,6 +304,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
   </div>
   <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">A brief is a contract. A chat is a hostage situation.</div>
+  <div class="small mt-1" style="color:var(--orange);font-family:var(--mono)">(In the EU, that &laquo;Escalate if&raquo; field is also Article 9.)</div>
 </div>
 
 <!-- 4: THE ANISMIN OFFICE — HERO -->
@@ -436,10 +437,60 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
   </div>
   <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">"I want my own shard so that if I disconnect from the reef, my agent is still whole." &mdash; the design constraint that picked git over a single DB.</div>
-  <div class="small mt-2" style="color:var(--purple);font-family:var(--mono);max-width:880px">Dark Factory is Kimi's internal pipeline. The three floors are the governance layer above it. This is Yegge's Wasteland, Willison's Dark Factory, Huntley's Weaving Loom &mdash; same camp.</div>
 </div>
 
-<!-- 9: EU AI ACT — COMPLIANCE BUILT IN -->
+<!-- 10: THE PIPELINES (bespoke architecture, on disk tonight) -->
+<div class="slide" data-title="The Pipelines">
+  <span class="badge badge-cyan">The architecture you're standing in</span>
+  <div class="big mt-2">
+    Bespoke pipelines.<br>
+    <span class="text-gradient-claw">Not a generic factory.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-3" style="max-width:880px">
+    Three pipelines on disk in <span class="mono">scripts/pipelines/</span>. Each task type gets its own &mdash; wrong-flag-equals-wrong-verb is a 2am footgun. <span class="mono">/solve-room</span> stays as the strategy room for unknown work. The federation orchestrates above; pipelines specialise below.
+  </div>
+  <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
+    <div class="card card-glow-green">
+      <h3 style="font-size:0.95rem"><span class="text-green">federation_preflight.py</span></h3>
+      <p>Fully working. Signed receipts. The <strong style="color:var(--text)">GREEN/GREEN/GREEN page projected on the side monitor right now</strong> is one of these.</p>
+    </div>
+    <div class="card card-glow-orange">
+      <h3 style="font-size:0.95rem"><span class="text-orange">code_review.py</span></h3>
+      <p>Lifecycle + heartbeat real. Brain wiring stubbed for v2. One clean seam per pipeline.</p>
+    </div>
+    <div class="card card-glow-purple">
+      <h3 style="font-size:0.95rem"><span class="text-purple">implementation_pr.py</span></h3>
+      <p>Same shape. Sibling file, not a flag. Each task type gets its own <em>verb</em>.</p>
+    </div>
+  </div>
+  <div class="small mt-3" style="color:var(--purple);font-family:var(--mono);max-width:880px">
+    Yegge's <em>Wasteland</em> &middot; Willison's <em>Dark Factory</em> &middot; Huntley's <em>Weaving Loom</em> &mdash; same camp, operational form.
+  </div>
+</div>
+
+<!-- 11: THE SELF-AUDIT (recursive discipline, manual gates) -->
+<div class="slide" data-title="The Self-Audit">
+  <span class="badge badge-red">Architecture audits itself</span>
+  <div class="big mt-2">
+    Recursive critique.<br>
+    <span class="text-gradient-red">Manual gates.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-3" style="max-width:880px">
+    A <span class="mono">/solve-room</span> meeting critiqued <span class="mono">/solve-room</span> itself. The methodology <strong style="color:var(--text)">failed mid-meeting</strong> &mdash; Meridian died at 444KB context overflow, Codex timed out, Anismin marked her own reply <span class="mono">&lt;FAILED&gt;</span> rather than fabricate. <span class="text-orange">Those failures are evidence of correctness, not bugs.</span>
+  </div>
+  <div class="quote-block red mt-3">
+    <div style="font-size:1.05rem;font-weight:700;line-height:1.4">Code that ran successfully <span style="color:var(--red)">&ne;</span> code that did the right thing observationally.</div>
+    <div style="font-size:0.72rem;color:var(--muted);margin-top:10px;font-family:var(--mono)">Audit-fiction is the named bug. HTTP 200 &ne; success. Mailbox row inserted &ne; payload populated.</div>
+  </div>
+  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono);max-width:880px">
+    Six shadow flags identified by the recursive meeting &middot; two wired live (CODEX_SMOKE, TELEMETRY_ATTESTATION) &middot; Wilson lower bound + N-meeting thresholds gate promotion &middot; defaults stay false until <strong style="color:var(--text)">explicit Andrew decision</strong>. Never auto-promotion.
+  </div>
+  <div class="small mt-2" style="color:var(--purple);font-family:var(--mono)">The system can propose its own evolution. It cannot implement evolution without your signature.</div>
+</div>
+
+<!-- 12: EU AI ACT — COMPLIANCE BUILT IN -->
 <div class="slide" data-title="August 2, 2026">
   <span class="badge badge-orange"><span class="pulse-dot"></span>96 days from tonight</span>
   <div class="big mt-2">
@@ -498,6 +549,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
   </div>
   <div class="mid mt-3" style="font-weight:700">Stop chatting. <span class="text-gradient-voice">Start commissioning.</span></div>
+  <div class="small mt-2" style="color:var(--purple);font-family:var(--mono);max-width:840px">You weren't watching agents that work. You were watching architecture that <span class="text-red">audits itself,</span> <span class="text-cyan">specialises by task,</span> <span class="text-green">ships its own fixes</span> &mdash; visible right now on a workstation in this city.</div>
 </div>
 
 </div><!-- /deck -->
