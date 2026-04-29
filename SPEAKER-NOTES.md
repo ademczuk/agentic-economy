@@ -1,3 +1,48 @@
+# Speaker Notes — Quit chatting with your agents (v20.1)
+
+## What changed v20 → v20.1 (2026-04-29 14:30, slide 10 truth + operator runbook)
+
+After v20 shipped the new "From `@build` to draft PR" slide, two operational truths from the wiki handover doc (`02-Knowledge/Wiki/projects/Swarm-Implementation-Pipeline-Handover-260429.md`) needed to land:
+
+**1. Slide 10 Pipelines card refreshed.** Replaced `implementation_pr.py` (still scaffold) with `swarm_implementation.py` (live, Codex executor, PR #35). The new card names the day-one honest substitution:
+
+> *"Live as of today. Codex `--full-auto` in a temp worktree (KCS swarm `budget_exhausted` on trivial tasks — the day-one substitution). PR #35 was its first."*
+
+KCS-broken-on-execution was confirmed empirically before commit `7045f30`: persona_mode=False, max_agents=1, max_steps=3 trivial task → status `budget_exhausted`, agents 0/1, deliverable=None. Same wedge pattern as the morning's recursive-meeting failure. Codex --full-auto in a temp git worktree replaces it with a backend that has real filesystem + shell tools.
+
+**2. Operator runbook for live demo (Slide 13 / Option B):**
+
+If Andrew runs Option B (live demo during talk), the precise Discord syntax + watching path:
+
+```
+DM Meridian: @build Create a one-line marker file at scripts/tests/_keynote_demo_marker.txt
+             with content "fiskaly-keynote-demo". Make ONLY this one file change.
+```
+
+- **DM Meridian** — not a channel mention. The watcher polls `meridian.messages` for `@build`/`@swarm` prefix. DMs land in the same table.
+- **Watcher tick:** every 5 min (state at `~/.anismin/discord-board-watcher-state.json`). Worst-case 5-min delay before pipeline starts.
+- **Quotas:** MAX_DAILY=6 meetings, MAX_CONCURRENT=2. Won't be hit during a single demo.
+- **Watch path:** `https://github.com/ademczuk/AnisminOS_Memory/pulls` — refresh during slide 14 or 15. The watcher does NOT post the PR URL back to Discord (that enhancement is deferred).
+- **Timing:** smoke-007 ran 25 min wall-clock with 2 rework rounds. A clean execute (no rework) on a tiny task should be ~10-15 min. **DM at slide 1; check PR queue at slide 14.**
+
+**Backup if live demo stalls:**
+
+If the watcher hasn't picked up the message by slide 5 (8 min in), narrate the smoke-007 evidence on slide 13 instead and treat it as the proof. *"The watcher's a 5-min cron — sometimes it's just at the wrong end of the window. The proof is the run that already happened today."* Don't apologise. Don't retry on stage.
+
+If Codex stalls or times out: pipeline records the failure as `extraction_failed` or returns `ESCALATE owner=ANDREW`. The operator (Andrew) reviews. Same as a human-merged PR review except earlier in the chain.
+
+**3. Q&A defense for KCS substitution:**
+
+> *"Your original ask was KCS as the deployer. The PR you're showing was Codex. Why?"*
+>
+> *"Because KCS budget_exhausted on a 3-step trivial task this morning. Same wedge as the recursive-self-improvement meeting yesterday. The audit-fiction principle says don't paper over a known-broken brain — name the substitution. Codex --full-auto has real filesystem and shell tools today. KCS comes back as an alternate executor when its swarm engine adds tool-calling. The pipeline's executor abstraction supports plug-in backends — that decision was already in the SpecV1 dispatch_metadata."*
+
+**4. Empirical proof anchored to wiki:**
+
+If asked for receipts beyond PR #35: point to `02-Knowledge/Wiki/projects/Swarm-Implementation-Pipeline-Handover-260429.md`. Has the full architecture diagram, 4 bugs caught + fixed during smoke (Windows PATHEXT, codex cwd quirk, risk-timeout map, dispatch_meridian kwarg typo), the operator-policy verdicts (Anismin Q1+Q2), and the runbook.
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v20)
 
 ## What changed v19 → v20 (2026-04-29 14:00, build pipeline went OPERATIONAL)
