@@ -81,7 +81,30 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 2 — The Bet (~120 sec)
+## Slide 2 — The Shift (~30 sec) ⭐ v15.8 add — industry framing
+
+**This slide grounds the talk in where the field already is. Quick beat — read fast, don't dwell.**
+
+> "Before I make the bet — one piece of context. October last year, Poolside shipped Laguna. Not a chatbot. A model family purpose-built for coding agents. Forty-seven percent on SWE-bench Pro. Forty-one percent on Terminal-Bench 2.0. Cursor's Composer, Cognition's Devin, OpenAI's Codex CLI all pointing the same direction. The frontier labs aren't building bigger chatbots anymore. They're building purpose-built coding and agent systems.
+>
+> The slide quotes Poolside: 'Software is a much more expressive interface. An agent that can write and execute code can compose actions, parallelize work, and build its own ad-hoc systems.'
+>
+> So 'stop chatting' isn't a hot take. It's where the field already is. The talk you're about to watch is what that looks like on a workbench."
+
+**Cue:** read fast. Don't dwell on numbers. The point is the *direction*, not the leaderboard.
+
+**Cohesion + cut criteria (FIRST CUT if running over):**
+- If Ed already named the lab pivot to coding/agents in his OpenClaw introduction, **SKIP THIS SLIDE entirely** on stage — don't rehash. The bet still works without it.
+- If Andrew has only ~17 min total speaking time, skip — the slide is setup, not load-bearing for the spine sentence.
+- If keeping: deliver in 30 seconds, click straight to The Bet. Don't let it drift toward industry-survey territory.
+
+**Q&A defense if challenged on Poolside specifically:** Laguna M.1 = 225B params / 23B active; Laguna XS.2 = 33B / 3B active, Apache 2.0 open weights. Trained on 30+ trillion tokens. SWE-bench Pro: 46.9% (M.1), 44.5% (XS.2). Terminal-Bench 2.0: 40.7% (M.1), 30.1% (XS.2). Source: poolside.ai/blog/laguna-a-deeper-dive (Oct 2025).
+
+**Q&A trap if asked "isn't this still just LLMs in a trench coat?":** No. Laguna's framing is explicit — software as the *expressive interface*. The model is the substrate; the *agent that writes and executes code* is the unit of work. That's the architectural pivot. Andrew's three-floor federation is the operational expression of the same pivot.
+
+---
+
+## Slide 3 — The Bet (~120 sec)
 
 **This is the load-bearing slide. Read it slowly.**
 
@@ -117,7 +140,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 3 — The Brief (~120 sec)
+## Slide 4 — The Brief (~120 sec)
 
 > "Before I commission, here's the thing I'm about to send him. A brief. Six fields.
 >
@@ -131,7 +154,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 4 — The Anismin Office (~150 sec) ⭐ NEW
+## Slide 5 — The Anismin Office (~150 sec) ⭐ NEW
 
 **This is the visual anchor of the keynote. Stand back. Let the room look.**
 
@@ -155,7 +178,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 5 — The Commission (~75 sec — DEMO)
+## Slide 6 — The Commission (~75 sec — DEMO)
 
 **neob.ai landing line (audience research 2026-04-28 — speak as the walk-back line while artifact is generating, gives neob's attendees a nod and reframes the 18-sec wait as intentional):** *"The voice channel gets you in at under 500ms. What happens after that is tonight's talk."* Reinforces Andrew's thesis without flattering Ed. Peer-to-peer.
 
@@ -182,7 +205,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 6 — The Six Moves (~180 sec)
+## Slide 7 — The Six Moves (~180 sec)
 
 **This slide narrates while the artifact is being produced. Read it as a play-by-play.**
 
@@ -204,7 +227,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 7 — Bet Paid Off + Receipt (~150 sec) ⭐ v15 fold
+## Slide 8 — Bet Paid Off + Receipt (~150 sec) ⭐ v15 fold
 
 > "Eighteen seconds. While I was naming the moves, the agent finished. The path is on screen. The lessons are saved. The follow-up is queued.
 >
@@ -220,7 +243,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 8 — AgentReef Federation (~120 sec) ⭐ now carries floors framing + receipt callback (v15.3 surgical edit Card 3)
+## Slide 9 — AgentReef Federation (~120 sec) ⭐ now carries floors framing + receipt callback (v15.3 surgical edit Card 3)
 
 > "Take a step back. The Anismin Office is one floor of three. Meridian's on Floor 2 — that's the agent you just watched. Kimi's on Floor 3 — ten ocean-themed agents running a pipeline called the Dark Factory.
 >
@@ -244,7 +267,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 9 — August 2, 2026 / EU AI Act (~90 sec) ⭐ v15.3 add — UNIQUE ANDREW TERRITORY
+## Slide 10 — August 2, 2026 / EU AI Act (~90 sec) ⭐ v15.3 add — UNIQUE ANDREW TERRITORY
 
 **This is the slide Ed cannot give. It maps the workbench's existing primitives directly to specific Articles of the EU AI Act, 96 days before binding enforcement. Vienna audience, regulated stack. Lean in.**
 
@@ -270,7 +293,7 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 
 ---
 
-## Slide 10 — Take It Home / Walk Off (~120 sec) ⭐ v15 fold
+## Slide 11 — Take It Home / Walk Off (~120 sec) ⭐ v15 fold
 
 > "The line that opened this talk:
 >
@@ -303,21 +326,24 @@ Anismin's solve-room verdict 2026-04-28: *"No confirmed A2 ETA. Stage the v10 Di
 | Slot | Slide | Cumulative |
 |---|---|---|
 | 0:00 – 1:00 | 1. Title | 1:00 |
-| 1:00 – 3:00 | 2. The Bet | 3:00 |
-| 3:00 – 5:00 | 3. The Brief | 5:00 |
-| 5:00 – 7:30 | 4. The Anismin Office ⭐ | 7:30 |
-| 7:30 – 8:45 | 5. Commission (live demo) | 8:45 |
-| 8:45 – 11:45 | 6. Six Moves (narration) | 11:45 |
-| 11:45 – 14:15 | 7. Bet Paid Off + Receipt ⭐ | 14:15 |
-| 14:15 – 16:15 | 8. Federation (floors folded in) ⭐ | 16:15 |
-| 16:15 – 17:45 | 9. August 2, 2026 / EU AI Act ⭐ v15.3 | 17:45 |
-| 17:45 – 19:45 | 10. Take It Home (honest beat folded in) ⭐ | 19:45 |
+| 1:00 – 1:30 | 2. The Shift ⭐ v15.8 | 1:30 |
+| 1:30 – 3:30 | 3. The Bet (with 88/6) | 3:30 |
+| 3:30 – 5:30 | 4. The Brief | 5:30 |
+| 5:30 – 8:00 | 5. The Anismin Office ⭐ | 8:00 |
+| 8:00 – 9:15 | 6. Commission (live demo) | 9:15 |
+| 9:15 – 12:15 | 7. Six Moves (narration) | 12:15 |
+| 12:15 – 14:45 | 8. Bet Paid Off + Receipt ⭐ | 14:45 |
+| 14:45 – 16:45 | 9. Federation (floors folded in) ⭐ | 16:45 |
+| 16:45 – 18:15 | 10. August 2, 2026 / EU AI Act ⭐ v15.3 | 18:15 |
+| 18:15 – 20:15 | 11. Take It Home (honest beat folded in) ⭐ | 20:15 |
 
 **Total content: ~20 min. Buffer: ~10 min for organic stretch, audience reactions, demo wait time, Q&A.**
 
-If Ed signals you have only ~17 min: skip slide 9 (EU AI Act) — the Q&A trap covers the same ground. Total drops to ~18 min.
+If Ed signals you have only ~17 min: cut slide 2 (Shift) FIRST, then slide 10 (EU AI Act) if still over — the Q&A traps cover both. Total drops to ~18 min with one cut, ~16 min with both.
 
-If Ed gives you ~30+ min: slow the demo arc (slide 4 dwell, slide 6 play-by-play), expand Q&A. Don't add more content.
+If Ed already named lab pivot to coding/agents in his intro: SKIP slide 2 on stage regardless of time budget. Don't rehash.
+
+If Ed gives you ~30+ min: slow the demo arc (slide 5 dwell, slide 7 play-by-play), expand Q&A. Don't add more content.
 
 The single-sentence story Anismin gave us: ***"Stop chatting with your agents — hand them a contract, verify the receipt, and watch your workbench federate."***
 
@@ -342,17 +368,19 @@ The 18-min demo arc still anchors the middle. If the demo overshoots by 30-60 se
 
 ---
 
-## The cut order, if running over (v15.7 — current 10-slide structure)
+## The cut order, if running over (v15.8 — current 11-slide structure)
 
-**Primary cut**: **Slide 9 (August 2, 2026 / EU AI Act)** if running >2 min over by end of slide 8. Saves ~90 sec. The Q&A trap on EU AI Act Article 9/13/50 covers the same ground if asked. Slide 9 is load-bearing for the Vienna audience but not for the talk's spine sentence.
+**Primary cut (Tier A)**: **Slide 2 (The Shift)** if Ed already covered lab-pivot framing in his opener, OR if running >1 min over by end of slide 1. Saves ~30 sec. The slide is setup, not load-bearing for the spine sentence. Q&A trap on Poolside Laguna covers the same ground if asked.
 
-**Secondary cuts (speaker-note lines, not whole slides — drop in this order):**
+**Secondary cut (Tier B)**: **Slide 10 (August 2, 2026 / EU AI Act)** if still running >2 min over by end of slide 9. Saves ~90 sec. The Q&A trap on EU AI Act Article 9/13/50 covers the same ground if asked. Slide 10 is load-bearing for the Vienna audience but not for the talk's spine sentence.
 
-1. The slide 9 pipeline-scaffolding callback (~15 sec) — "the federation preflight you've been watching... is one of three bespoke pipelines I shipped today." Optional add per the speaker note flag; skip first if cutting from the slide itself isn't enough.
-2. Audience landing lines, in order: neob.ai callback on slide 5 (~5 sec), DLT Austria line on slide 8 (~10 sec), Fiskaly hook on slide 7 (~10 sec). Each is a single sentence; cut individually as time demands.
-3. The 88/6 spoken setup on slide 2 (~15 sec). Cut both the spoken line AND the visual cards together — never leave the cards orphaned (mystery-meat guard, brutal-mcp 2026-04-28).
+**Tertiary cuts (speaker-note lines, not whole slides — drop in this order):**
 
-**DO NOT cut**: Slides 1, 2, 3, 4, 5, 6, 7, 8, 10. They are load-bearing for the spine sentence (*"hand them a contract, verify the receipt, watch your workbench federate"*) and the demo arc.
+1. The slide 10 pipeline-scaffolding callback (~15 sec) — "the federation preflight you've been watching... is one of three bespoke pipelines I shipped today." Optional add per the speaker note flag; skip first if cutting from the slide itself isn't enough.
+2. Audience landing lines, in order: neob.ai callback on slide 6 (~5 sec), DLT Austria line on slide 9 (~10 sec), Fiskaly hook on slide 8 (~10 sec). Each is a single sentence; cut individually as time demands.
+3. The 88/6 spoken setup on slide 3 (~15 sec). Cut both the spoken line AND the visual cards together — never leave the cards orphaned (mystery-meat guard, brutal-mcp 2026-04-28).
+
+**DO NOT cut**: Slides 1, 3, 4, 5, 6, 7, 8, 9, 11. They are load-bearing for the spine sentence (*"hand them a contract, verify the receipt, watch your workbench federate"*) and the demo arc.
 
 **Cuts already absorbed into v15** (don't try to "restore for time" — they were cut for cohesion, not length):
 - Mailbox Bus (was slide 6 in v11) — Postgres mechanics are now one sentence on slide 4
@@ -405,6 +433,42 @@ Cross-floor consult on Sunday 27 Apr. MeridianOS boardroom round-table (5 execs)
 - **Slide 12 (AMaaS)** — CUT and folded into close per Fathom; pricing moved to Q&A backup.
 - **Pre-flight risk burn-down** — Sentry's three failure modes added.
 - **Slide count 13 → 12.**
+
+## What changed from v15.7 → v15.8 (industry-shift slide added — 2026-04-29 morning, day-of-keynote)
+
+User flagged the missing industry-trend signal upfront — wanted the deck to plant a stake in the ground that AI labs have already pivoted from chatbots to purpose-built coding agents.
+
+**Added: NEW slide 2 "The Shift"** (between Title and The Bet). All subsequent slides shifted +1 (Bet now slide 3, Brief slide 4, ..., Take It Home slide 11). Total deck = 11 slides.
+
+Content:
+- Headline: "The chatbot era just ended."
+- Body cites Poolside *Laguna* (Oct 2025) — coding-agent-specific model family, 47% SWE-bench Pro, 41% Terminal-Bench 2.0. Plus Cursor's Composer, Cognition's Devin, OpenAI's Codex CLI as same-direction signals.
+- Quote block: Poolside's *"Software is a much more expressive interface. An agent that can write and execute code can compose actions, parallelize work, and build its own ad-hoc systems."*
+- Source line: poolside.ai/blog/laguna-a-deeper-dive
+- Closing mono line: *"'Stop chatting' isn't a hot take. It's where the field already is. Tonight: what that looks like on a workbench."*
+
+Why this slide and not a speaker-note add:
+- The pivot deserves a stage moment — sets up the bet as Andrew's *operational* expression of where labs already pointed
+- Tightly scoped (~30s) and explicitly cuttable if Ed covered it or time short
+- Reinforces the spine sentence by anchoring "stop chatting" in industry reality
+
+Cohesion guardrails (in slide 2 speaker notes):
+- **FIRST CUT** if Ed already named lab pivot to coding/agents in his opener. Don't rehash.
+- **FIRST CUT** if Andrew has only ~17 min. Setup, not spine.
+- Q&A defense ammunition added: full Laguna spec (M.1 225B/23B, XS.2 33B/3B Apache 2.0), training corpus (30T tokens), benchmark breakdown.
+
+Cut order updated:
+- Tier A (first): Slide 2 (Shift) — saves ~30s
+- Tier B (second): Slide 10 (EU AI Act) — saves ~90s
+- Both Tier A and B can absorb up to ~2 min of overrun before any tertiary speaker-note cuts.
+
+Time discipline table updated: total content now ~20 min (was 19:45). Buffer ~10 min.
+
+NOT changed:
+- Spine sentence holds: *"hand them a contract, verify the receipt, watch your workbench federate"*
+- The Bet on slide 3 still leads on the live commission, not on industry stats
+- All 88/6 cards, EU AI Act mapping, Federation Card 3 ("Two URLs, same math"), and audience-landing lines preserved verbatim
+- The slide reinforces but does not replace the existing opening arc
 
 ## What changed from v15.6 → v15.7 (compass artifact citation correction — 2026-04-28 night)
 
