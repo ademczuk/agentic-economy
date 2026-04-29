@@ -1,3 +1,40 @@
+# Speaker Notes — Quit chatting with your agents (v19)
+
+## What changed v18 → v19 (2026-04-29 mid-afternoon, full system map surfaced)
+
+A deep audit of the Karpathy wiki (582 entries) revealed that v18 was showing only the most recent layer of a 5-layer stack:
+
+1. **Brutal Harness v3** (April 2026) — original shadow-rollout system in clawbench_eval, builds 1-7 shipped
+2. **Karpathy-style Prompt Evolution Meta-Harness** — proven at **84.95% on ClawBench L1** (15 tasks, N=3), real intelligence in baseline gate rollback mechanism
+3. **Trident Consensus System** — Gemini + Grok (3 personas) + Codex + Meridian = 4-way, "verifier dominance" design principle
+4. **Aegis Verifier** — independent FastAPI service, same-tier judgment ("Opus reviewing Opus"), Decision Envelope Contract, Shadow → Enforcing modes
+5. **AnisminOS Operational Cadence** — 13 daily schtasks (8 ops + 5 autonomy-loop), armed since 2026-04-26
+
+Three surgical line changes ship the lineage and Aegis dimension without restructuring:
+
+**Slide 11 (Self-Audit) — empirical anchor + promotion truth:**
+Old: *"Six shadow flags identified, two wired live · defaults stay false until explicit Andrew decision · never auto-promotion"*
+New: *"Six shadow flags identified · **4 promoted live this morning** by explicit decision · 2 stay shadow until they earn the gate"*
+Plus new green line: *"Pattern empirically proven: **84.95%** on ClawBench L1 (Brutal Harness v3, April 2026, 15 tasks N=3). Solve-room is its second application."*
+
+**Slide 12 (Loop is Running) — Aegis Verifier + 13 schtasks:**
+Old: *"wiki + meta-harness + Trident consensus + Brutal harness"*
+New: *"wiki + meta-harness + Trident consensus + Brutal harness + **Aegis Verifier**"*
+Plus: *"**13 daily schtasks** run the stack."*
+
+**Slide 14 (Take It Home) — closing kicker stays at v18.** "Karpathy's autoresearch, operational. Build yours." reads cleanest as-is.
+
+**On-stage delivery for the new lines:**
+
+> "Six shadow flags identified, four promoted live this morning by explicit decision, two stay shadow until they earn the gate. Wilson lower bound at 0.30 holds them back. The math holds the gate, not a flag."
+
+> "And here's the empirical anchor — this pattern proved at 84.95% on ClawBench L1 in Brutal Harness v3 in April. Solve-room is its second application. Karpathy's auto-research project — I watched the YouTube April 12, started shipping operational form April 19. Tonight you're seeing the third generation."
+
+**Q&A trap to add:** *"Why is the v2 build pipeline (Discord task → spec → KCS execute → QA → done → Discord postback) NOT live yet?"*
+Honest answer: *"Because v1 — the autonomy loop with shadow rollout discipline — only stabilised this morning. The v2 build pipeline requires a spec-artifact migration plus KCS-as-executor wiring plus Aegis-QA integration plus a Meridian-signoff column. About 7 working days of focused work. That's next quarter, not tonight."*
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v18)
 
 ## What changed v17 → v18 (2026-04-29 mid-morning, autonomy loop now LIVE on cron)
