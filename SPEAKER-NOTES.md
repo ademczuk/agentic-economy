@@ -1,3 +1,56 @@
+# Speaker Notes — Quit chatting with your agents (v25)
+
+## What changed v24 → v25 (2026-04-29 ~T-30, Building Blocks moved to position 2, frame-first arc)
+
+The Building Blocks slide (Chase AI Agentic OS pattern) was at position 13 (late in the architecture-substance arc). Moved to **position 2** — directly after Title, before The Shift. Two reasons:
+
+1. **Frame-then-personal** is a stronger opening arc than "personal-then-frame." Audience gets the field's pattern first, then sees the specifics fit inside it.
+2. **The pattern is the answer to "why are we here?"** — the deck now opens with *"this is what an Agentic OS looks like in 2026"* and the rest of the talk shows one operator's instance.
+
+**Two small refinements applied during the move:**
+
+- Closing line tense changed from past *"Tonight you saw one operator's instance"* → future *"Tonight I'll show you one operator's instance"*. Future-tense reads correctly at position 2 (audience hasn't seen anything yet).
+- CUSTOM pillar updated: added `@bootstrap` alongside `@build` to reflect the just-shipped second autonomous pipeline (commit `737f6fb`, Phase D postback). Now reads: *"MCPs · bespoke pipelines · /solve-room · @build · @bootstrap"*.
+
+**New deck arc (16 slides):**
+
+| # | Slide | Role |
+|---|---|---|
+| 1 | Title | hook |
+| **2** | **Building Blocks** ⭐ moved | frame the field's pattern (Chase AI) |
+| 3 | The Shift | industry pivot signal (Poolside Laguna, 41% AI code) |
+| 4 | The Bet | personal commission setup |
+| 5 | The Brief | the contract |
+| 6 | The Anismin Office | workstation hero |
+| 7 | The Six Moves | how a commission runs |
+| 8 | AgentReef | three sovereigns |
+| 9 | How it talks | boardroom + mailbox + wiki |
+| 10 | The Pipelines | bespoke per task |
+| 11 | The Self-Audit | 5-box loop, audit-fiction |
+| 12 | The Loop is Running | cron + 13 schtasks |
+| 13 | Same-tier judgment | Aegis advisory |
+| 14 | From @build to draft PR | smoke-007 historical evidence |
+| 15 | August 2, 2026 | EU AI Act |
+| 16 | Take It Home | close |
+
+**Slide 2 verbal beat (~75s, post-move):**
+
+> "Before I make the bet — one frame. Chase AI on YouTube laid out the building blocks of an Agentic OS in 2026. Five pillars. Memory. Productivity. Research. Content. Custom. The conductor sits at the top — Claude Code in his framing. The automation layer at the bottom: any branch fires on-demand, on schedule, from desktop, as routines.
+>
+> What I'll show you tonight is one operator's instance of this exact pattern. Memory: my Karpathy wiki — five hundred and eighty-two entries. Productivity: Discord bridge and mailbox bus. Research: Trident, Brutal harness, Aegis Verifier. Content I haven't built — that's for creators. Honestly named.
+>
+> Custom is where I lean — MCPs, bespoke pipelines, slash-solve-room, at-build, at-bootstrap. The pattern is the field's. The assembly is mine. Different stack, same building blocks.
+>
+> Now the bet."
+
+**Cue:** point at each pillar as you name it. Pause on dashed Content pillar — *"honestly named"* lands the audit-fiction discipline at the framing level. End on *"Now the bet"* as the transition to slide 3.
+
+**Slide 3 (The Shift) verbal beat — minor adjustment for new context:**
+
+The opening of The Shift can now reference the building blocks framing. Optional bridge sentence: *"That pattern's not theoretical — the labs are pointing the same direction. October 2025, Poolside shipped Laguna..."* OR keep slide 3 standalone if Building Blocks slide ran long.
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v24)
 
 ## What changed v23 → v24 (2026-04-29 ~T-60, fix v23 mistake — wrong slide was removed)
