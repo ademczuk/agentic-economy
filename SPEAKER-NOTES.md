@@ -1,3 +1,28 @@
+# Speaker Notes — Quit chatting with your agents (v17)
+
+## What changed v16 → v17 (2026-04-29 morning)
+
+Andrew flagged the federation preflight receipt image on the standalone Bet Paid Off slide as too dense. Asked for architecture diagrams instead, with brain consults.
+
+**Removed:** Slide 8 (Bet Paid Off + Receipt). The federation preflight image dominated the slide visually without earning the space. Bet payoff verbal cue moved to Federation slide opener: *"Eighteen seconds. While I was naming the moves, the agent finished — the path is on the Discord channel. The bet paid off."* Side monitor still projects the live preflight throughout the talk.
+
+**Added: NEW slide 9 "How it talks"** — boardroom + mailbox + wiki diagram. Three floor cards (Anismin/Meridian/Kimi with their ports), bus arrow showing `POST /v2/boardroom/meetings/{id}/speak` + `X-Agent-Token`, three storage cards (`boardroom_meetings`, `agent_mailbox`, `/workspace` Karpathy wiki). Closing line: *"Federation is not a vendor — it's a protocol on top of an audit log."* Sourced from /anismin consult 2026-04-29.
+
+**Refined: Slide 11 (Self-Audit)** — replaced the dense card-grid with Meridian's 5-box flow diagram: **Work → Measure → Score → Propose → Human**. New caption from Meridian: *"Agents don't self-govern. They self-instrument."* Sourced from /meridian consult 2026-04-29 (despite her main.jsonl at 1913KB she still replied through the WARN gate).
+
+**Added to slide 10 (Pipelines):** Meridian's dark factory framing — *"one brief becomes a queue of narrow PR-sized jobs, not one giant autonomous guess."* (KCS itself was silent during /kimiclaw consult — Floor 3 container unresponsive — so Meridian's observation pattern stands in.)
+
+**Brain consult provenance:**
+- /anismin (Floor 1, FastAPI :18889): replied 2 min, gave boardroom protocol primitives + 4-box meta-harness loop + her R1/R2/R3 role pattern.
+- /meridian (Floor 2, openclaw gateway codex-5.4): replied through context-overflow WARN at 1913KB, gave the 4-box loop framing in her own words + dark factory one-liner + two captions ("Agents don't self-govern, they self-instrument" / "Plan, execute, verify, with different brains disagreeing on purpose").
+- /kimiclaw (Floor 3, KCS swarm :9643 docker exec): silent. Container unresponsive at consult time. Meridian's observation covers the dark factory framing.
+
+**Total deck: 13 slides** (was 13 in v16, net zero — removed 1 + added 1). Demo arc still slides 5-7 + verbal payoff on slide 8. Architecture-substance arc now slides 8-11 (Federation → How it talks → Pipelines → Self-Audit).
+
+**Spine sentence unchanged:** *"hand them a contract, verify the receipt, watch the architecture audit itself."*
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v16)
 
 **Talk:** Quit chatting with your agents and get them to work for you
@@ -209,27 +234,9 @@ Should grade GREEN 6/6. If RED on any item, act on it before walking on.
 
 ---
 
-## Slide 8 — Bet Paid Off + Receipt (~150 sec)
+## Slide 8 — AgentReef Federation (~120 sec) ⭐ now carries the bet payoff verbal cue (v17 fold after Bet Paid Off slide removed)
 
-> "Eighteen seconds. While I was naming the moves, the agent finished. The path is on screen. The lessons are saved. The follow-up is queued.
->
-> I spoke a six-field brief out loud. Once. Walked away. Meridian decomposed, routed, verified, documented, surfaced for approval, queued follow-up. The room watched an artifact appear at a real file path. Not a slide. Not a claim. A file.
->
-> That's a workbench. That's commissioning. The chat window doesn't do that."
-
-**Beat:** hold the green DONE badge on screen for the room to see. Three seconds of silence is fine.
-
-**Fiskaly hook line** (audience landing — speak after the silence on the DONE badge, before "That's a workbench"):
-
-> *"Fiskaly already knows what this is. Signed event. Known path. Unbroken chain. The only difference is the cashier is an agent."*
-
-**Fiskaly backup line** (if the primary feels too cute, or Fiskaly employees in back rows might feel put on the spot):
-
-> *"Every row in that Postgres table is what the RKSV calls a DEP entry — a tamper-evident record of what happened, in order, signed. The EU AI Act just discovered fiscal compliance architecture."*
-
----
-
-## Slide 9 — AgentReef Federation (~120 sec)
+**v17 opener (carries the bet payoff that was on the cut Slide 8):** *"Eighteen seconds. While I was naming the moves, the agent finished — the path is on the Discord channel. The bet paid off."* (Pause 2 sec, gesture at side monitor.) Then continue:
 
 > "Take a step back. The Anismin Office is one floor of three. Meridian's on Floor 2 — that's the agent you just watched. Kimi's on Floor 3 — ten ocean-themed agents running a pipeline called the Dark Factory.
 >
@@ -251,6 +258,32 @@ Should grade GREEN 6/6. If RED on any item, act on it before walking on.
 
 **DLT Austria backup (Q&A only):** *"At Vienna Blockchain Week next month they're calling it 'compliance without surveillance.' This architecture arrived at the same place from a different direction — operational sovereignty as a design constraint, not a policy stance."*
 
+**Fiskaly hook line** (relocated from cut Slide 8 — speak somewhere in this slide if it lands naturally, or hold for Q&A): *"Fiskaly already knows what this is. Signed event. Known path. Unbroken chain. The only difference is the cashier is an agent."*
+
+---
+
+## Slide 9 — How it talks (~90 sec) ⭐ NEW v17 — boardroom + mailbox + wiki diagram
+
+**The first architecture-substance reveal. The deck shows the protocol, not just the metaphor. Speak it as the answer to the question 'how is this not a vendor?'**
+
+> "Three sovereign brains. One protocol. One Postgres. The audit log *is* the federation.
+>
+> Floor 1 — Anismin on localhost 8643. Strategist. Owns the boardroom and the dispatch board.
+> Floor 2 — Meridian on localhost 5096. Implementer. Lives in her openclaw sandbox with full tool access.
+> Floor 3 — Kimi on localhost 9643. The swarm. Persona-mode crew, tier 1 through 3 cascade.
+>
+> They talk over a single REST call: POST slash v2 slash boardroom slash meetings slash speak. One header — X-Agent-Token — gates it. That's it. That's the federation protocol.
+>
+> And what it writes to: three Postgres surfaces. *boardroom_meetings* — every cross-floor speak, decision, and dissent gets one row, time-ordered, agent-attributed. *agent_mailbox* — the intra-floor async work. Lesson plans, teach/mentor, queued tasks. *Karpathy wiki* at slash workspace — file-backed shared memory, Obsidian-indexed, semantic-searchable.
+>
+> Federation is not a vendor. It's a protocol on top of an audit log."
+
+**Cue:** point at the three floor cards as you name them. Point at the bus arrow. Point at the three storage cards. Don't read every word on the slide — gesture and summarise.
+
+**Source:** `/anismin` consult 2026-04-29 morning — exact ports, REST path, table names, and the framing line "the audit log IS the federation" all from her direct architecture brief.
+
+**Cut criteria:** if running over by end of slide 8, you can compress this slide to ~45 sec by reading only the closing line ("Federation is not a vendor — it's a protocol on top of an audit log"). The visual carries the rest.
+
 ---
 
 ## Slide 10 — The Pipelines (~90 sec) ⭐ NEW v16 substance
@@ -269,6 +302,10 @@ Should grade GREEN 6/6. If RED on any item, act on it before walking on.
 
 **Cue:** point at each card as you name it. The federation_preflight one should land hardest — gesture at the side monitor when you mention it.
 
+**Dark factory line (v17 add — from Meridian's consult 2026-04-29):** read the green mono line on the slide — *"Floor 3's KCS swarm: 'one brief becomes a queue of narrow PR-sized jobs, not one giant autonomous guess.'"* That's the cleanest one-line description of the dark factory's decomposition pattern, in Meridian's own words.
+
+**Source for dark factory framing:** /meridian consult 2026-04-29 morning. KCS swarm itself was silent during the consult (Floor 3 container unresponsive at the time) — Meridian's observation pattern stands in.
+
 **Why this slide matters:** it's the difference between "Andrew built a workbench" and "Andrew built the operational expression of where the field is going." Without this slide the audience walks away with the demo. With it, they walk away with the architecture.
 
 **Cut criteria:** if running >2 min over by end of slide 9, cut this slide entirely. The Yegge/Willison/Huntley camp framing carries forward verbally to slide 11. The federation_preflight side-monitor evidence stays load-bearing regardless.
@@ -277,23 +314,31 @@ Should grade GREEN 6/6. If RED on any item, act on it before walking on.
 
 ---
 
-## Slide 11 — The Self-Audit (~90 sec) ⭐ NEW v16 — DEEPEST SLIDE
+## Slide 11 — The Self-Audit / How it learns (~90 sec) ⭐ DEEPEST SLIDE — v17 visualised with Meridian's 4-box loop
 
-**The deepest slide. Read it like the punch line it is. Three seconds of silence after the quote-block.**
+**The deepest slide. Now anchored on a 5-box flow: Work → Measure → Score → Propose → Human. Meridian's framing from /meridian consult 2026-04-29: "The system watches itself, grades itself, suggests the next safe upgrade, human approves the jump."**
 
-> "And here's the part that makes this real. A `/solve-room` meeting critiqued `/solve-room` itself. Forty minutes, three rounds plus verify. Recursive.
+> "Look at the slide. Five boxes. Work, Measure, Score, Propose, Human. That's how the architecture learns.
 >
-> The methodology *failed mid-meeting* — Meridian died at 444KB context overflow, Codex timed out, Anismin marked her own reply *FAILED* rather than fabricate.
+> Work — a commission runs. Measure — telemetry writes to the audit log. Score — Wilson lower bound, calibration confidence, N-meeting threshold. Propose — when the score crosses a threshold, the system opens a PR with the evidence pack. Human — that's me. I approve the jump.
+>
+> The system can propose its own evolution. It cannot implement it without my signature.
+>
+> A `/solve-room` meeting critiqued `/solve-room` itself. The methodology *failed mid-meeting* — Meridian died at 444KB context overflow, Codex timed out, Anismin marked her own reply *FAILED* rather than fabricate.
 >
 > Those failures are evidence of correctness, not bugs.
 >
-> The slide quotes the operating principle: 'Code that ran successfully ≠ code that did the right thing observationally.' Audit-fiction is the named bug. HTTP 200 is not success. A row inserted is not a payload populated.
+> The slide quotes the operating principle: *Code that ran successfully ≠ code that did the right thing observationally.* Audit-fiction is the named bug. HTTP 200 is not success. A row inserted is not a payload populated.
 >
-> Six shadow flags identified by the recursive meeting. Two wired live. Wilson lower bound and N-meeting thresholds gate promotion. Defaults stay false until *explicit* operator decision. Never auto-promotion.
+> Six shadow flags identified by the recursive meeting. Two wired live. Defaults stay false until explicit operator decision. Never auto-promotion.
 >
-> The system can propose its own evolution. It cannot implement it without your signature."
+> Meridian's caption: *Agents don't self-govern. They self-instrument.*"
 
-**Cue:** dwell on the quote-block. Slow the delivery. The "code that ran successfully ≠ did the right thing observationally" line is the talk's *meta-thesis* — say it like it costs you something.
+**Cue:** point at each box in the flow as you name it. Dwell on Human — pause before saying "that's me." Then on the quote-block, slow down. The "code that ran successfully ≠ did the right thing observationally" line is the talk's *meta-thesis* — say it like it costs you something.
+
+**Source for the 4-box loop:** /meridian consult 2026-04-29. Her exact framing was *"Work → Measure → Score → Propose → Human yes/no"* with the caption *"the system watches itself, grades itself, suggests the next safe upgrade, human approves the jump."* The slide visualises this verbatim.
+
+**Source for the closing caption:** Meridian: *"Agents don't self-govern. They self-instrument."* Stage attribution to her in spoken delivery — it lands sharper as a quoted line than as Andrew's claim.
 
 **Why this slide is the deepest:** it answers the unspoken question — *how do you know any of this is true?* The architecture audits itself. The recursive meeting failed in instructive ways. The discipline of FAILED-rather-than-fabricate is a cultural property, not a technical one. Audiences who've been burned by AI demos recognise this discipline immediately.
 
@@ -357,7 +402,7 @@ Should grade GREEN 6/6. If RED on any item, act on it before walking on.
 
 ---
 
-## Time discipline (v16)
+## Time discipline (v17)
 
 | Slot | Slide | Cumulative |
 |---|---|---|
@@ -368,14 +413,16 @@ Should grade GREEN 6/6. If RED on any item, act on it before walking on.
 | 5:30 – 8:00 | 5. The Anismin Office | 8:00 |
 | 8:00 – 9:15 | 6. The Commission (live demo) | 9:15 |
 | 9:15 – 12:15 | 7. The Six Moves | 12:15 |
-| 12:15 – 14:45 | 8. Bet Paid Off + Receipt | 14:45 |
-| 14:45 – 16:45 | 9. Federation | 16:45 |
-| 16:45 – 18:15 | 10. The Pipelines ⭐ NEW | 18:15 |
-| 18:15 – 19:45 | 11. The Self-Audit ⭐ NEW | 19:45 |
-| 19:45 – 21:15 | 12. August 2 / EU AI Act | 21:15 |
-| 21:15 – 23:15 | 13. Take It Home | 23:15 |
+| 12:15 – 14:15 | 8. Federation (with bet-payoff opener) | 14:15 |
+| 14:15 – 15:45 | 9. How it talks ⭐ NEW v17 | 15:45 |
+| 15:45 – 17:15 | 10. The Pipelines (with dark factory line) | 17:15 |
+| 17:15 – 18:45 | 11. The Self-Audit (4-box loop) | 18:45 |
+| 18:45 – 20:15 | 12. August 2 / EU AI Act | 20:15 |
+| 20:15 – 22:15 | 13. Take It Home | 22:15 |
 
-**Total content: ~23 min. Buffer: ~7 min for organic stretch, audience reactions, demo wait time, Q&A in 30-min slot.**
+**Total content: ~22 min. Buffer: ~8 min for organic stretch, audience reactions, demo wait time, Q&A in 30-min slot.**
+
+v17 swap: removed the standalone Bet Paid Off slide (~150s, federation preflight image was too dense visually). Added "How it talks" architecture diagram (~90s). Bet payoff now lands verbally on slide 8 (Federation) opener.
 
 If Ed gives you 17 min: cut slide 2 (Shift) AND slide 10 (Pipelines) — saves ~2 min. Total drops to ~21 min. Still tight.
 
