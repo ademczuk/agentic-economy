@@ -199,7 +199,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Fiskaly Wien</span> <span style="color:var(--cyan)">&middot; 29 Apr 2026</span></div>
 </div>
 
-<div id="slide-counter">1 / 13</div>
+<div id="slide-counter">1 / 14</div>
 <div id="key-hint">&larr; &rarr; navigate &middot; R reorder &middot; F fullscreen &middot; T 30-min timer</div>
 <div id="timer" onclick="toggleTimer()">30:00</div>
 
@@ -240,6 +240,9 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     <div style="font-size:0.68rem;color:var(--muted);margin-top:8px;font-family:var(--mono)">Poolside &middot; Laguna: A Deeper Dive &middot; Oct 2025 &middot; poolside.ai/blog/laguna-a-deeper-dive</div>
   </div>
   <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono)">"Stop chatting" isn't a hot take. It's where the field already is. Tonight: what that looks like on a workbench.</div>
+  <div class="small mt-2" style="color:var(--green);font-family:var(--mono);max-width:880px">
+    Adoption signal: <strong style="color:var(--text)">41%</strong> of code in production is AI-generated. <span style="color:var(--muted)">Stack Overflow Developer Survey + GitHub Octoverse, 2026</span>. The shift is measurable.
+  </div>
 </div>
 
 <!-- 3: THE BET -->
@@ -547,7 +550,40 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
 </div>
 
-<!-- 12: EU AI ACT — COMPLIANCE BUILT IN -->
+<!-- 12: THE LOOP IS RUNNING (autonomy live on cron, calibration week, Karpathy autoresearch) -->
+<div class="slide" data-title="The Loop is Running">
+  <span class="badge badge-green"><span class="pulse-dot"></span>Live as of today &middot; cron-scheduled</span>
+  <div class="big mt-2">
+    The loop is <span class="text-gradient-green">running.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-3" style="max-width:880px">
+    Five Windows scheduled tasks went live this morning. The autonomy loop runs hands-off &mdash; but in safe mode. <strong style="color:var(--text)">Promote stays dry-run for the calibration week.</strong> Empirical signal first; live flips after.
+  </div>
+  <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
+    <div class="card card-glow-cyan">
+      <h3 style="font-size:0.9rem"><span class="text-cyan">Telemetry</span></h3>
+      <p style="font-size:0.78rem"><span class="mono">DiscordBoardWatcher</span> &middot; every 5 min &middot; quota-protected (6/day, 2 concurrent)<br><span class="mono">CodexMailboxDrain</span> &middot; every 15 min</p>
+    </div>
+    <div class="card card-glow-orange">
+      <h3 style="font-size:0.9rem"><span class="text-orange">Score</span></h3>
+      <p style="font-size:0.78rem"><span class="mono">ShadowStatus</span> &middot; daily 09:55 &middot; pure read, Wilson LB on shadow events<br><span class="mono">ShadowRegression</span> &middot; hourly &middot; auto-revert detector</p>
+    </div>
+    <div class="card card-glow-yellow">
+      <h3 style="font-size:0.9rem"><span class="text-yellow">Propose</span></h3>
+      <p style="font-size:0.78rem"><span class="mono">ShadowPromote-DryRun</span> &middot; daily 10:00 &middot; opens draft PRs &middot; <strong style="color:var(--text)">never auto-merges</strong></p>
+    </div>
+  </div>
+  <div class="quote-block green mt-3">
+    <div style="font-size:0.95rem;font-weight:600">Trident validation caught three gaps the design doc missed.</div>
+    <div style="font-size:0.72rem;color:var(--muted);margin-top:8px;font-family:var(--mono)">Wilson LB was event-scoped (gameable) &middot; promote.py guards missing &middot; watcher quotas absent. All three closed in commit 3f7cdd5 before cron went live. Multi-model self-audit caught what one CLI's design doc didn't.</div>
+  </div>
+  <div class="small mt-3" style="color:var(--purple);font-family:var(--mono);max-width:880px">
+    This is Karpathy's <em>autoresearch</em> made operational: <span class="mono">wiki + meta-harness + Trident consensus + Brutal harness</span>, all writing to one Postgres audit log. The architecture researches itself.
+  </div>
+</div>
+
+<!-- 13: EU AI ACT — COMPLIANCE BUILT IN -->
 <div class="slide" data-title="August 2, 2026">
   <span class="badge badge-orange"><span class="pulse-dot"></span>96 days from tonight</span>
   <div class="big mt-2">
@@ -606,7 +642,8 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
   </div>
   <div class="mid mt-3" style="font-weight:700">Stop chatting. <span class="text-gradient-voice">Start commissioning.</span></div>
-  <div class="small mt-2" style="color:var(--purple);font-family:var(--mono);max-width:840px">You weren't watching agents that work. You were watching architecture that <span class="text-red">audits itself,</span> <span class="text-cyan">specialises by task,</span> <span class="text-green">ships its own fixes</span> &mdash; visible right now on a workstation in this city.</div>
+  <div class="small mt-2" style="color:var(--purple);font-family:var(--mono);max-width:880px">You weren't watching agents that work. You were watching architecture that <span class="text-red">audits itself,</span> <span class="text-cyan">specialises by task,</span> <span class="text-green">ships its own fixes</span> &mdash; running on cron right now, <span class="text-yellow">gated by my signature.</span></div>
+  <div class="small mt-2" style="color:var(--cyan);font-family:var(--mono);max-width:840px">Karpathy's autoresearch, operational. Build yours.</div>
 </div>
 
 </div><!-- /deck -->

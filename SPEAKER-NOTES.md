@@ -1,3 +1,42 @@
+# Speaker Notes — Quit chatting with your agents (v18)
+
+## What changed v17 → v18 (2026-04-29 mid-morning, autonomy loop now LIVE on cron)
+
+While the deck was at v17, the autonomy implementation push completed:
+- 6 of 6 shadow flags wired (was 2 of 6) via commit `de4e620`
+- All `# SHADOW_ANCHOR:` comments inserted with policy-side validator
+- Three originally-flagged open concerns all closed (lesson_plan inconclusive guard `93f111b`, heartbeat-before-preflight reorder `8a435bd`, verify-round prior-reply injection `6856e5e`)
+- 5 Windows scheduled tasks live: DiscordBoardWatcher (5 min), CodexMailboxDrain (15 min), ShadowRegression (hourly), ShadowStatus (daily 09:55), ShadowPromote-DryRun (daily 10:00)
+- `promote.py` and `regression_check.py` shipped as sidecar Phases 3 + 4
+- Trident validation caught 3 real gaps (Wilson LB event-scoped → meeting-scoped, promote.py guards missing, watcher quotas absent), closed in `3f7cdd5` before cron went live
+- Empirical proof in meeting `9c76e39b` — telemetry actually flows through `boardroom_floor_events`
+
+**Two new substance items in v18:**
+
+**Slide 2 (Shift) — added 41% AI-generated code stat.** Stack Overflow Developer Survey + GitHub Octoverse 2026. Strengthens the industry-pivot framing alongside Poolside Laguna. *"The shift is measurable."*
+
+**NEW slide 12 — "The Loop is Running"** (between Self-Audit and EU AI Act). The talk's strongest claim — the autonomy loop runs hands-off, on cron, RIGHT NOW. Three cards mapping schtasks to Telemetry / Score / Propose stages. Quote-block highlights Trident validation catching 3 gaps as another self-audit instance. Closing line: *"This is Karpathy's autoresearch made operational: wiki + meta-harness + Trident consensus + Brutal harness, all writing to one Postgres audit log. The architecture researches itself."*
+
+**Slide 14 (Take It Home) — kicker extended.** From *"visible right now on a workstation in this city"* → *"running on cron right now, gated by my signature."* Plus new closing line: *"Karpathy's autoresearch, operational. Build yours."*
+
+**Net change:** 13 → 14 slides. Total content ~24 min (~6 min Q&A buffer in 30-min slot).
+
+**Slide 12 speaker notes:**
+
+> "And one more thing. While I was talking, this whole architecture has been running on cron. Five Windows scheduled tasks went live this morning. The board watcher fires every five minutes. The mailbox drain every fifteen. Status runs daily nine fifty-five with Wilson lower bound on the shadow events. Promote runs daily ten — but in dry-run for the calibration week. Empirical signal first, live flips after.
+>
+> The slide quotes Trident validation. Three gaps the design doc missed — Wilson LB was event-scoped, gameable; promote.py was missing safety guards; the board watcher had no quotas. Multi-model self-audit, ran independent of the implementation CLI, caught all three. They're closed in commit 3f7cdd5, before cron went live.
+>
+> What you're watching is Karpathy's autoresearch made operational. The wiki indexes what we've learned. The meta-harness scores it. Trident audits it. The Brutal harness red-teams it. All four write to one Postgres audit log.
+>
+> The architecture researches itself."
+
+**Cue:** point at the three cards as you name the stages. Land hard on "running on cron right now."
+
+**Cut criteria:** if running >2 min over by end of slide 11, cut this slide — but the substance is unique to v18 and the audience is paying attention to it. Keep if at all possible.
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v17)
 
 ## What changed v16 → v17 (2026-04-29 morning)
