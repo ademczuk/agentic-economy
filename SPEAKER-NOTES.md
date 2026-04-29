@@ -30,6 +30,27 @@ After v21 shipped the Aegis Verifier slide, the parallel CLI delivered commit `8
 
 **Q&A trap "Aren't you just papering over the silence with a notification?"**: *"No. The Phase C postback is reading from `pipeline_run_events` — the same audit table the system writes to. The Discord message is a render of the audit row, not a separate fact. If the row is wrong, the Discord message will be wrong; the Discord message can't lie about the row. That's the audit-fiction discipline catching its own surface."*
 
+## Live-demo option (Option B) — much stronger now with Phase C
+
+Phase C postback changes the live-demo calculus. Previously (v21 and earlier), Option B required Andrew to manually refresh the GitHub PRs page during slide 14 or 15 to check if the PR landed. With Phase C, the PR URL gets posted back to the originating Discord channel automatically — meaning **the audience can watch the Discord notification arrive in real time**.
+
+If you choose Option B (live demo) tonight:
+
+1. **T-30**: Open Discord on phone with the channel visible. Confirm push notifications enabled.
+2. **Slide 1 or Slide 6 (Commission)**: DM `@build "Create a single-line marker file at scripts/tests/_keynote-2026-04-29.txt with content 'fiskaly-keynote-here'. Make ONLY this one file change."` (deliberately tiny — minimises rework loop)
+3. **Slide 14 (From `@build` to draft PR)**: glance at Discord. If the postback notification has arrived, point at it on the projector phone or read it aloud. *"That's the URL right there — Phase C closing the loop while we were on slide 13."*
+4. **Slide 15 or 16**: open the PR page in a browser tab. Show the diff briefly.
+
+**Backup if live demo stalls:** narrate the smoke-007 evidence on slide 14 instead. *"The watcher is a 5-minute cron — sometimes you're at the wrong end of the window. Either way, the proof is the run that already happened today."*
+
+**The reframe:** with Phase C, the live demo isn't *"DM and pray it lands during the talk."* It's *"DM, watch the Discord notification arrive, click the PR link."* Same surface throughout. That's the audience-takeaway claim.
+
+---
+
+# Speaker Notes — Quit chatting with your agents (v21)
+
+## What changed v20.1 → v21 (2026-04-29 evening, Aegis Verifier shipped + 7-flag truth)
+
 ---
 
 # Speaker Notes — Quit chatting with your agents (v21)
