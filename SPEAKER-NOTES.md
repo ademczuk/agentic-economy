@@ -1,3 +1,37 @@
+# Speaker Notes — Quit chatting with your agents (v22)
+
+## What changed v21 → v22 (2026-04-29 late evening, Phase C postback closes the operator loop)
+
+After v21 shipped the Aegis Verifier slide, the parallel CLI delivered commit `82748bf` closing three audit-driven gaps:
+
+**Phase C postback** (the big one). `discord-board-watcher.py` now has a separate `phase_postback_pipeline()` that polls `pipeline_pr_opened` events and posts the PR URL back to the originating Discord channel. Per Anismin's Q1 verdict: *"NEW PHASE C — different beasts with different cursors."* Solve-room postback (Phase B) and pipeline postback (Phase C) are separate state machines now — different SQL queries, different cursors, no single point of failure for both.
+
+**SHA attribution.** `pipelines/base.py` got a new `_git_attribution()` helper merged into every `pipeline_run_start` payload. Smoke-verified live: returns full 40-char SHA + branch + dirty count + repo path. Every pipeline run is now provenance-stamped — answers "which commit ran this?" without needing to dig.
+
+**KCS→Codex naming truth-up.** `pipelines.yaml` flipped `kcs: implementer → codex: implementer` with a `kcs: deferred` row + 6-line deferral comment. swarm_implementation.py module docstring rewritten to match. The KCS-broken substitution is now encoded in the policy, not just narrated. Anismin Q2 verdict: *"HARD RENAME plus one deferral note in pipelines.yaml."*
+
+**Slide 14 (From `@build` to draft PR) updated:**
+
+- **Added 8th flow box** at the end of the timeline: *"Discord · URL posted back · Phase C"* in purple. The chain now visually ends where it started — Discord.
+- **Quote-block extended:** *"Phase C postback shipped this evening — the URL now closes back to the same Discord channel that asked for the build."*
+- **Closing line refreshed:** *"Andrew can DM `@build "..."` to Discord right now. A draft PR lands within 10-30 minutes — and the URL posts back to the same channel. Task in via Discord, PR URL out via Discord. No silent gap. The operator surface is end to end."*
+
+**Slide 14 verbal beat (~75s, post-update):**
+
+> "Look at the slide. Eight stages. The chain that started with my Discord DM at ten forty-one this morning — *spec, execute, QA, rework, QA, decide, draft PR* — closes back to the same Discord channel as a posted URL. As of this evening, that's the eighth stage. Phase C postback.
+>
+> Task in via Discord. PR URL out via Discord. Same surface. No silent gap between dispatch and going to GitHub to check.
+>
+> If I DM 'at-build, fix the foo bug' right now, in fifteen minutes I get a Discord notification that says 'PR forty-something is ready for review.' Click the link. Read the diff. Merge or comment. Done. The system runs the work; I run the merge button."
+
+**Cue:** point at the new purple Discord box at the end. It's visually distinct (purple vs the green PR box) — that's intentional. Discord is the *channel*, not the artifact. The artifact is the PR; the channel is the operator surface.
+
+**Q&A trap "Why two phases — A/B/C, not just one?"**: *"Because they're different beasts with different cursors. Phase A dispatches new tasks. Phase B watches for solve-room outcomes. Phase C watches for pipeline PR opens. Each has its own SQL query, its own state. One cursor advancing doesn't break the others. Anismin's Q1 verdict was explicit: don't share the cursor."*
+
+**Q&A trap "Aren't you just papering over the silence with a notification?"**: *"No. The Phase C postback is reading from `pipeline_run_events` — the same audit table the system writes to. The Discord message is a render of the audit row, not a separate fact. If the row is wrong, the Discord message will be wrong; the Discord message can't lie about the row. That's the audit-fiction discipline catching its own surface."*
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v21)
 
 ## What changed v20.1 → v21 (2026-04-29 evening, Aegis Verifier shipped + 7-flag truth)
