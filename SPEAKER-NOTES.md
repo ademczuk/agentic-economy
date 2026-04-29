@@ -1,3 +1,43 @@
+# Speaker Notes — Quit chatting with your agents (v21)
+
+## What changed v20.1 → v21 (2026-04-29 evening, Aegis Verifier shipped + 7-flag truth)
+
+After v20.1, the parallel CLI shipped commit `d19d8f4` adding `SOLVE_ROOM_AEGIS_VERIFIER` as the 7th shadow flag with full calibration discipline (Wilson LB ≥ 0.90, N ≥ 40 meetings, FP rate ≤ 0.15). Aegis Verifier is now LIVE on `:18892` with `decision_id` incrementing on every smoke run (just observed 11→12 confirming live).
+
+Three changes:
+
+**NEW Slide 13 "Same-tier judgment"** — between Loop is Running (12) and From `@build` to draft PR (now 14). Three cards (Decision Envelope → Aegis review → Operator override). Quote-block: *"Judgment quality is the bottleneck, not generation throughput."* Closes with `SOLVE_ROOM_AEGIS_VERIFIER` shadow flag + calibration gate explicit.
+
+**Slide 11 (Self-Audit) updated.** Old: *"Six shadow flags identified · 4 promoted live this morning · 2 stay shadow."* New: *"Seven shadow flags · 4 promoted live · 3 calibrating, including Aegis Verifier — same-tier judgment, shipped this afternoon."*
+
+**Slide 12 (Loop is Running) Karpathy stack list strengthened.** Aegis Verifier mention now reads *"Aegis Verifier (decision_id=12 live)"* — adds concrete proof.
+
+**Total deck: 16 slides, ~26 min content + ~4 min Q&A buffer in 30-min slot.**
+
+If Ed gives <17 min: cut Slide 13 (Same-tier judgment) — it's the newest substance but Slide 11 + Slide 12 still carry the discipline story without it.
+
+**Slide 13 speaker notes (Same-tier judgment):**
+
+> "One more layer. The hardest one to talk about because it's about judgment, not throughput.
+>
+> Most AI systems scale by adding generation. Bigger model, more tokens per second, faster output. The bottleneck isn't there. The bottleneck is judgment. Did the agent make a *good* decision? Did it actually do the right thing observationally — or just the thing that ran without crashing?
+>
+> The Aegis Verifier is an independent FastAPI service running on this workstation. Same-tier judgment. Opus reviewing Opus. GPT reviewing GPT. Not a smaller model overseeing a bigger one — that's how you get rubber-stamping. Same tier means same blind spots, but independent runs catch what one-model self-review misses.
+>
+> The slide quotes the design thesis: *judgment quality is the bottleneck, not generation throughput.*
+>
+> Decision envelope in. Verdict plus explainability rider out. Currently in shadow mode — calibrating from N equals zero. The flag is `SOLVE_ROOM_AEGIS_VERIFIER`. Calibration gate is forty meetings, Wilson lower bound point-nine-zero, false-positive rate at most fifteen percent. Same discipline as the other six flags. Aegis joins the autonomy loop the same way every other capability does — earned, not promoted.
+>
+> Decision_id twelve right now. Incrementing as I speak."
+
+**Cue:** point at the three cards. Land hard on "judgment quality is the bottleneck." Three seconds of silence after the quote-block. Then the calibration gate read at the end is the operator-discipline proof.
+
+**Q&A trap "How is Aegis different from your existing QA?"**: *"Anismin's QA is in-loop — she reviews artifacts before Meridian decides. Aegis is post-hoc — independent service that reviews the decision itself. Anismin can be wrong. Aegis catches Anismin being wrong. Same-tier means same model class, but independent process — one's blind spots aren't necessarily the other's."*
+
+**Q&A trap "Why isn't Aegis enforcing yet?"**: *"Because it's calibrating. Forty-meetings minimum, Wilson LB point-nine-zero, FP rate at most fifteen percent. Same gate as every other flag this system has. Until it earns the gate, it watches and recommends. The architecture says no flag flips to enforcing without proof — Aegis included."*
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v20.1)
 
 ## What changed v20 → v20.1 (2026-04-29 14:30, slide 10 truth + operator runbook)

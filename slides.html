@@ -199,7 +199,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   <div class="g-stat"><span style="text-transform:uppercase;letter-spacing:0.5px">Fiskaly Wien</span> <span style="color:var(--cyan)">&middot; 29 Apr 2026</span></div>
 </div>
 
-<div id="slide-counter">1 / 15</div>
+<div id="slide-counter">1 / 16</div>
 <div id="key-hint">&larr; &rarr; navigate &middot; R reorder &middot; F fullscreen &middot; T 30-min timer</div>
 <div id="timer" onclick="toggleTimer()">30:00</div>
 
@@ -543,7 +543,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
 
   <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono);max-width:880px">
-    Six shadow flags identified &middot; <strong style="color:var(--text)">4 promoted live this morning</strong> by explicit decision &middot; 2 stay shadow until they earn the gate.
+    Seven shadow flags &middot; <strong style="color:var(--text)">4 promoted live</strong> by explicit decision &middot; 3 calibrating, including <strong style="color:var(--text)">Aegis Verifier</strong> &mdash; same-tier judgment, shipped this afternoon.
   </div>
   <div class="small mt-2" style="color:var(--green);font-family:var(--mono);max-width:880px">
     Pattern empirically proven: <strong style="color:var(--text)">84.95%</strong> on ClawBench L1 (Brutal Harness v3, April 2026, 15 tasks N=3). Solve-room is its second application.
@@ -582,11 +582,48 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     <div style="font-size:0.72rem;color:var(--muted);margin-top:8px;font-family:var(--mono)">Wilson LB was event-scoped (gameable) &middot; promote.py guards missing &middot; watcher quotas absent. All three closed in commit 3f7cdd5 before cron went live. Multi-model self-audit caught what one CLI's design doc didn't.</div>
   </div>
   <div class="small mt-3" style="color:var(--purple);font-family:var(--mono);max-width:880px">
-    This is Karpathy's <em>autoresearch</em> made operational: <span class="mono">wiki + meta-harness + Trident consensus + Brutal harness + Aegis Verifier</span>, all writing to one Postgres audit log. <strong style="color:var(--text)">13 daily schtasks</strong> run the stack. The architecture researches itself.
+    This is Karpathy's <em>autoresearch</em> made operational: <span class="mono">wiki + meta-harness + Trident consensus + Brutal harness + Aegis Verifier (decision_id=12 live)</span>, all writing to one Postgres audit log. <strong style="color:var(--text)">13 daily schtasks</strong> run the stack. The architecture researches itself.
   </div>
 </div>
 
-<!-- 13: FROM @BUILD TO DRAFT PR (operational pipeline shipped 2026-04-29 11:06) -->
+<!-- 13: SAME-TIER JUDGMENT (Aegis Verifier, 7th shadow flag, shipped this afternoon) -->
+<div class="slide" data-title="Same-tier judgment">
+  <span class="badge badge-yellow"><span class="pulse-dot"></span>Aegis Verifier &middot; <span class="mono">:18892</span> &middot; decision_id 12 live</span>
+  <div class="big mt-2">
+    Same-tier <span class="text-gradient-yellow">judgment.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-3" style="max-width:920px">
+    Generation throughput isn't the bottleneck. <strong style="color:var(--text)">Judgment is.</strong> Every autonomous decision flows through Aegis &mdash; an independent FastAPI service that reviews the agent's verdict <strong style="color:var(--text)">at the same model tier</strong>. Opus reviewing Opus. The blind spots that one-model self-review misses, a same-tier independent reviewer catches.
+  </div>
+
+  <!-- 3 cards: contract → review → verdict -->
+  <div class="card-grid card-grid-3 mt-3" style="max-width:1100px">
+    <div class="card card-glow-cyan">
+      <h3 style="font-size:0.9rem"><span class="text-cyan">Decision Envelope</span></h3>
+      <p style="font-size:0.78rem">Typed contract in. What the agent decided + the evidence pack. <span class="mono">jsonb</span>, schema-pinned, audit-replayable.</p>
+    </div>
+    <div class="card card-glow-yellow">
+      <h3 style="font-size:0.9rem"><span class="text-yellow">Aegis review</span></h3>
+      <p style="font-size:0.78rem">Same-tier independent verifier. Reads the envelope, runs verification, emits <span class="mono">verdict</span> + <strong style="color:var(--text)">explainability rider</strong>.</p>
+    </div>
+    <div class="card card-glow-green">
+      <h3 style="font-size:0.9rem"><span class="text-green">Operator override</span></h3>
+      <p style="font-size:0.78rem">Shadow &rarr; Enforcing modes. Operator-override path explicit. Currently <strong style="color:var(--text)">shadow only</strong> &mdash; calibrating from <span class="mono">N=0</span>.</p>
+    </div>
+  </div>
+
+  <div class="quote-block yellow mt-3">
+    <div style="font-size:0.95rem;font-weight:700;line-height:1.4">"Judgment quality is the bottleneck, not generation throughput."</div>
+    <div style="font-size:0.7rem;color:var(--muted);margin-top:8px;font-family:var(--mono)">Aegis design thesis. April 2026, AnisminOS.</div>
+  </div>
+
+  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono);max-width:920px">
+    <strong style="color:var(--text)">SOLVE_ROOM_AEGIS_VERIFIER</strong> &middot; the 7th shadow flag &middot; shipped commit <span class="mono">d19d8f4</span> this afternoon. Calibration gate: <strong style="color:var(--text)">N&ge;40 meetings + Wilson LB &ge; 0.90 + false-positive rate &le; 0.15</strong>. Flips to enforcing only when all three clear. <span class="text-orange">decision_id 12 right now &mdash; live and incrementing.</span>
+  </div>
+</div>
+
+<!-- 14: FROM @BUILD TO DRAFT PR (operational pipeline shipped 2026-04-29 11:06) -->
 <div class="slide" data-title="From @build to draft PR">
   <span class="badge badge-green"><span class="pulse-dot"></span>Shipped today &middot; 11:06 Vienna &middot; PR #35</span>
   <div class="big mt-2">
