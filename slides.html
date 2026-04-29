@@ -334,31 +334,13 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
 </div>
 
-<!-- 5: THE COMMISSION (live) -->
-<div class="slide" data-title="The Commission">
-  <span class="badge badge-pink"><span class="pulse-dot"></span>Live now</span>
-  <div class="big mt-2">
-    Watch <span class="text-gradient-voice">this.</span>
-  </div>
-  <div class="divider mt-3"></div>
-  <div class="waveform mt-4">
-    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-  </div>
-  <div class="body mt-4" style="max-width:820px">
-    Speaking the brief into Discord voice now. Meridian receives it on Floor 2. The work begins. I keep talking. The next slide names what's happening, in order, while it happens.
-  </div>
-  <div class="small mt-3" style="color:var(--cyan);max-width:840px">
-    The brief asks for two artifacts: a generated image of the room tagged with tonight's date, posted to Discord at <strong style="color:var(--orange)">~6 seconds</strong>, and the lessons file at the canonical path at <strong style="color:var(--green)">~18 seconds</strong>. Image lands fast and loud. File lands durable. Both visible in Discord regardless of any other UI.
-  </div>
-  <div class="small mt-3" style="color:var(--orange);font-family:var(--mono)">No fabricated demos. The artifact is the proof. If it breaks, you see it break.</div>
-</div>
+<!-- 5: THE COMMISSION — REMOVED v24 (live demo not feasible; talk is too short for round-trip). The historical commission evidence + bet-payoff wording moved into speaker notes for slide 7 (now AgentReef as the architecture beat after Six Moves). -->
 
 <!-- 6: THE SIX MOVES -->
 <div class="slide" data-title="The Six Moves">
-  <span class="badge badge-purple">What just happened</span>
+  <span class="badge badge-purple">How a commission runs</span>
   <div class="big mt-2">
-    Six moves. <span class="text-gradient-purple">Watch them land.</span>
+    Six moves. <span class="text-gradient-purple">Every commission, this shape.</span>
   </div>
   <div class="divider mt-3"></div>
   <div class="pipeline mt-3" style="max-width:840px">
@@ -387,7 +369,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
       <div><div class="pipe-label"><span class="text-yellow">Follow-up</span> &middot; the system is sharper than 20 min ago</div><div class="pipe-desc">cross-linked, indexed, searchable. The wiki grew. Tomorrow's commissions start smarter</div></div>
     </div>
   </div>
-  <div class="small mt-3" style="color:var(--green);font-family:var(--mono)">The path should be in Discord text by now. Look at the channel.</div>
+  <div class="small mt-3" style="color:var(--green);font-family:var(--mono)">Same shape every time. The artifact is the proof. The path is the receipt. The wiki is the lesson.</div>
 </div>
 
 <!-- 8: AGENTREEF FEDERATION (Bet Paid Off slide removed in v17 — payoff moved to Federation opener and Six Moves verbal cue) -->
@@ -681,7 +663,79 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
   </div>
 </div>
 
-<!-- 14: EU AI ACT — COMPLIANCE BUILT IN -->
+<!-- 15: FROM @BUILD TO DRAFT PR (smoke-007 historical evidence — restored v24) -->
+<div class="slide" data-title="From @build to draft PR">
+  <span class="badge badge-green">Shipped today &middot; 11:06 Vienna &middot; PR #35</span>
+  <div class="big mt-2">
+    From Discord <span class="mono" style="font-size:0.85em;color:var(--text)">@build</span> to <span class="text-gradient-green">draft PR.</span>
+  </div>
+  <div class="divider mt-3"></div>
+  <div class="body mt-2" style="max-width:920px">
+    One run today. <strong style="color:var(--text)">25 minutes, 28 seconds.</strong> One Discord DM in. Eight stages of autonomous work: Anismin writes the spec, Codex executes in a temp worktree, Anismin QA's the diff, Codex reworks on her notes, Anismin QA's again, Meridian decides &mdash; or in this case stays silent and Anismin steps in per the chain-of-command fallback. <strong style="color:var(--text)">A draft PR. Always draft.</strong> Never auto-merge.
+  </div>
+
+  <!-- 8-stage pipeline timeline -->
+  <div class="flow-row mt-3" style="max-width:1180px;flex-wrap:wrap;gap:8px">
+    <div class="flow-box" style="border-color:rgba(168,85,247,0.5);min-width:96px">
+      <div style="font-weight:700;font-size:0.82rem;color:var(--purple)">Spec</div>
+      <div style="font-size:0.66rem;color:var(--dim);margin-top:2px">Anismin</div>
+      <div style="font-size:0.62rem;color:var(--green);margin-top:2px;font-family:var(--mono)">16.8s</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box" style="border-color:rgba(245,158,11,0.5);min-width:96px">
+      <div style="font-weight:700;font-size:0.82rem;color:var(--orange)">Execute</div>
+      <div style="font-size:0.66rem;color:var(--dim);margin-top:2px">Codex worktree</div>
+      <div style="font-size:0.62rem;color:var(--green);margin-top:2px;font-family:var(--mono)">469.8s</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box" style="border-color:rgba(239,68,68,0.5);min-width:96px">
+      <div style="font-weight:700;font-size:0.82rem;color:var(--red)">QA #1</div>
+      <div style="font-size:0.66rem;color:var(--dim);margin-top:2px">NEEDS_REWORK</div>
+      <div style="font-size:0.62rem;color:var(--green);margin-top:2px;font-family:var(--mono)">22.9s</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box" style="border-color:rgba(245,158,11,0.5);min-width:96px">
+      <div style="font-weight:700;font-size:0.82rem;color:var(--orange)">Execute #2</div>
+      <div style="font-size:0.66rem;color:var(--dim);margin-top:2px">Codex rework</div>
+      <div style="font-size:0.62rem;color:var(--green);margin-top:2px;font-family:var(--mono)">483.9s</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box" style="border-color:rgba(16,185,129,0.5);min-width:96px">
+      <div style="font-weight:700;font-size:0.82rem;color:var(--green)">QA #2</div>
+      <div style="font-size:0.66rem;color:var(--dim);margin-top:2px">PASS</div>
+      <div style="font-size:0.62rem;color:var(--green);margin-top:2px;font-family:var(--mono)">25.3s</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box" style="border-color:rgba(6,182,212,0.5);min-width:96px">
+      <div style="font-weight:700;font-size:0.82rem;color:var(--cyan)">Decide</div>
+      <div style="font-size:0.66rem;color:var(--dim);margin-top:2px">Anismin fallback</div>
+      <div style="font-size:0.62rem;color:var(--green);margin-top:2px;font-family:var(--mono)">DONE</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box" style="border-color:rgba(16,185,129,0.6);min-width:96px;background:rgba(16,185,129,0.08)">
+      <div style="font-weight:700;font-size:0.82rem;color:var(--green)">PR #35</div>
+      <div style="font-size:0.66rem;color:var(--dim);margin-top:2px">draft, opened</div>
+      <div style="font-size:0.62rem;color:var(--text);margin-top:2px;font-family:var(--mono)">HITL</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box" style="border-color:rgba(168,85,247,0.6);min-width:96px;background:rgba(168,85,247,0.08)">
+      <div style="font-weight:700;font-size:0.82rem;color:var(--purple)">Discord</div>
+      <div style="font-size:0.66rem;color:var(--dim);margin-top:2px">URL posted back</div>
+      <div style="font-size:0.62rem;color:var(--purple);margin-top:2px;font-family:var(--mono)">Phase C</div>
+    </div>
+  </div>
+
+  <div class="quote-block green mt-3">
+    <div style="font-size:0.92rem;font-weight:700;line-height:1.4">smoke-pipeline-007 &middot; run_id <span class="mono" style="color:var(--cyan)">56570ac9</span> &middot; executed today 11:06 Vienna time</div>
+    <div style="font-size:0.7rem;color:var(--muted);margin-top:8px;font-family:var(--mono)">8 stages, 2 rework rounds, fallback-to-Anismin on Meridian silence, committed + pushed + PR opened by the pipeline itself. The draft awaits a human merge. <strong style="color:var(--text)">Phase C postback shipped this evening</strong> &mdash; the URL closes back to the same Discord channel that asked for the build.</div>
+  </div>
+
+  <div class="small mt-3" style="color:var(--cyan);font-family:var(--mono);max-width:920px">
+    Task text in via Discord. Draft PR + URL out via Discord. <span class="text-orange">Same surface, no silent gap.</span> The operator merges; the system runs the work.
+  </div>
+</div>
+
+<!-- 15: EU AI ACT — COMPLIANCE BUILT IN -->
 <div class="slide" data-title="August 2, 2026">
   <span class="badge badge-orange"><span class="pulse-dot"></span>96 days from tonight</span>
   <div class="big mt-2">
@@ -740,7 +794,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
     </div>
   </div>
   <div class="mid mt-3" style="font-weight:700">Stop chatting. <span class="text-gradient-voice">Start commissioning.</span></div>
-  <div class="small mt-2" style="color:var(--purple);font-family:var(--mono);max-width:880px">You weren't watching agents that work. You were watching architecture that <span class="text-red">audits itself,</span> <span class="text-cyan">specialises by task,</span> <span class="text-green">ships its own fixes</span> &mdash; running on cron right now, <span class="text-yellow">gated by my signature.</span></div>
+  <div class="small mt-2" style="color:var(--purple);font-family:var(--mono);max-width:880px">What you saw tonight is architecture that <span class="text-red">audits itself,</span> <span class="text-cyan">specialises by task,</span> <span class="text-green">ships its own fixes</span> &mdash; running on cron right now, <span class="text-yellow">gated by my signature.</span></div>
   <div class="small mt-2" style="color:var(--green);font-family:var(--mono);max-width:880px">Andrew DM'd <span class="mono" style="color:var(--text)">@build</span> to Discord at 10:41 this morning. By 11:06, a draft PR was open. That's not theory. That's <strong style="color:var(--text)">today.</strong></div>
   <div class="small mt-2" style="color:var(--cyan);font-family:var(--mono);max-width:840px">Karpathy's autoresearch, operational. Build yours.</div>
 </div>

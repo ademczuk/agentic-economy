@@ -1,14 +1,72 @@
+# Speaker Notes — Quit chatting with your agents (v24)
+
+## What changed v23 → v24 (2026-04-29 ~T-60, fix v23 mistake — wrong slide was removed)
+
+**v23 mistake:** I removed the wrong slide. Andrew's *"watch this"* live demo is on **Slide 6 (The Commission)** — voice-DM into Discord on stage, image lands at ~6s, lessons file at ~18s. v23 incorrectly removed the OLD Slide 14 (From `@build` to draft PR — the 25-min build pipeline historical evidence) and replaced it with Building blocks. Building blocks is a good addition; removing Slide 14 was wrong.
+
+**v24 corrections:**
+
+1. **Slide 6 (The Commission / "Watch this") REMOVED entirely.** The live voice-DM commission demo isn't feasible in the keynote slot.
+
+2. **Slide 7 (Six Moves) reframed.** Was "What just happened" / "Watch them land" implying the live demo just ran. Now reads "How a commission runs" / "Every commission, this shape" — descriptive, not present-continuous. Closing line was *"The path should be in Discord text by now. Look at the channel."* (live cue) → now *"Same shape every time. The artifact is the proof. The path is the receipt. The wiki is the lesson."*
+
+3. **OLD Slide 14 (From `@build` to draft PR) RESTORED** at position 14 (after Building blocks). Toned down: removed *"Andrew can DM `@build` right now"* future-promise language. Now frames purely as historical evidence: *"This ran live this morning at 10:41 — DM in, draft PR back via Discord, ~25 minutes. The full chain from text task to git artifact, autonomous, audit-stamped, human-merge-required."* Smoke-007 timeline + run_id + PR #35 evidence intact.
+
+4. **Slide 16 (Take It Home) rhetoric updated.** Was *"You weren't watching agents that work. You were watching architecture that..."* — that rhetorical inversion required the live-demo expectation Slide 6 had set up. Without Slide 6, no inversion. Now reads: *"What you saw tonight is architecture that audits itself, specialises by task, ships its own fixes — running on cron right now, gated by my signature."* Direct claim, no inversion needed.
+
+**Total deck: 16 slides** (removed Slide 6, restored old Slide 14, kept Building blocks). Counter stays 1/16. Runtime still ~25 min.
+
+**Architecture-substance arc post-v24:**
+
+| # | Slide | Claim |
+|---|---|---|
+| 6 | Six Moves | descriptive — "every commission, this shape" |
+| 7 | AgentReef | three sovereign brains, federation |
+| 8 | How it talks | boardroom + mailbox + Karpathy wiki |
+| 9 | The Pipelines | bespoke per task type |
+| 10 | The Self-Audit | the 5-box loop, audit-fiction principle |
+| 11 | The Loop is Running | cron + scaffold (13 schtasks) |
+| 12 | Same-tier judgment | Aegis advisory, decision_id live |
+| 13 | The building blocks | Chase AI Agentic OS pattern (broader frame) |
+| 14 | From @build to draft PR | smoke-007 historical evidence (concrete instance) |
+
+Building blocks (13) → From @build (14) is the framing→instance arc. Audience gets the field's pattern, then the specific historical proof that fits inside the pattern.
+
+**Slide 6 (Six Moves) verbal beat — descriptive, ~120s:**
+
+> "Six moves. Every commission this architecture runs goes through the same shape.
+>
+> Decompose — the goal becomes sub-tasks. A commission to log this talk and post a photo isn't ONE thing; it's read, reflect, write, confirm.
+>
+> Bespoke path — each sub-task hits the right brain. Heavy reasoning to the cloud. File writes to a tool, not a model. Voice to a fast local model. No generic factory.
+>
+> Verify — the agent produces a file you can check. No file, no commission. The path posts in Discord text, not as a vibe.
+>
+> Document — the lesson lands in memory. Tomorrow's commission starts knowing what this one learned. Past mistakes are armed as tripwires.
+>
+> Approve — judgment, never typos. *Is lesson two actually a lesson?* Yes — that's me. Risk, taste. Not file paths.
+>
+> Follow-up — the wiki grew. Cross-linked, indexed, searchable. The system is sharper than 20 minutes ago.
+>
+> Same shape every time. The artifact is the proof. The path is the receipt. The wiki is the lesson."
+
+**Slide 14 (From @build) verbal beat — historical, ~75s:**
+
+> "One run today, eleven oh-six Vienna. Twenty-five minutes, twenty-eight seconds. One Discord DM in. Eight stages of autonomous work — Anismin specs, Codex executes, Anismin QA, NEEDS_REWORK, Codex reworks, Anismin QA again, this time PASS. Meridian was supposed to make the final call but a kwarg bug made her silent. The system has a fallback: Anismin steps in per chain-of-command. DONE. Pipeline commits, pushes, opens PR thirty-five. Draft. Always draft. Human merge required.
+>
+> And as of this evening — Phase C postback. The PR URL closes back to the originating Discord channel. Task text in via Discord, draft PR back via Discord. Same surface. No silent gap.
+>
+> One operator did this today, on this workstation, with these brains. The pipeline opens its own PRs. I open the merge button."
+
+**Cue:** point at each box in the timeline as you name it. Land on PR #35 with conviction — *"the pipeline opens its own PRs."*
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v23)
 
-## What changed v22.1 → v23 (2026-04-29 ~T-90, live demo killed, Chase AI building-blocks slide added)
+## What changed v22.1 → v23 (2026-04-29 ~T-90, live demo killed — INCORRECTLY removed Slide 14, see v24 above for fix)
 
-Time-pressure decision: the live demo (Option B) is no longer feasible. The pipeline is operational and PR #35 is real, but the round-trip is 10-30 min and the keynote slot doesn't hold that. Without live demo, Slide 14 ("From `@build` to draft PR") was making a future-tense promise the talk couldn't visibly deliver on stage — risky.
-
-**Replaced Slide 14 entirely** with **"The building blocks"** — Chase AI's *Agentic OS* framing (YouTube `pfPi04pIfaw`) showing the 5-pillar pattern: Memory / Productivity / Research / Content / Custom, with Andrew's specific stack annotated under each. Content pillar is dashed/dimmed and labelled *"creator-facing pillar — not the focus here"* — honest about what's not built.
-
-The narrative beat changes from *"watch this work"* to *"this is the pattern the field is converging on; here's one operator's instance of it."* Softer claim, broader frame, intellectually honest.
-
-The smoke-007 evidence (10:41 DM → 11:06 PR open) is preserved on **Slide 16 (Take It Home)** as a historical fact — not a future promise. Reads: *"Andrew DM'd `@build` to Discord at 10:41 this morning. By 11:06, a draft PR was open. That's not theory. That's today."*
+The v23 entry below is preserved for changelog history but was corrected in v24. Slide 14 was restored; the actual live-demo slide (Slide 6) was the one to remove.
 
 **Slide 14 verbal beat (~75s, post-update):**
 
