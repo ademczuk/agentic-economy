@@ -1,3 +1,41 @@
+# Speaker Notes — Quit chatting with your agents (v23)
+
+## What changed v22.1 → v23 (2026-04-29 ~T-90, live demo killed, Chase AI building-blocks slide added)
+
+Time-pressure decision: the live demo (Option B) is no longer feasible. The pipeline is operational and PR #35 is real, but the round-trip is 10-30 min and the keynote slot doesn't hold that. Without live demo, Slide 14 ("From `@build` to draft PR") was making a future-tense promise the talk couldn't visibly deliver on stage — risky.
+
+**Replaced Slide 14 entirely** with **"The building blocks"** — Chase AI's *Agentic OS* framing (YouTube `pfPi04pIfaw`) showing the 5-pillar pattern: Memory / Productivity / Research / Content / Custom, with Andrew's specific stack annotated under each. Content pillar is dashed/dimmed and labelled *"creator-facing pillar — not the focus here"* — honest about what's not built.
+
+The narrative beat changes from *"watch this work"* to *"this is the pattern the field is converging on; here's one operator's instance of it."* Softer claim, broader frame, intellectually honest.
+
+The smoke-007 evidence (10:41 DM → 11:06 PR open) is preserved on **Slide 16 (Take It Home)** as a historical fact — not a future promise. Reads: *"Andrew DM'd `@build` to Discord at 10:41 this morning. By 11:06, a draft PR was open. That's not theory. That's today."*
+
+**Slide 14 verbal beat (~75s, post-update):**
+
+> "Look at the slide. Chase AI on YouTube laid out the building blocks of an Agentic OS in 2026. Five pillars. Memory. Productivity. Research. Content. Custom. The conductor sits at the top — Claude Code in his framing, the orchestrator brain in mine. The automation layer at the bottom — anything fires on demand, on schedule, from desktop, as routines.
+>
+> What you saw tonight is one operator's instance of this. Memory is my Karpathy wiki — five hundred and eighty-two entries indexed. Productivity is the Discord bridge and the mailbox bus. Research is the Trident multi-model council and the Aegis Verifier and the Brutal harness, all writing to one Postgres audit log. Custom is the MCPs and the bespoke pipelines — `slash-solve-room`, `at-build`, federation preflight.
+>
+> Content I haven't built. That pillar is for creators — YouTube hooks, content cascades, short-form. Not my focus. Honestly named.
+>
+> Same building blocks. Different stack. The pattern is the field's; the operator's job is to assemble it for what they actually do."
+
+**Cue:** point at each pillar as you name it. Pause on the dashed-out Content pillar — *"honestly named"* lands the audit-fiction discipline at the framing level too.
+
+**Q&A trap "Wait, you didn't build the Content pillar — does that invalidate the architecture?"**: *"It says I'm not a creator. I'm a coordinator and a builder. The pattern Chase AI named is general-purpose — pick the pillars that match what you do. Memory and Custom are universal; Productivity, Research, Content depend on your work. I leaned heavily on Custom because the bespoke-pipeline pattern is what makes the architecture mine vs Chase AI's generic Claude-Code-as-conductor. Same building blocks, my application."*
+
+**Q&A trap "Why no live demo?"**: *"Round-trip is ten to thirty minutes per build task. The talk is twenty-five. We could've watched a marker file get committed and a PR open, but it'd consume half the keynote and there's a non-zero chance Phase C — the Discord-postback layer that just shipped tonight — has a bug we haven't caught yet. The smoke run from this morning is the proof. PR thirty-five was real. The architecture works; the demo would just have been confirmation."*
+
+---
+
+# Speaker Notes — Quit chatting with your agents (v22.1)
+
+## What changed v22 → v22.1 (2026-04-29 late evening, Aegis advisory clarified + Option B speaker notes)
+
+**Note:** the Option B / live-demo content originally added here was retired in v23 — pipeline is operational but the live round-trip is too slow for the keynote slot. The Aegis advisory clarification on Slide 13 stays (it's about Aegis, not live demo).
+
+---
+
 # Speaker Notes — Quit chatting with your agents (v22)
 
 ## What changed v21 → v22 (2026-04-29 late evening, Phase C postback closes the operator loop)
